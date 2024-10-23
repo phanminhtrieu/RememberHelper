@@ -42,9 +42,24 @@ namespace rmbh_backoffice.VC.Views
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_CloseForm_Click(object sender, EventArgs e)
         {
-            AppManager.Instance.Load<HomeController>();
+            this.Close();
+        }
+
+        private void checkBox_Passwordshow_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_Passwordshow.Checked == true)
+            {
+                textBox_Password.UseSystemPasswordChar = false;
+                return;
+            }
+            textBox_Password.UseSystemPasswordChar = true;
+        }
+
+        private void button_Login_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
