@@ -1,4 +1,5 @@
-﻿using rmbh.Entity.Interfaces;
+﻿using rmbh.Entity.Enums;
+using rmbh.Entity.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace rmbh.Entity.Entities.Manipulation
         public string? SchoolName { get; set; }
         public string? Bio { get; set; }
         public string? Password { get; set; }
+        public UserRole Role { get; set; }
 
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
