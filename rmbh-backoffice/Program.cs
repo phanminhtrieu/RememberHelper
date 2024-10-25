@@ -17,7 +17,7 @@ namespace rmbh_backoffice
             ApplicationConfiguration.Initialize();
 
             //Application.Run(new Form1());
-            AppManager.Start<LoginController>();
+            AppManager.Start<HomeController>();
         }
     }
 }
