@@ -18,5 +18,6 @@ namespace rmbh.Entity.Entities.Manipulation
         public DateTime ModifiedDate { get; set; }
 
         public ICollection<UserTeam>? UserTeams { get; set; }
+        public ICollection<TeamClass>? TeamClasses { get; set; }
     }
 }

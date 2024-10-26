@@ -1,4 +1,5 @@
-﻿using System;
+﻿using rmbh.Entity.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,5 +13,7 @@ namespace rmbh.Entity.Entities.Manipulation
         public User? User { get; set; }
         public int ClassId { get; set; }
         public Class? Class { get; set; }
+        public ClassRole Role { get; set; }
+        public DateTime JoinedDate { get; set; }
     }
 }
