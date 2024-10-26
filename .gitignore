@@ -115,3 +115,5 @@ WinForms/AdamsLair.WinForms.xml
 /rmbh.Entity/obj/project.nuget.cache
 /rmbh.Entity/obj/rmbh.Entity.csproj.nuget.dgspec.json
 /rmbh.Entity/obj/rmbh.Entity.csproj.nuget.g.props
+/.vs/rmbh-backoffice/v17/.suo
+/.vs/rmbh-backoffice/DesignTimeBuild/.dtbcache.v2
