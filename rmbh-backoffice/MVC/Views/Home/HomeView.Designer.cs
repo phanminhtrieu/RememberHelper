@@ -1,4 +1,4 @@
-﻿namespace rmbh_backoffice.VC.Views
+﻿namespace rmbh_backoffice.MVC.Views
 {
     partial class HomeView
     {

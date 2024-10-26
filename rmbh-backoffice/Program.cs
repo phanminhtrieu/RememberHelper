@@ -1,6 +1,6 @@
-using rmbh_backoffice.VC;
-using rmbh_backoffice.VC.Controllers;
-using rmbh_backoffice.VC.Views;
+using rmbh_backoffice.MVC;
+using rmbh_backoffice.MVC.Controllers;
+using rmbh_backoffice.MVC.Views;
 
 namespace rmbh_backoffice
 {

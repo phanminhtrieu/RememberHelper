@@ -9,4 +9,28 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="MVC\Models\Dtos\Authentication\" />
+    <Folder Include="MVC\Models\Dtos\FlashCard\Classes\" />
+    <Folder Include="MVC\Models\Dtos\FlashCard\Cards\" />
+    <Folder Include="MVC\Models\Dtos\FlashCard\Decks\" />
+    <Folder Include="MVC\Models\Dtos\Collaborator\" />
+    <Folder Include="MVC\Models\Dtos\Collab\" />
+    <Folder Include="MVC\Models\Dtos\Users\" />
+    <Folder Include="MVC\Models\Services\FlashCard\Cards\" />
+    <Folder Include="MVC\Models\Services\FlashCard\Classes\" />
+    <Folder Include="MVC\Models\Services\FlashCard\Decks\" />
+    <Folder Include="MVC\Models\Services\Collab\" />
+    <Folder Include="MVC\Models\Services\Users\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.35" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.35" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\rmbh.Entity\rmbh.Entity.csproj" />
+  </ItemGroup>
+
 </Project>

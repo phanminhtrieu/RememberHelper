@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace rmbh_backoffice.VC.Views
+namespace rmbh_backoffice.MVC.Views
 {
     public partial class HomeView : Form, IView
     {
