@@ -1,6 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using rmbh.Entity.Configurations;
 using rmbh.Entity.Entities.Manipulation;
+using rmbh.Entity.Extensions;
+using rmbh.Entity.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,11 +46,38 @@ namespace rmbh.Entity
             modelBuilder.ApplyConfiguration(new ClassConfiguration());
             modelBuilder.ApplyConfiguration(new DeckConfiguration());
             modelBuilder.ApplyConfiguration(new CardConfiguration());
+            modelBuilder.ApplyConfiguration(new TeamClassConfiguration());
+
+            modelBuilder.Seed();
+            base.OnModelCreating(modelBuilder);
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-4F8D9JD\\SQLEXPRESSTTRIEU; Database=SchoolDb; Trusted_Connection=True;");
+            //optionsBuilder.UseSqlServer("Server=DESKTOP-4F8D9JD\\SQLEXPRESSTTRIEU; Database=SchoolDb; Trusted_Connection=True;");
+            base.OnConfiguring(optionsBuilder);
+        }
+
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            var modified = ChangeTracker.Entries().Where(e => e.State == EntityState.Modified || e.State == EntityState.Added);
+
+            foreach (EntityEntry item in modified)
+            {
+                var changedOrAddedItem = item.Entity as IHasDateTracking;
+
+                if (changedOrAddedItem != null)
+                {
+                    if (item.State == EntityState.Added)
+                    {
+                        changedOrAddedItem.CreatedDate = DateTime.Now;
+                    }
+                    changedOrAddedItem.ModifiedDate = DateTime.Now;
+                }
+            }
+
+            return await base.SaveChangesAsync(cancellationToken);
         }
 
     }

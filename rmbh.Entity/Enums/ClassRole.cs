@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace rmbh.Entity.Enums
 {
-    public enum Visibility
+    public enum ClassRole
     {
-        Private = 1,
-        Public = 2,
+        Owner = 1,
+        Contributor = 2,
+        Viewer = 3,
     }
 }
