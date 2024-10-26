@@ -1,4 +1,5 @@
-﻿using rmbh_backoffice.MVC;
+﻿using rmbh_backoffice.MVC.Controllers;
+using rmbh_backoffice.MVC.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,7 @@ namespace rmbh_backoffice.MVC
         /// Starts the AppManager and creates a singleton for this class
         /// </summary>
         public static void Start<T>()
-            where T : Controller
+            where T : BaseController
         {
             if (_started) return;
 
@@ -66,7 +67,7 @@ namespace rmbh_backoffice.MVC
         /// </summary>
         /// <typeparam name="T">Generic Type where T extends Controller</typeparam>
         public void Load<T>()
-            where T : Controller
+            where T : BaseController
         {
             T controller = Activator.CreateInstance<T>();
 
@@ -91,7 +92,7 @@ namespace rmbh_backoffice.MVC
         /// Shows the View of the Controller parameter  
         /// </summary>
         /// <param name="controller">The controller instance</param>
-        public void Show(Controller controller)
+        public void Show(BaseController controller)
         {
             if (_currentView != null)
             {

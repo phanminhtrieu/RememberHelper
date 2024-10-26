@@ -11,7 +11,7 @@ using System.Xml;
 
 namespace rmbh_backoffice.MVC.Controllers.Login
 {
-    public class LoginController : Controller
+    public class LoginController : BaseController
     {
         private readonly AuthenticationService _authenticationService;
         private IView? _view;
