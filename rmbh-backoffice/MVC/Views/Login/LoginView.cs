@@ -1,5 +1,5 @@
-﻿using rmbh_backoffice.VC;
-using rmbh_backoffice.VC.Controllers;
+﻿using rmbh_backoffice.MVC;
+using rmbh_backoffice.MVC.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,15 +10,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace rmbh_backoffice.VC.Views
+namespace rmbh_backoffice.MVC.Views
 {
     public partial class LoginView : Form, IView
     {
+        public TextBox TextBoxUserName => textBox_Username;
+        public TextBox TextBoxPassword => textBox_Password;
+        public Panel PanelUserName => panel_UserName;
+        public Panel PanelPassword => panel_Password;
+        public Button ButtonLogin => button_Login;
+
         public LoginView()
         {
             InitializeComponent();
         }
-
 
         // Make sure each IView should have a Form
         public Form Form

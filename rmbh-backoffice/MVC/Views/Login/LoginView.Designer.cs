@@ -1,4 +1,4 @@
-﻿namespace rmbh_backoffice.VC.Views
+﻿namespace rmbh_backoffice.MVC.Views
 {
     partial class LoginView
     {
@@ -37,6 +37,11 @@
             textBox_Password = new TextBox();
             checkBox_Passwordshow = new CheckBox();
             button_CloseForm = new Button();
+            panel_UserName = new Panel();
+            panel2 = new Panel();
+            panel_Password = new Panel();
+            panel_UserName.SuspendLayout();
+            panel_Password.SuspendLayout();
             SuspendLayout();
             // 
             // label_Name
@@ -48,7 +53,7 @@
             label_Name.Location = new Point(42, 66);
             label_Name.Margin = new Padding(4, 0, 4, 0);
             label_Name.Name = "label_Name";
-            label_Name.Size = new Size(301, 36);
+            label_Name.Size = new Size(244, 28);
             label_Name.TabIndex = 0;
             label_Name.Text = "Remember Helper";
             label_Name.TextAlign = ContentAlignment.MiddleCenter;
@@ -70,11 +75,12 @@
             // 
             // textBox_Username
             // 
-            textBox_Username.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            textBox_Username.Location = new Point(58, 220);
+            textBox_Username.BorderStyle = BorderStyle.None;
+            textBox_Username.Dock = DockStyle.Fill;
+            textBox_Username.Location = new Point(0, 0);
             textBox_Username.Margin = new Padding(4, 3, 4, 3);
             textBox_Username.Name = "textBox_Username";
-            textBox_Username.Size = new Size(274, 27);
+            textBox_Username.Size = new Size(272, 16);
             textBox_Username.TabIndex = 2;
             // 
             // label_Login
@@ -86,7 +92,7 @@
             label_Login.Location = new Point(155, 138);
             label_Login.Margin = new Padding(4, 0, 4, 0);
             label_Login.Name = "label_Login";
-            label_Login.Size = new Size(70, 23);
+            label_Login.Size = new Size(58, 18);
             label_Login.TabIndex = 3;
             label_Login.Text = "LOGIN";
             label_Login.TextAlign = ContentAlignment.MiddleCenter;
@@ -100,7 +106,7 @@
             label_Username.Location = new Point(54, 200);
             label_Username.Margin = new Padding(4, 0, 4, 0);
             label_Username.Name = "label_Username";
-            label_Username.Size = new Size(199, 19);
+            label_Username.Size = new Size(159, 15);
             label_Username.TabIndex = 4;
             label_Username.Text = "Enter your username";
             label_Username.TextAlign = ContentAlignment.MiddleLeft;
@@ -114,19 +120,20 @@
             label_Password.Location = new Point(54, 264);
             label_Password.Margin = new Padding(4, 0, 4, 0);
             label_Password.Name = "label_Password";
-            label_Password.Size = new Size(199, 19);
+            label_Password.Size = new Size(159, 15);
             label_Password.TabIndex = 6;
             label_Password.Text = "Enter your password";
             label_Password.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // textBox_Password
             // 
-            textBox_Password.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            textBox_Password.Location = new Point(58, 284);
+            textBox_Password.BorderStyle = BorderStyle.None;
+            textBox_Password.Dock = DockStyle.Fill;
+            textBox_Password.Location = new Point(0, 0);
             textBox_Password.Margin = new Padding(4, 3, 4, 3);
             textBox_Password.MaxLength = 50;
             textBox_Password.Name = "textBox_Password";
-            textBox_Password.Size = new Size(274, 27);
+            textBox_Password.Size = new Size(272, 16);
             textBox_Password.TabIndex = 5;
             textBox_Password.UseSystemPasswordChar = true;
             // 
@@ -138,7 +145,7 @@
             checkBox_Passwordshow.Location = new Point(58, 314);
             checkBox_Passwordshow.Margin = new Padding(4, 3, 4, 3);
             checkBox_Passwordshow.Name = "checkBox_Passwordshow";
-            checkBox_Passwordshow.Size = new Size(133, 20);
+            checkBox_Passwordshow.Size = new Size(117, 18);
             checkBox_Passwordshow.TabIndex = 8;
             checkBox_Passwordshow.Text = "Show password";
             checkBox_Passwordshow.UseVisualStyleBackColor = false;
@@ -160,19 +167,45 @@
             button_CloseForm.UseVisualStyleBackColor = false;
             button_CloseForm.Click += button_CloseForm_Click;
             // 
+            // panel_UserName
+            // 
+            panel_UserName.BorderStyle = BorderStyle.FixedSingle;
+            panel_UserName.Controls.Add(textBox_Username);
+            panel_UserName.Location = new Point(58, 218);
+            panel_UserName.Name = "panel_UserName";
+            panel_UserName.Size = new Size(274, 23);
+            panel_UserName.TabIndex = 10;
+            // 
+            // panel2
+            // 
+            panel2.Location = new Point(58, 282);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(274, 23);
+            panel2.TabIndex = 11;
+            // 
+            // panel_Password
+            // 
+            panel_Password.BorderStyle = BorderStyle.FixedSingle;
+            panel_Password.Controls.Add(textBox_Password);
+            panel_Password.Location = new Point(58, 282);
+            panel_Password.Name = "panel_Password";
+            panel_Password.Size = new Size(274, 23);
+            panel_Password.TabIndex = 11;
+            // 
             // LoginView
             // 
-            AutoScaleDimensions = new SizeF(10F, 18F);
+            AutoScaleDimensions = new SizeF(8F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(398, 454);
+            Controls.Add(panel_Password);
+            Controls.Add(panel2);
+            Controls.Add(panel_UserName);
             Controls.Add(button_CloseForm);
             Controls.Add(checkBox_Passwordshow);
             Controls.Add(label_Password);
-            Controls.Add(textBox_Password);
             Controls.Add(label_Username);
             Controls.Add(label_Login);
-            Controls.Add(textBox_Username);
             Controls.Add(button_Login);
             Controls.Add(label_Name);
             Font = new Font("Lucida Sans Typewriter", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -181,6 +214,10 @@
             Name = "LoginView";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginView";
+            panel_UserName.ResumeLayout(false);
+            panel_UserName.PerformLayout();
+            panel_Password.ResumeLayout(false);
+            panel_Password.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -196,5 +233,8 @@
         private TextBox textBox_Username;
         private TextBox textBox_Password;
         private CheckBox checkBox_Passwordshow;
+        private Panel panel_UserName;
+        private Panel panel2;
+        private Panel panel_Password;
     }
 }
