@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace rmbh_backoffice.MVC.Controllers
+namespace rmbh_backoffice.MVC.Controllers.Home
 {
     public class HomeController : Controller
     {

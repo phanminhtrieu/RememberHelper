@@ -10,18 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="MVC\Models\Dtos\Authentication\" />
-    <Folder Include="MVC\Models\Dtos\FlashCard\Classes\" />
-    <Folder Include="MVC\Models\Dtos\FlashCard\Cards\" />
-    <Folder Include="MVC\Models\Dtos\FlashCard\Decks\" />
-    <Folder Include="MVC\Models\Dtos\Collaborator\" />
-    <Folder Include="MVC\Models\Dtos\Collab\" />
-    <Folder Include="MVC\Models\Dtos\Users\" />
-    <Folder Include="MVC\Models\Services\FlashCard\Cards\" />
-    <Folder Include="MVC\Models\Services\FlashCard\Classes\" />
-    <Folder Include="MVC\Models\Services\FlashCard\Decks\" />
-    <Folder Include="MVC\Models\Services\Collab\" />
-    <Folder Include="MVC\Models\Services\Users\" />
+    <Compile Remove="MVC\Models\Services\Collab\**" />
+    <Compile Remove="MVC\Models\Services\FlashCard\**" />
+    <Compile Remove="MVC\Models\Services\Users\**" />
+    <EmbeddedResource Remove="MVC\Models\Services\Collab\**" />
+    <EmbeddedResource Remove="MVC\Models\Services\FlashCard\**" />
+    <EmbeddedResource Remove="MVC\Models\Services\Users\**" />
+    <None Remove="MVC\Models\Services\Collab\**" />
+    <None Remove="MVC\Models\Services\FlashCard\**" />
+    <None Remove="MVC\Models\Services\Users\**" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,6 @@
-﻿using rmbh_backoffice.MVC;
+﻿using rmbh_backoffice.MVC.Controllers.Home;
+using rmbh_backoffice.MVC.Models.Dtos.Authentications;
+using rmbh_backoffice.MVC.Models.Services.Authentications;
 using rmbh_backoffice.MVC.Views;
 using System;
 using System.Collections.Generic;
@@ -7,13 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace rmbh_backoffice.MVC.Controllers
+namespace rmbh_backoffice.MVC.Controllers.Login
 {
     public class LoginController : Controller
     {
+        private readonly AuthenticationService _authenticationService;
         private IView? _view;
         private LoginView? _loginView;
-
         public override IView View
         {
             get
@@ -32,6 +34,13 @@ namespace rmbh_backoffice.MVC.Controllers
                 return _view;
             }
         }
+        
+        public LoginController () { }
+
+        public LoginController (AuthenticationService authenticationService)
+        {
+            _authenticationService = authenticationService;
+        }
 
         public override bool Loadable()
         {
@@ -43,15 +52,17 @@ namespace rmbh_backoffice.MVC.Controllers
             // Kiểm tra _loginView có null hay không trước khi sử dụng
             if (_loginView != null)
             {
-                string username = _loginView.TextBoxUserName.Text;
-                string password = _loginView.TextBoxPassword.Text;
+                var authenticationRequest = new AuthenticationRequest() 
+                { 
+                    Email = _loginView.TextBoxUserName.Text,
+                    Password = _loginView.TextBoxPassword.Text,
+                };
 
-                if (isLoginValid(username, password) == true)
+                if (_authenticationService.IsLoginSuccessful(authenticationRequest))
                 {
                     AppManager.Instance.Load<HomeController>();
                 }
-
-                if (isLoginValid(username, password) == false)
+                else
                 {
                     // Thông báo lỗi đăng nhập
                     showLoginError("Username or password is incorrect.");
@@ -59,14 +70,14 @@ namespace rmbh_backoffice.MVC.Controllers
                     // Làm nổi bật các ô nhập liệu
                     sighlightInputFields();
                 }
-            }   
+            }
         }
 
         private bool isLoginValid(string username, string password)
         {
             // Check username + pass + role trong Database
             // Và sẽ chuyển xuống phần 
-            return username == "admin" && password == "1"; 
+            return username == "admin" && password == "1";
         }
 
         private void showLoginError(string message)
@@ -76,8 +87,11 @@ namespace rmbh_backoffice.MVC.Controllers
 
         private void sighlightInputFields()
         {
-            _loginView.PanelUserName.BackColor = Color.Red; // Làm đỏ ô nhập username
-            _loginView.PanelPassword.BackColor = Color.Red; // Làm đỏ ô nhập password
+            if (_loginView != null)
+            {
+                _loginView.PanelUserName.BackColor = Color.Red; // Làm đỏ ô nhập username
+                _loginView.PanelPassword.BackColor = Color.Red; // Làm đỏ ô nhập password
+            }
         }
     }
 }
