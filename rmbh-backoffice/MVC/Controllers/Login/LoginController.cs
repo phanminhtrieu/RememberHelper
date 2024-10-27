@@ -17,6 +17,11 @@ namespace rmbh_backoffice.MVC.Controllers.Login
         private IView? _view;
         private LoginView? _loginView;
 
+        public LoginController(IAuthenticationService authenticationService)
+        {
+            _authenticationService = authenticationService;
+        }
+
         public override IView View
         {
             get
@@ -35,22 +40,14 @@ namespace rmbh_backoffice.MVC.Controllers.Login
                 return _view;
             }
         }
-        
-        public LoginController () { }
-
-        public LoginController (IAuthenticationService authenticationService)
-        {
-            _authenticationService = authenticationService;
-        }
 
         public override bool Loadable()
         {
             return true;
         }
 
-        private void OnLoginAttempt(object sender, EventArgs e)
+        public void OnLoginAttempt(object sender, EventArgs e)
         {
-            // Kiểm tra _loginView có null hay không trước khi sử dụng
             if (_loginView != null)
             {
                 var authenticationRequest = new AuthenticationRequest() 
@@ -65,20 +62,11 @@ namespace rmbh_backoffice.MVC.Controllers.Login
                 }
                 else
                 {
-                    // Thông báo lỗi đăng nhập
                     showLoginError("Username or password is incorrect.");
 
-                    // Làm nổi bật các ô nhập liệu
-                    sighlightInputFields();
+                    highlightInputFields();
                 }
             }
-        }
-
-        private bool isLoginValid(string username, string password)
-        {
-            // Check username + pass + role trong Database
-            // Và sẽ chuyển xuống phần 
-            return username == "admin" && password == "1";
         }
 
         private void showLoginError(string message)
@@ -86,7 +74,7 @@ namespace rmbh_backoffice.MVC.Controllers.Login
             MessageBox.Show(message, "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void sighlightInputFields()
+        private void highlightInputFields()
         {
             if (_loginView != null)
             {

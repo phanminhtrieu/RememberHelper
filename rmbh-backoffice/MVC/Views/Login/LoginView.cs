@@ -19,11 +19,6 @@ namespace rmbh_backoffice.MVC.Views
         public Panel PanelPassword => panel_Password;
         public Button ButtonLogin => button_Login;
 
-        public LoginView()
-        {
-            InitializeComponent();
-        }
-
         // Make sure each IView should have a Form
         public Form Form
         {
@@ -46,6 +41,11 @@ namespace rmbh_backoffice.MVC.Views
             }
         }
 
+        public LoginView()
+        {
+            InitializeComponent();
+        }
+
         private void button_CloseForm_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -62,6 +62,11 @@ namespace rmbh_backoffice.MVC.Views
         }
 
         private void button_Login_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_Username_TextChanged(object sender, EventArgs e)
         {
 
         }
