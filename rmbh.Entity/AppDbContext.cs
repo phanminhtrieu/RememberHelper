@@ -18,10 +18,6 @@ namespace rmbh.Entity
         {
         }
 
-        public AppDbContext() : base()
-        {
-        }
-
         // User
         public DbSet<User> Users { get; set; }
         public DbSet<Team> Teams { get; set; }
@@ -55,7 +51,7 @@ namespace rmbh.Entity
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer("Server=DESKTOP-4F8D9JD\\SQLEXPRESSTTRIEU; Database=SchoolDb; Trusted_Connection=True;");
+            //optionsBuilder.UseSqlServer("Server=.; Database=rmbh; Trusted_Connection=True;");
             base.OnConfiguring(optionsBuilder);
         }
 
