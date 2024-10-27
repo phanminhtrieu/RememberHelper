@@ -53,7 +53,7 @@
             label_Name.Location = new Point(42, 66);
             label_Name.Margin = new Padding(4, 0, 4, 0);
             label_Name.Name = "label_Name";
-            label_Name.Size = new Size(244, 28);
+            label_Name.Size = new Size(301, 36);
             label_Name.TabIndex = 0;
             label_Name.Text = "Remember Helper";
             label_Name.TextAlign = ContentAlignment.MiddleCenter;
@@ -68,7 +68,7 @@
             button_Login.Margin = new Padding(4, 3, 4, 3);
             button_Login.Name = "button_Login";
             button_Login.Size = new Size(109, 40);
-            button_Login.TabIndex = 1;
+            button_Login.TabIndex = 3;
             button_Login.Text = "Log in";
             button_Login.UseVisualStyleBackColor = false;
             button_Login.Click += button_Login_Click;
@@ -80,8 +80,9 @@
             textBox_Username.Location = new Point(0, 0);
             textBox_Username.Margin = new Padding(4, 3, 4, 3);
             textBox_Username.Name = "textBox_Username";
-            textBox_Username.Size = new Size(272, 16);
-            textBox_Username.TabIndex = 2;
+            textBox_Username.Size = new Size(272, 20);
+            textBox_Username.TabIndex = 1;
+            textBox_Username.TextChanged += textBox_Username_TextChanged;
             // 
             // label_Login
             // 
@@ -92,7 +93,7 @@
             label_Login.Location = new Point(155, 138);
             label_Login.Margin = new Padding(4, 0, 4, 0);
             label_Login.Name = "label_Login";
-            label_Login.Size = new Size(58, 18);
+            label_Login.Size = new Size(70, 23);
             label_Login.TabIndex = 3;
             label_Login.Text = "LOGIN";
             label_Login.TextAlign = ContentAlignment.MiddleCenter;
@@ -103,10 +104,10 @@
             label_Username.AutoSize = true;
             label_Username.Font = new Font("Lucida Sans Typewriter", 9.75F, FontStyle.Italic, GraphicsUnit.Point);
             label_Username.ForeColor = Color.Black;
-            label_Username.Location = new Point(54, 200);
+            label_Username.Location = new Point(58, 196);
             label_Username.Margin = new Padding(4, 0, 4, 0);
             label_Username.Name = "label_Username";
-            label_Username.Size = new Size(159, 15);
+            label_Username.Size = new Size(199, 19);
             label_Username.TabIndex = 4;
             label_Username.Text = "Enter your username";
             label_Username.TextAlign = ContentAlignment.MiddleLeft;
@@ -117,10 +118,10 @@
             label_Password.AutoSize = true;
             label_Password.Font = new Font("Lucida Sans Typewriter", 9.75F, FontStyle.Italic, GraphicsUnit.Point);
             label_Password.ForeColor = Color.Black;
-            label_Password.Location = new Point(54, 264);
+            label_Password.Location = new Point(58, 260);
             label_Password.Margin = new Padding(4, 0, 4, 0);
             label_Password.Name = "label_Password";
-            label_Password.Size = new Size(159, 15);
+            label_Password.Size = new Size(199, 19);
             label_Password.TabIndex = 6;
             label_Password.Text = "Enter your password";
             label_Password.TextAlign = ContentAlignment.MiddleLeft;
@@ -133,8 +134,8 @@
             textBox_Password.Margin = new Padding(4, 3, 4, 3);
             textBox_Password.MaxLength = 50;
             textBox_Password.Name = "textBox_Password";
-            textBox_Password.Size = new Size(272, 16);
-            textBox_Password.TabIndex = 5;
+            textBox_Password.Size = new Size(272, 20);
+            textBox_Password.TabIndex = 2;
             textBox_Password.UseSystemPasswordChar = true;
             // 
             // checkBox_Passwordshow
@@ -142,10 +143,10 @@
             checkBox_Passwordshow.AutoSize = true;
             checkBox_Passwordshow.BackColor = Color.Transparent;
             checkBox_Passwordshow.Font = new Font("Lucida Sans Typewriter", 8.25F, FontStyle.Italic, GraphicsUnit.Point);
-            checkBox_Passwordshow.Location = new Point(58, 314);
+            checkBox_Passwordshow.Location = new Point(58, 330);
             checkBox_Passwordshow.Margin = new Padding(4, 3, 4, 3);
             checkBox_Passwordshow.Name = "checkBox_Passwordshow";
-            checkBox_Passwordshow.Size = new Size(117, 18);
+            checkBox_Passwordshow.Size = new Size(133, 20);
             checkBox_Passwordshow.TabIndex = 8;
             checkBox_Passwordshow.Text = "Show password";
             checkBox_Passwordshow.UseVisualStyleBackColor = false;
@@ -194,7 +195,7 @@
             // 
             // LoginView
             // 
-            AutoScaleDimensions = new SizeF(8F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(398, 454);
