@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="VC\Views\Users Management\" />
+    <Folder Include="MVC\Models\" />
   </ItemGroup>
 
 </Project>

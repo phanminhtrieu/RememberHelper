@@ -1,11 +1,11 @@
-﻿using rmbh_backoffice.VC;
+﻿using rmbh_backoffice.MVC.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace rmbh_backoffice.VC
+namespace rmbh_backoffice.MVC.Controllers
 {
     public abstract class Controller
     {
@@ -21,12 +21,12 @@ namespace rmbh_backoffice.VC
 
         public abstract bool Loadable();
 
-        public virtual void OnLoadSucceededHandler(Object sender, EventArgs e)
+        public virtual void OnLoadSucceededHandler(object sender, EventArgs e)
         {
             AppManager.Instance.Show(this);
         }
 
-        public virtual void OnLoadFailedHandler(Object sender, EventArgs e)
+        public virtual void OnLoadFailedHandler(object sender, EventArgs e)
         {
             if (MessageBox.Show("You don't have access to load this page.\nThe application will exit now.") == DialogResult.OK)
             {

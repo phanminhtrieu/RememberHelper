@@ -1,4 +1,7 @@
-﻿using System;
+﻿using rmbh_backoffice.MVC;
+using rmbh_backoffice.MVC.Controllers.Home;
+using rmbh_backoffice.MVC.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,12 +13,15 @@ using System.Windows.Forms;
 
 namespace rmbh_backoffice.VC.Views
 {
-    public partial class CardsManagementIView : Form, IView
+    public partial class LoginView : Form, IView
     {
-        public CardsManagementIView()
+        public LoginView()
         {
             InitializeComponent();
         }
+
+
+        // Make sure each IView should have a Form
         public Form Form
         {
             get
@@ -36,10 +42,10 @@ namespace rmbh_backoffice.VC.Views
                 Text = value;
             }
         }
-       
-        private void button4_Click(object sender, EventArgs e)
+
+        private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            AppManager.Instance.Load<HomeController>();
         }
     }
 }

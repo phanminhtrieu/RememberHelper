@@ -1,4 +1,4 @@
-﻿using rmbh_backoffice.VC;
+﻿using rmbh_backoffice.MVC.Views;
 using rmbh_backoffice.VC.Views;
 using System;
 using System.Collections.Generic;
@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace rmbh_backoffice.VC.Controllers
+namespace rmbh_backoffice.MVC.Controllers.FlashCard.Card
 {
-    public class LoginController : Controller
+    public class CardController : Controller
     {
         private IView _view;
 
@@ -16,7 +16,7 @@ namespace rmbh_backoffice.VC.Controllers
         {
             get
             {
-                return _view ?? new LoginView();
+                return _view ?? new CardsManagementIView();
             }
         }
 

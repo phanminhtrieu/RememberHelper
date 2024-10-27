@@ -1,13 +1,14 @@
-﻿using rmbh_backoffice.VC.Views;
+﻿using rmbh_backoffice.MVC.Views;
+using rmbh_backoffice.VC.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace rmbh_backoffice.VC.Controllers
+namespace rmbh_backoffice.MVC.Controllers.Home
 {
-    public class CardsManagementController : Controller
+    public class HomeController : Controller
     {
         private IView _view;
 
@@ -15,7 +16,7 @@ namespace rmbh_backoffice.VC.Controllers
         {
             get
             {
-                return _view ?? new CardsManagementIView ();
+                return _view ?? new HomeView();
             }
         }
 
