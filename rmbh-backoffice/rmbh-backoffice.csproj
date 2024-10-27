@@ -24,4 +24,8 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="VC\Views\Users Management\" />
+  </ItemGroup>
+
 </Project>

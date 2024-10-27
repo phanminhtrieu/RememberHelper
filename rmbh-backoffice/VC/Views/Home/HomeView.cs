@@ -41,15 +41,15 @@ namespace rmbh_backoffice.VC.Views
 
         private void cutomizeDesing()
         {
-           
-            panelFlashsCards.Visible = false;
+
+            panel_FlashsCards.Visible = false;
 
         }
         private void hideSubMenu()
         {
-          
-            if (panelFlashsCards.Visible == true)
-                panelFlashsCards.Visible = false;
+
+            if (panel_FlashsCards.Visible == true)
+                panel_FlashsCards.Visible = false;
         }
         private void showSubMenu(Panel subMenu)
         {
@@ -63,33 +63,37 @@ namespace rmbh_backoffice.VC.Views
         }
 
 
-        private void btnHome_Click(object sender, EventArgs e)
+        private void button_Home_Click(object sender, EventArgs e)
         {
             //.. 
             //.. code minh
-            hideSubMenu();
-        }
-        
-        private void btnUsersManagement_Click(object sender, EventArgs e)
-        {
-            //.. 
-            //.. code minh
-            hideSubMenu();
-        }
-       
-        private void btnTeamsManagement_Click(object sender, EventArgs e)
-        {
-            //.. 
-            //.. code minh
-            hideSubMenu();
+           label_Title.Text = "Home";
+
         }
 
-        private void btnFlashsCards_Click(object sender, EventArgs e)
+        private void button_UsersManagement_Click(object sender, EventArgs e)
         {
-            showSubMenu(panelFlashsCards);
+            //.. 
+            //.. code minh
+            
+            label_Title.Text = "Users Management";
+        }
+
+        private void button_TeamsManagement_Click(object sender, EventArgs e)
+        {
+            //.. 
+            //.. code minh
+            hideSubMenu();
+            label_Title.Text = "Teams Management";
+        }
+
+        private void button_FlashsCards_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panel_FlashsCards);
+            label_Title.Text = "Flashs Cards";
         }
         #region tool
-        private void button15_Click(object sender, EventArgs e)
+        private void button_ClassManagement_Click(object sender, EventArgs e)
         {
             openChildForm(new ClassManagementView());
             //.. 
@@ -97,27 +101,29 @@ namespace rmbh_backoffice.VC.Views
             hideSubMenu();
         }
 
-        private void button14_Click(object sender, EventArgs e)
+        private void button_DeckManagement_Click(object sender, EventArgs e)
         {
-            openChildForm(new Form3());
+            openChildForm(new DeckManagementIview());
             //.. 
             //.. code minh
             hideSubMenu();
         }
 
-        private void button13_Click(object sender, EventArgs e)
+        private void button_CardsManagement_Click(object sender, EventArgs e)
         {
-            openChildForm(new Form4());
+            openChildForm(new CardsManagementIView());
             //.. 
             //.. code minh
             hideSubMenu();
         }
         #endregion
-        private void btnHelp_Click(object sender, EventArgs e)
+        private void button_Help_Click(object sender, EventArgs e)
         {
             //.. 
             //.. code minh
             hideSubMenu();
+            label_Title.Text = "Help";
+
         }
         private Form acctiveform = null;
         private void openChildForm(Form childFrom)
@@ -128,21 +134,14 @@ namespace rmbh_backoffice.VC.Views
             childFrom.TopLevel = false;
             childFrom.FormBorderStyle = FormBorderStyle.None;
             childFrom.Dock = DockStyle.Fill;
-            panelChildForm.Controls.Add(childFrom);
-            panelChildForm.Tag = childFrom;
+            panel_Body.Controls.Add(childFrom);
+            panel_Body.Tag = childFrom;
             childFrom.BringToFront();
             childFrom.Show();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelChildForm_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
+        
     }
 }
 

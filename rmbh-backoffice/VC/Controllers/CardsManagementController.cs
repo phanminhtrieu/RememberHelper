@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace rmbh_backoffice.VC.Controllers
 {
-    public class ClassManagementController : Controller
+    public class CardsManagementController : Controller
     {
         private IView _view;
 
@@ -15,7 +15,7 @@ namespace rmbh_backoffice.VC.Controllers
         {
             get
             {
-                return _view ?? new ClassManagementView();
+                return _view ?? new CardsManagementIView ();
             }
         }
 

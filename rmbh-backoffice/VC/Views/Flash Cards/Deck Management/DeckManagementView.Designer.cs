@@ -1,6 +1,6 @@
 ﻿namespace rmbh_backoffice.VC.Views
 {
-    partial class Form3
+    partial class DeckManagementIview
     {
         /// <summary>
         /// Required designer variable.
@@ -87,7 +87,7 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
-            // Form3
+            // DeckManagementIview
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -97,9 +97,8 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
-            Name = "Form3";
-            Text = "Form3";
-            Load += Form3_Load;
+            Name = "DeckManagementIview";
+            Text = "Form_DeckManagement";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }

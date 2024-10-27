@@ -10,13 +10,33 @@ using System.Windows.Forms;
 
 namespace rmbh_backoffice.VC.Views
 {
-    public partial class Form4 : Form
+    public partial class CardsManagementIView : Form, IView
     {
-        public Form4()
+        public CardsManagementIView()
         {
             InitializeComponent();
         }
+        public Form Form
+        {
+            get
+            {
+                return this;
+            }
+        }
 
+        public string Title
+        {
+            get
+            {
+                return Text;
+            }
+
+            set
+            {
+                Text = value;
+            }
+        }
+       
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();

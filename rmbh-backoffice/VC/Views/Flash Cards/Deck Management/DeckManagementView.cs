@@ -10,17 +10,33 @@ using System.Windows.Forms;
 
 namespace rmbh_backoffice.VC.Views
 {
-    public partial class Form3 : Form
+    public partial class DeckManagementIview : Form , IView
     {
-        public Form3()
+        public DeckManagementIview()
         {
             InitializeComponent();
         }
-
-        private void Form3_Load(object sender, EventArgs e)
+        public Form Form
         {
-
+            get
+            {
+                return this;
+            }
         }
+
+        public string Title
+        {
+            get
+            {
+                return Text;
+            }
+
+            set
+            {
+                Text = value;
+            }
+        }
+        
 
         private void button4_Click(object sender, EventArgs e)
         {
