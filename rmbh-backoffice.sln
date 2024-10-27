@@ -3,9 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
+<<<<<<< HEAD
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Temp", "Temp", "{0A47EB33-1C45-40ED-8A0B-E87C4C8AC789}"
 EndProject
 Global
+=======
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rmbh-backoffice", "rmbh-backoffice\rmbh-backoffice.csproj", "{B42948B5-23FF-46B2-99C5-5488DEDEA6DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rmbh.Entity", "rmbh.Entity\rmbh.Entity.csproj", "{A11748C0-9F69-4CF4-9C6A-E5EA3B9E460A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B42948B5-23FF-46B2-99C5-5488DEDEA6DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B42948B5-23FF-46B2-99C5-5488DEDEA6DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B42948B5-23FF-46B2-99C5-5488DEDEA6DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B42948B5-23FF-46B2-99C5-5488DEDEA6DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A11748C0-9F69-4CF4-9C6A-E5EA3B9E460A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A11748C0-9F69-4CF4-9C6A-E5EA3B9E460A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A11748C0-9F69-4CF4-9C6A-E5EA3B9E460A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A11748C0-9F69-4CF4-9C6A-E5EA3B9E460A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+>>>>>>> dev
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

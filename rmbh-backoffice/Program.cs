@@ -1,3 +1,8 @@
+using rmbh_backoffice.MVC;
+using rmbh_backoffice.MVC.Controllers.Login;
+using rmbh_backoffice.MVC.Models.Services;
+using rmbh_backoffice.MVC.Views;
+
 namespace rmbh_backoffice
 {
     internal static class Program
@@ -8,10 +13,12 @@ namespace rmbh_backoffice
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+
+            // Add services
+            var controllerFactory = ServiceConfigurator.ConfigureServices();
+
+            AppManager.Start<LoginController>(controllerFactory);
         }
     }
 }
