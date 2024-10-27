@@ -148,6 +148,7 @@
             checkBox_Passwordshow.TabIndex = 8;
             checkBox_Passwordshow.Text = "Show password";
             checkBox_Passwordshow.UseVisualStyleBackColor = false;
+            checkBox_Passwordshow.CheckedChanged += checkBox_Passwordshow_CheckedChanged;
             // 
             // button_CloseForm
             // 
@@ -163,6 +164,7 @@
             button_CloseForm.TabIndex = 9;
             button_CloseForm.Text = "X";
             button_CloseForm.UseVisualStyleBackColor = false;
+            button_CloseForm.Click += button_CloseForm_Click;
             // 
             // panel_UserName
             // 
