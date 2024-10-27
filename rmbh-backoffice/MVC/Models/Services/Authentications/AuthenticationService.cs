@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace rmbh_backoffice.MVC.Models.Services.Authentications
 {
-    public interface IAuthencationService
+    public interface IAuthenticationService
     {
         bool IsLoginSuccessful(AuthenticationRequest authenticationRequest);
     }
 
-    public class AuthenticationService : IAuthencationService
+    public class AuthenticationService : IAuthenticationService
     {
         private readonly AppDbContext _context;
 
@@ -27,7 +27,7 @@ namespace rmbh_backoffice.MVC.Models.Services.Authentications
         {
             // Kiểm tra xem người dùng có tồn tại trong cơ sở dữ liệu không
             var user = _context.Users
-                .SingleOrDefault(u => u.Email == authenticationRequest.Password); // Lấy người dùng theo tên đăng nhập
+                .SingleOrDefault(u => u.Email == authenticationRequest.Email);
 
             if (user != null && user.Password == authenticationRequest.Password)
             {

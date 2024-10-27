@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace rmbh_backoffice.MVC.Controllers.Home
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private IView _view;
 

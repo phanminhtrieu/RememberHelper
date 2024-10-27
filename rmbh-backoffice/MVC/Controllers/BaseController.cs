@@ -1,19 +1,19 @@
-﻿using rmbh_backoffice.MVC;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using rmbh_backoffice.MVC.Views;
 
-namespace rmbh_backoffice.MVC
+namespace rmbh_backoffice.MVC.Controllers
 {
-    public abstract class Controller
+    public abstract class BaseController
     {
         public abstract IView View { get; }
 
         public event EventHandler LoadSuccess, LoadFailed;
 
-        public Controller()
+        public BaseController()
         {
             LoadSuccess += OnLoadSucceededHandler;
             LoadFailed += OnLoadFailedHandler;
@@ -21,12 +21,12 @@ namespace rmbh_backoffice.MVC
 
         public abstract bool Loadable();
 
-        public virtual void OnLoadSucceededHandler(Object sender, EventArgs e)
+        public virtual void OnLoadSucceededHandler(object sender, EventArgs e)
         {
             AppManager.Instance.Show(this);
         }
 
-        public virtual void OnLoadFailedHandler(Object sender, EventArgs e)
+        public virtual void OnLoadFailedHandler(object sender, EventArgs e)
         {
             if (MessageBox.Show("You don't have access to load this page.\nThe application will exit now.") == DialogResult.OK)
             {

@@ -11,11 +11,12 @@ using System.Xml;
 
 namespace rmbh_backoffice.MVC.Controllers.Login
 {
-    public class LoginController : Controller
+    public class LoginController : BaseController
     {
-        private readonly AuthenticationService _authenticationService;
+        private readonly IAuthenticationService _authenticationService;
         private IView? _view;
         private LoginView? _loginView;
+
         public override IView View
         {
             get
@@ -37,7 +38,7 @@ namespace rmbh_backoffice.MVC.Controllers.Login
         
         public LoginController () { }
 
-        public LoginController (AuthenticationService authenticationService)
+        public LoginController (IAuthenticationService authenticationService)
         {
             _authenticationService = authenticationService;
         }
