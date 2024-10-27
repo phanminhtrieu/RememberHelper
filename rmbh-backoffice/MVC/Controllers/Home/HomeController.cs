@@ -1,14 +1,8 @@
 ﻿using rmbh_backoffice.MVC.Views;
-using rmbh_backoffice.VC.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace rmbh_backoffice.MVC.Controllers.Home
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private IView _view;
 

@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using rmbh_backoffice.MVC.Views;
+﻿using rmbh_backoffice.MVC.Views;
 
-namespace rmbh_backoffice.VC.Views
+namespace rmbh_backoffice.MVC.Views
 {
     public partial class HomeView : Form, IView
     {
@@ -96,7 +87,6 @@ namespace rmbh_backoffice.VC.Views
         #region tool
         private void button_ClassManagement_Click(object sender, EventArgs e)
         {
-            openChildForm(new ClassManagementView());
             //.. 
             //.. code minh
             hideSubMenu();
@@ -104,7 +94,6 @@ namespace rmbh_backoffice.VC.Views
 
         private void button_DeckManagement_Click(object sender, EventArgs e)
         {
-            openChildForm(new DeckManagementIview());
             //.. 
             //.. code minh
             hideSubMenu();
@@ -112,7 +101,6 @@ namespace rmbh_backoffice.VC.Views
 
         private void button_CardsManagement_Click(object sender, EventArgs e)
         {
-            openChildForm(new CardsManagementIView());
             //.. 
             //.. code minh
             hideSubMenu();
@@ -140,9 +128,6 @@ namespace rmbh_backoffice.VC.Views
             childFrom.BringToFront();
             childFrom.Show();
         }
-
-       
-        
     }
 }
 

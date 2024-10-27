@@ -1,10 +1,5 @@
 ﻿using rmbh_backoffice.MVC.Controllers;
 using rmbh_backoffice.MVC.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace rmbh_backoffice.MVC
 {
@@ -31,6 +26,19 @@ namespace rmbh_backoffice.MVC
         private IView _currentView;
 
         /// <summary>
+        /// The controller factory for creating controllers
+        /// </summary>
+        private readonly ControllerFactory _controllerFactory;
+
+        /// <summary>
+        /// Private constructor to prevent instantiation
+        /// </summary>
+        private AppManager(ControllerFactory controllerFactory)
+        {
+            _controllerFactory = controllerFactory;
+        }
+
+        /// <summary>
         /// Private constructor to prevent instantiation
         /// </summary>
         private AppManager() { }
@@ -38,18 +46,22 @@ namespace rmbh_backoffice.MVC
         /// <summary>
         /// Starts the AppManager and creates a singleton for this class
         /// </summary>
-        public static void Start<T>()
-            where T : Controller
+        public static void Start<T>(ControllerFactory controllerFactory)
+            where T : BaseController
         {
             if (_started) return;
 
             _started = true;
 
-            T controller = Activator.CreateInstance<T>();
+            // Create Controller without ControllerFactory
+            //T controller = Activator.CreateInstance<T>();
+
+            // Create Controller with ControllerFactory
+            T controller = controllerFactory.CreateController<T>();
 
             if (controller != null)
             {
-                _instance = new AppManager()
+                _instance = new AppManager(controllerFactory)
                 {
                     _currentView = controller.View
                 };
@@ -67,9 +79,10 @@ namespace rmbh_backoffice.MVC
         /// </summary>
         /// <typeparam name="T">Generic Type where T extends Controller</typeparam>
         public void Load<T>()
-            where T : Controller
+            where T : BaseController
         {
-            T controller = Activator.CreateInstance<T>();
+            //T controller = Activator.CreateInstance<T>();
+            T controller = _controllerFactory.CreateController<T>();
 
             if (controller != null)
             {
@@ -92,7 +105,7 @@ namespace rmbh_backoffice.MVC
         /// Shows the View of the Controller parameter  
         /// </summary>
         /// <param name="controller">The controller instance</param>
-        public void Show(Controller controller)
+        public void Show(BaseController controller)
         {
             if (_currentView != null)
             {
