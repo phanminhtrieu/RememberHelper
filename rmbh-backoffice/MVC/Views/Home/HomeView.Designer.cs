@@ -43,7 +43,7 @@
             panel2 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
-            button1 = new Button();
+            button_Logout = new Button();
             panel_Footer = new Panel();
             panel_Body = new Panel();
             panel_Header = new Panel();
@@ -59,7 +59,7 @@
             // panel_SideMenu
             // 
             panel_SideMenu.AutoScroll = true;
-            panel_SideMenu.BackColor = Color.Black;
+            panel_SideMenu.BackColor = Color.OliveDrab;
             panel_SideMenu.Controls.Add(panelLogo);
             panel_SideMenu.Controls.Add(button_Home);
             panel_SideMenu.Controls.Add(button_UsersManagement);
@@ -99,6 +99,10 @@
             button_Home.TextAlign = ContentAlignment.MiddleLeft;
             button_Home.UseVisualStyleBackColor = true;
             button_Home.Click += button_Home_Click;
+            button_Home.MouseDown += button_Home_Down;
+            button_Home.MouseEnter += button_Home_MouseEnter;
+            button_Home.MouseLeave += button_Home_Leave;
+            button_Home.MouseUp += button_Home_Up;
             // 
             // button_UsersManagement
             // 
@@ -115,6 +119,10 @@
             button_UsersManagement.TextAlign = ContentAlignment.MiddleLeft;
             button_UsersManagement.UseVisualStyleBackColor = true;
             button_UsersManagement.Click += button_UsersManagement_Click;
+            button_UsersManagement.MouseDown += button_UsersManagement_MouseDown;
+            button_UsersManagement.MouseEnter += button_UsersManagement_MouseEnter;
+            button_UsersManagement.MouseLeave += button_UsersManagement_MouseLeave;
+            button_UsersManagement.MouseUp += button_UsersManagement_MouseUp;
             // 
             // button_TeamsManagement
             // 
@@ -131,6 +139,10 @@
             button_TeamsManagement.TextAlign = ContentAlignment.MiddleLeft;
             button_TeamsManagement.UseVisualStyleBackColor = true;
             button_TeamsManagement.Click += button_TeamsManagement_Click;
+            button_TeamsManagement.MouseDown += button_TeamsManagement_MouseDown;
+            button_TeamsManagement.MouseEnter += button_TeamsManagement_MouseEnter;
+            button_TeamsManagement.MouseLeave += button_TeamsManagement_MouseLeave;
+            button_TeamsManagement.MouseUp += button_TeamsManagement_MouseUp;
             // 
             // button_FlashsCards
             // 
@@ -147,10 +159,14 @@
             button_FlashsCards.TextAlign = ContentAlignment.MiddleLeft;
             button_FlashsCards.UseVisualStyleBackColor = true;
             button_FlashsCards.Click += button_FlashsCards_Click;
+            button_FlashsCards.MouseDown += button_FlashsCards_MouseDown;
+            button_FlashsCards.MouseEnter += button_FlashsCards_MouseEnter;
+            button_FlashsCards.MouseLeave += button_FlashsCards_MouseLeave;
+            button_FlashsCards.MouseUp += button_FlashsCards_MouseUp;
             // 
             // panel_FlashsCards
             // 
-            panel_FlashsCards.BackColor = Color.FromArgb(35, 32, 39);
+            panel_FlashsCards.BackColor = SystemColors.ActiveCaptionText;
             panel_FlashsCards.Controls.Add(button_CardsManagement);
             panel_FlashsCards.Controls.Add(button_DeckManagement);
             panel_FlashsCards.Controls.Add(button_ClassesManagement);
@@ -173,6 +189,10 @@
             button_CardsManagement.TextAlign = ContentAlignment.MiddleLeft;
             button_CardsManagement.UseVisualStyleBackColor = true;
             button_CardsManagement.Click += button_CardsManagement_Click;
+            button_CardsManagement.MouseDown += button_CardsManagement_MouseDown;
+            button_CardsManagement.MouseEnter += button_CardsManagement_MouseEnter;
+            button_CardsManagement.MouseLeave += button_CardsManagement_MouseLeave;
+            button_CardsManagement.MouseUp += button_CardsManagement_MouseUp;
             // 
             // button_DeckManagement
             // 
@@ -188,6 +208,10 @@
             button_DeckManagement.TextAlign = ContentAlignment.MiddleLeft;
             button_DeckManagement.UseVisualStyleBackColor = true;
             button_DeckManagement.Click += button_DeckManagement_Click;
+            button_DeckManagement.MouseDown += button_DeckManagement_MouseDown;
+            button_DeckManagement.MouseEnter += button_DeckManagement_MouseEnter;
+            button_DeckManagement.MouseLeave += button_DeckManagement_MouseLeave;
+            button_DeckManagement.MouseUp += button_DeckManagement_MouseUp;
             // 
             // button_ClassesManagement
             // 
@@ -203,6 +227,10 @@
             button_ClassesManagement.TextAlign = ContentAlignment.MiddleLeft;
             button_ClassesManagement.UseVisualStyleBackColor = true;
             button_ClassesManagement.Click += button_CardsManagement_Click;
+            button_ClassesManagement.MouseDown += button_ClassesManagement_MouseDown;
+            button_ClassesManagement.MouseEnter += button_ClassesManagement_MouseEnter;
+            button_ClassesManagement.MouseLeave += button_ClassesManagement_MouseLeave;
+            button_ClassesManagement.MouseUp += button_ClassesManagement_MouseUp;
             // 
             // button_Help
             // 
@@ -219,6 +247,10 @@
             button_Help.TextAlign = ContentAlignment.MiddleLeft;
             button_Help.UseVisualStyleBackColor = true;
             button_Help.Click += button_Help_Click;
+            button_Help.MouseDown += button_Help_MouseDown;
+            button_Help.MouseEnter += button_Help_MouseEnter;
+            button_Help.MouseLeave += button_Help_MouseLeave;
+            button_Help.MouseUp += button_Help_MouseUp;
             // 
             // panel2
             // 
@@ -236,24 +268,25 @@
             // 
             // panel4
             // 
-            panel4.Controls.Add(button1);
+            panel4.Controls.Add(button_Logout);
             panel4.Location = new Point(3, 703);
             panel4.Name = "panel4";
             panel4.Size = new Size(250, 125);
             panel4.TabIndex = 1;
             // 
-            // button1
+            // button_Logout
             // 
-            button1.Location = new Point(51, 26);
-            button1.Name = "button1";
-            button1.Size = new Size(139, 29);
-            button1.TabIndex = 9;
-            button1.Text = "Logout";
-            button1.UseVisualStyleBackColor = true;
+            button_Logout.Location = new Point(51, 26);
+            button_Logout.Name = "button_Logout";
+            button_Logout.Size = new Size(139, 29);
+            button_Logout.TabIndex = 9;
+            button_Logout.Text = "Logout";
+            button_Logout.UseVisualStyleBackColor = true;
+            button_Logout.Click += button_Logout_Click;
             // 
             // panel_Footer
             // 
-            panel_Footer.BackColor = Color.FromArgb(0, 0, 20);
+            panel_Footer.BackColor = Color.OliveDrab;
             panel_Footer.Dock = DockStyle.Bottom;
             panel_Footer.Location = new Point(256, 780);
             panel_Footer.Name = "panel_Footer";
@@ -262,7 +295,7 @@
             // 
             // panel_Body
             // 
-            panel_Body.BackColor = Color.FromArgb(0, 0, 30);
+            panel_Body.BackColor = Color.Snow;
             panel_Body.Controls.Add(panel_Header);
             panel_Body.Dock = DockStyle.Fill;
             panel_Body.Location = new Point(256, 0);
@@ -272,7 +305,7 @@
             // 
             // panel_Header
             // 
-            panel_Header.BackColor = Color.FromArgb(0, 0, 45);
+            panel_Header.BackColor = Color.YellowGreen;
             panel_Header.Controls.Add(label_Title);
             panel_Header.Dock = DockStyle.Top;
             panel_Header.Location = new Point(0, 0);
@@ -333,6 +366,6 @@
         private Panel panel2;
         private Panel panel3;
         private Panel panel4;
-        private Button button1;
+        private Button button_Logout;
     }
 }
