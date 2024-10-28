@@ -1,23 +1,22 @@
-﻿using rmbh.Entity.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using rmbh.Entity.Enums;
+using rmbh.Entity.Interfaces;
 
 namespace rmbh.Entity.Entities.Manipulation
 {
-    public class Deck : BaseEntity<int>, IHasDateTracking
+    public class Deck : BaseEntity<int>, IHasDateTracking, IHasSortable
     {
-        public string? Name { get; set; }
-        public string? Objective { get; set; }
+        public string? Title { get; set; }
+        public string? Description { get; set; }
+        public int? SortOrder { get; set; }
+        public StudyDeckType StudyDeckType { get; set; }
 
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
 
-        public ICollection<Card>? Cards { get; set; }
-
         public int ClassId { get; set; }
         public Class? Class { get; set; }
+
+        public ICollection<Card>? Cards { get; set; }
+        public ICollection<UserDeckStatistic>? UserDeckStatistics { get; set; }
     }
 }

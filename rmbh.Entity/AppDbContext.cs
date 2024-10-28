@@ -4,11 +4,6 @@ using rmbh.Entity.Configurations;
 using rmbh.Entity.Entities.Manipulation;
 using rmbh.Entity.Extensions;
 using rmbh.Entity.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace rmbh.Entity
 {
@@ -20,8 +15,6 @@ namespace rmbh.Entity
 
         // User
         public DbSet<User> Users { get; set; }
-        public DbSet<Team> Teams { get; set; }
-        public DbSet<UserTeam> UserTeams { get; set; }
         public DbSet<UserClass> UserClasses { get; set; }
         
         // Flash card
@@ -33,8 +26,6 @@ namespace rmbh.Entity
         {
             // User
             modelBuilder.ApplyConfiguration(new UserConfiguration());
-            modelBuilder.ApplyConfiguration(new TeamConfiguration());
-            modelBuilder.ApplyConfiguration(new UserTeamConfiguration());
             modelBuilder.ApplyConfiguration(new UserClassConfiguration());
 
 
@@ -42,7 +33,6 @@ namespace rmbh.Entity
             modelBuilder.ApplyConfiguration(new ClassConfiguration());
             modelBuilder.ApplyConfiguration(new DeckConfiguration());
             modelBuilder.ApplyConfiguration(new CardConfiguration());
-            modelBuilder.ApplyConfiguration(new TeamClassConfiguration());
 
             modelBuilder.Seed();
             base.OnModelCreating(modelBuilder);
