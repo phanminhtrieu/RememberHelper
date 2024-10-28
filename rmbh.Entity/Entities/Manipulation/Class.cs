@@ -15,6 +15,7 @@ namespace rmbh.Entity.Entities.Manipulation
         public DateTime ModifiedDate { get; set; }
 
         public ICollection<Deck>? Decks { get; set; }
+        public ICollection<UserClassStatistic>? UserClassStatistics { get; set; }
         public ICollection<UserClass>? UserClasses { get; set; }
     }
 }

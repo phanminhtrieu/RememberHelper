@@ -1,5 +1,8 @@
 ﻿namespace rmbh.Entity.Interfaces
 {
+    /// <summary>
+    /// Day, Month, Year
+    /// </summary>
     public interface IHasDateComponents
     {
         int? Day { get; set; }
