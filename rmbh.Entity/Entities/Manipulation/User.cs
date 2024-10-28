@@ -1,11 +1,5 @@
 ﻿using rmbh.Entity.Enums;
 using rmbh.Entity.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace rmbh.Entity.Entities.Manipulation
 {
@@ -16,7 +10,6 @@ namespace rmbh.Entity.Entities.Manipulation
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string? Email { get; set; }
-        public string? SchoolName { get; set; }
         public string? Bio { get; set; }
         public string? Password { get; set; }
         public UserRole Role { get; set; }
@@ -25,6 +18,8 @@ namespace rmbh.Entity.Entities.Manipulation
         public DateTime ModifiedDate { get; set; }
 
         public ICollection<UserClass>? UserClasses { get; set; }
-        public ICollection<UserTeam>? UserTeams { get; set; }
+        public ICollection<UserClassStatistic>? UserClassStatistics { get; set; }
+        public ICollection<UserDeckStatistic>? UserDeckStatistics { get; set; }
+        public ICollection<UserCardStatistic>? UserCardStatistics { get; set; }
     }
 }

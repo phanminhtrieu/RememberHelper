@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace rmbh.Entity.Enums
+﻿namespace rmbh.Entity.Enums
 {
     public enum UserRole
     {
         Admin = 1,
-        User = 2,
+        Learner = 2,
     }
 }
