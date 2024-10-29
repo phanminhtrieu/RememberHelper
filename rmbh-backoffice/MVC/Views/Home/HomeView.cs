@@ -154,7 +154,7 @@ namespace rmbh_backoffice.MVC.Views
 
         private void button_Home_Leave(object sender, EventArgs e)
         {
-            button_Home.BackColor = Color.Black; // Màu nền mặc định
+            button_Home.BackColor = Color.OliveDrab; // Màu nền mặc định
             button_Home.FlatAppearance.BorderColor = Color.OliveDrab; // Viền mặc định
         }
 
@@ -186,7 +186,7 @@ namespace rmbh_backoffice.MVC.Views
 
         private void button_UsersManagement_MouseLeave(object sender, EventArgs e)
         {
-            button_UsersManagement.BackColor = Color.Black; // Màu nền mặc định
+            button_UsersManagement.BackColor = Color.OliveDrab; // Màu nền mặc định
             button_UsersManagement.FlatAppearance.BorderColor = Color.OliveDrab; // Viền mặc định nút
         }
 
@@ -207,7 +207,7 @@ namespace rmbh_backoffice.MVC.Views
 
         private void button_TeamsManagement_MouseLeave(object sender, EventArgs e)
         {
-            button_TeamsManagement.BackColor = Color.Black; // Màu nền mặc định
+            button_TeamsManagement.BackColor = Color.OliveDrab; // Màu nền mặc định
             button_TeamsManagement.FlatAppearance.BorderColor = Color.OliveDrab; // Viền mặc định nút
         }
 
@@ -234,7 +234,7 @@ namespace rmbh_backoffice.MVC.Views
 
         private void button_FlashsCards_MouseLeave(object sender, EventArgs e)
         {
-            button_FlashsCards.BackColor = Color.Black; // Màu nền mặc định
+            button_FlashsCards.BackColor = Color.OliveDrab; // Màu nền mặc định
             button_FlashsCards.FlatAppearance.BorderColor = Color.OliveDrab; // Viền mặc định nút
         }
 
@@ -263,7 +263,7 @@ namespace rmbh_backoffice.MVC.Views
         private void button_Help_MouseLeave(object sender, EventArgs e)
         {
 
-            button_Help.BackColor = Color.Black; // Màu nền mặc định
+            button_Help.BackColor = Color.OliveDrab; // Màu nền mặc định
             button_Help.FlatAppearance.BorderColor = Color.OliveDrab; // Viền mặc định nút
         }
 
@@ -291,7 +291,7 @@ namespace rmbh_backoffice.MVC.Views
 
         private void button_ClassesManagement_MouseLeave(object sender, EventArgs e)
         {
-            button_ClassesManagement.BackColor = Color.Black; // Màu nền mặc định
+            button_ClassesManagement.BackColor = Color.OliveDrab; // Màu nền mặc định
             button_ClassesManagement.FlatAppearance.BorderColor = Color.OliveDrab; // Viền mặc định nút
         }
 
@@ -319,7 +319,7 @@ namespace rmbh_backoffice.MVC.Views
 
         private void button_DeckManagement_MouseLeave(object sender, EventArgs e)
         {
-            button_DeckManagement.BackColor = Color.Black; // Màu nền mặc định
+            button_DeckManagement.BackColor = Color.OliveDrab; // Màu nền mặc định
             button_DeckManagement.FlatAppearance.BorderColor = Color.OliveDrab; // Viền mặc định nút
         }
 
@@ -348,7 +348,7 @@ namespace rmbh_backoffice.MVC.Views
 
         private void button_CardsManagement_MouseLeave(object sender, EventArgs e)
         {
-            button_CardsManagement.BackColor = Color.Black; // Màu nền mặc định
+            button_CardsManagement.BackColor = Color.OliveDrab; // Màu nền mặc định
             button_CardsManagement.FlatAppearance.BorderColor = Color.OliveDrab; // Viền mặc định nút
         }
 
@@ -364,6 +364,8 @@ namespace rmbh_backoffice.MVC.Views
             button_CardsManagement.FlatAppearance.BorderColor = Color.CornflowerBlue; // Viền sáng trở lại
         }
         #endregion
+
+       
     }
 
 }

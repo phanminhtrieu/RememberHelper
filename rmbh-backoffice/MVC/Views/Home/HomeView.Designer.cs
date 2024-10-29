@@ -51,7 +51,6 @@
             sideparTimer = new System.Windows.Forms.Timer(components);
             panel_SideMenu.SuspendLayout();
             panel_FlashsCards.SuspendLayout();
-            panel4.SuspendLayout();
             panel_Body.SuspendLayout();
             panel_Header.SuspendLayout();
             SuspendLayout();
@@ -70,6 +69,7 @@
             panel_SideMenu.Controls.Add(panel2);
             panel_SideMenu.Controls.Add(panel3);
             panel_SideMenu.Controls.Add(panel4);
+            panel_SideMenu.Controls.Add(button_Logout);
             panel_SideMenu.Dock = DockStyle.Left;
             panel_SideMenu.Location = new Point(0, 0);
             panel_SideMenu.Name = "panel_SideMenu";
@@ -86,6 +86,7 @@
             // 
             // button_Home
             // 
+            button_Home.BackColor = Color.OliveDrab;
             button_Home.Dock = DockStyle.Top;
             button_Home.FlatAppearance.BorderSize = 0;
             button_Home.FlatStyle = FlatStyle.Flat;
@@ -97,7 +98,7 @@
             button_Home.TabIndex = 2;
             button_Home.Text = "Home";
             button_Home.TextAlign = ContentAlignment.MiddleLeft;
-            button_Home.UseVisualStyleBackColor = true;
+            button_Home.UseVisualStyleBackColor = false;
             button_Home.Click += button_Home_Click;
             button_Home.MouseDown += button_Home_Down;
             button_Home.MouseEnter += button_Home_MouseEnter;
@@ -166,7 +167,7 @@
             // 
             // panel_FlashsCards
             // 
-            panel_FlashsCards.BackColor = SystemColors.ActiveCaptionText;
+            panel_FlashsCards.BackColor = Color.OliveDrab;
             panel_FlashsCards.Controls.Add(button_CardsManagement);
             panel_FlashsCards.Controls.Add(button_DeckManagement);
             panel_FlashsCards.Controls.Add(button_ClassesManagement);
@@ -256,7 +257,7 @@
             // 
             panel2.Location = new Point(3, 482);
             panel2.Name = "panel2";
-            panel2.Size = new Size(253, 84);
+            panel2.Size = new Size(250, 84);
             panel2.TabIndex = 10;
             // 
             // panel3
@@ -268,18 +269,21 @@
             // 
             // panel4
             // 
-            panel4.Controls.Add(button_Logout);
             panel4.Location = new Point(3, 703);
             panel4.Name = "panel4";
-            panel4.Size = new Size(250, 125);
+            panel4.Size = new Size(250, 38);
             panel4.TabIndex = 1;
             // 
             // button_Logout
             // 
-            button_Logout.Location = new Point(51, 26);
+            button_Logout.BackColor = Color.OliveDrab;
+            button_Logout.FlatStyle = FlatStyle.Flat;
+            button_Logout.ForeColor = SystemColors.ButtonHighlight;
+            button_Logout.Location = new Point(3, 747);
             button_Logout.Name = "button_Logout";
-            button_Logout.Size = new Size(139, 29);
-            button_Logout.TabIndex = 9;
+            button_Logout.Padding = new Padding(10, 0, 0, 0);
+            button_Logout.Size = new Size(250, 40);
+            button_Logout.TabIndex = 8;
             button_Logout.Text = "Logout";
             button_Logout.UseVisualStyleBackColor = true;
             button_Logout.Click += button_Logout_Click;
@@ -339,7 +343,6 @@
             Text = "HomeView";
             panel_SideMenu.ResumeLayout(false);
             panel_FlashsCards.ResumeLayout(false);
-            panel4.ResumeLayout(false);
             panel_Body.ResumeLayout(false);
             panel_Header.ResumeLayout(false);
             panel_Header.PerformLayout();
