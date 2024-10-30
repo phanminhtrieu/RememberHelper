@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using rmbh.Entity;
 using rmbh_backoffice.MVC.Controllers;
 using rmbh_backoffice.MVC.Models.Services.Authentications;
+using rmbh_backoffice.MVC.Models.Services.Users;
 
 namespace rmbh_backoffice.MVC.Models.Services
 {
@@ -23,10 +24,16 @@ namespace rmbh_backoffice.MVC.Models.Services
             // Authentication
             IAuthenticationService authenticationService = new AuthenticationService(context);
 
+            // User
+            IUserService userService = new UserService(context);
+
             return new ControllerFactory
                 (
                     // Atuthentication 
-                    authenticationService
+                    authenticationService,
+
+                    // User
+                    userService
                 );
         }
     }

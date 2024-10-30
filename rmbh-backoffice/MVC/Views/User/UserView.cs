@@ -2,6 +2,8 @@
 {
     public partial class UserView : BaseChildForm, IView
     {
+        public DataGridView DataGridView => dataGridView;
+
         public Form Form
         {
             get
@@ -27,5 +29,16 @@
         {
             InitializeComponent();
         }
+
+        private void UserView_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
     }
 }
