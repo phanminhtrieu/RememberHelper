@@ -245,7 +245,7 @@
             panel_Footer.Location = new Point(224, 581);
             panel_Footer.Margin = new Padding(3, 2, 3, 2);
             panel_Footer.Name = "panel_Footer";
-            panel_Footer.Size = new Size(1124, 53);
+            panel_Footer.Size = new Size(1161, 53);
             panel_Footer.TabIndex = 1;
             // 
             // panel_ContentContainer
@@ -298,7 +298,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1348, 634);
+            ClientSize = new Size(1385, 634);
             Controls.Add(panel_ContentContainer);
             Controls.Add(panel_Footer);
             Controls.Add(panel_SideMenu);

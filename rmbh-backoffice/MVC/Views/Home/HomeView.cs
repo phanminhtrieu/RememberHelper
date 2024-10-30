@@ -8,8 +8,8 @@ namespace rmbh_backoffice.MVC.Views
 {
     public partial class HomeView : Form, IView
     {
-        private Button? activeButton = null;
-        private Form? activeChildForm = null;
+        private Button? _activeButton = null;
+        private Form? _activeChildForm = null;
 
         public HomeView()
         {
@@ -117,16 +117,16 @@ namespace rmbh_backoffice.MVC.Views
 
         private async void openChildForm(Form childForm)
         {
-            if (activeChildForm != null)
-                activeChildForm.Close();
+            if (_activeChildForm != null)
+                _activeChildForm.Close();
 
-            activeChildForm = childForm;
-            activeChildForm.TopLevel = false;
-            activeChildForm.FormBorderStyle = FormBorderStyle.None;
-            activeChildForm.Dock = DockStyle.Fill;
+            _activeChildForm = childForm;
+            _activeChildForm.TopLevel = false;
+            _activeChildForm.FormBorderStyle = FormBorderStyle.None;
+            _activeChildForm.Dock = DockStyle.Fill;
 
             panel_Body.Controls.Clear();
-            panel_Body.Controls.Add(activeChildForm);
+            panel_Body.Controls.Add(_activeChildForm);
             panel_Body.Tag = childForm;
 
             // Thêm độ trễ trước khi hiển thị form con
@@ -155,14 +155,14 @@ namespace rmbh_backoffice.MVC.Views
         private void setActiveButton(Button clickedButton)
         {
             // Nếu có nút active trước đó, đặt lại màu cho nó
-            if (activeButton != null)
+            if (_activeButton != null)
             {
-                activeButton.BackColor = Color.OliveDrab; // Màu mặc định
+                _activeButton.BackColor = Color.OliveDrab; // Màu mặc định
             }
 
             // Đặt màu active cho nút vừa nhấn
-            activeButton = clickedButton;
-            activeButton.BackColor = Color.YellowGreen; // Màu cho trạng thái active
+            _activeButton = clickedButton;
+            _activeButton.BackColor = Color.YellowGreen; // Màu cho trạng thái active
         }
 
         private void hideSubMenu(Panel panel)
