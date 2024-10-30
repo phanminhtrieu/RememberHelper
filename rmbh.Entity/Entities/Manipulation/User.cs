@@ -18,7 +18,6 @@ namespace rmbh.Entity.Entities.Manipulation
         public DateTime ModifiedDate { get; set; }
 
         public ICollection<UserClass>? UserClasses { get; set; }
-        public ICollection<UserClassStatistic>? UserClassStatistics { get; set; }
         public ICollection<UserDeckStatistic>? UserDeckStatistics { get; set; }
         public ICollection<UserCardStatistic>? UserCardStatistics { get; set; }
     }

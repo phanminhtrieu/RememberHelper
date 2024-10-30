@@ -10,12 +10,12 @@ namespace rmbh.Entity.Entities.Manipulation
         public string? Title { get; set; }
         public string? Description { get; set; }
         public ClassVisibility Visibility { get; set; }
+        public DateTime LastLearningDate { get; set; }
 
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
 
         public ICollection<Deck>? Decks { get; set; }
-        public ICollection<UserClassStatistic>? UserClassStatistics { get; set; }
         public ICollection<UserClass>? UserClasses { get; set; }
     }
 }
