@@ -1,6 +1,6 @@
-﻿namespace rmbh_backoffice.MVC.Views.UsersManagement
+﻿namespace rmbh_backoffice.MVC.Views.User
 {
-    public partial class UsersView : Form, IView
+    public partial class UserView : BaseChildForm, IView
     {
         public Form Form
         {
@@ -23,7 +23,7 @@
             }
         }
 
-        public UsersView()
+        public UserView()
         {
             InitializeComponent();
         }

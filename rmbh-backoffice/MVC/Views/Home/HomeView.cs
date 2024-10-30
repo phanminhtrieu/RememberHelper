@@ -1,15 +1,20 @@
 ﻿using rmbh_backoffice.MVC.Controllers.Login;
-using rmbh_backoffice.MVC.Views.UsersManagement;
+using rmbh_backoffice.MVC.Views.Learning.Card;
+using rmbh_backoffice.MVC.Views.Learning.Class;
+using rmbh_backoffice.MVC.Views.Learning.Deck;
+using rmbh_backoffice.MVC.Views.User;
 
 namespace rmbh_backoffice.MVC.Views
 {
     public partial class HomeView : Form, IView
     {
-        private Button activeButton = null;
+        private Button? activeButton = null;
+        private Form? activeChildForm = null;
+
         public HomeView()
         {
             InitializeComponent();
-            cutomizeDesing();
+            hideAllSubMenu();
         }
 
         public Form Form
@@ -33,10 +38,10 @@ namespace rmbh_backoffice.MVC.Views
             }
         }
 
-        private void cutomizeDesing()
+        private void hideAllSubMenu()
         {
 
-            panel_FlashsCards.Visible = false;
+            panel_LearningItem.Visible = false;
 
         }
 
@@ -57,19 +62,17 @@ namespace rmbh_backoffice.MVC.Views
             if (clickedButton != null)
                 setActiveButton(clickedButton);
 
-            label_Title.Text = "Users Management";
-
-            openChildForm(new UsersView());
+            openChildForm(new UserView());
         }
 
-        private void button_FlashsCards_Click(object sender, EventArgs e)
+        private void button_Learning_Click(object sender, EventArgs e)
         {
             Button? clickedButton = sender as Button;
 
             if (clickedButton != null)
                 setActiveButton(clickedButton);
 
-            showSubMenu(panel_FlashsCards);
+            showSubMenu(panel_LearningItem);
         }
 
         private void button_ClassManagement_Click(object sender, EventArgs e)
@@ -79,8 +82,7 @@ namespace rmbh_backoffice.MVC.Views
             if (clickedButton != null)
                 setActiveButton(clickedButton);
 
-            label_Title.Text = "Classes Management";
-
+            openChildForm(new ClassView());
         }
 
         private void button_DeckManagement_Click(object sender, EventArgs e)
@@ -90,7 +92,7 @@ namespace rmbh_backoffice.MVC.Views
             if (clickedButton != null)
                 setActiveButton(clickedButton);
 
-            label_Title.Text = "Decks Management";
+            openChildForm(new DeckView());
         }
 
         private void button_CardsManagement_Click(object sender, EventArgs e)
@@ -100,10 +102,8 @@ namespace rmbh_backoffice.MVC.Views
             if (clickedButton != null)
                 setActiveButton(clickedButton);
 
-            label_Title.Text = "Cards Management";
+            openChildForm(new CardView());
         }
-
-        private Form activeChildForm = null;
 
         private void button_Logout_Click(object sender, EventArgs e)
         {
@@ -115,7 +115,7 @@ namespace rmbh_backoffice.MVC.Views
             }
         }
 
-        private void openChildForm(Form childForm)
+        private async void openChildForm(Form childForm)
         {
             if (activeChildForm != null)
                 activeChildForm.Close();
@@ -128,6 +128,25 @@ namespace rmbh_backoffice.MVC.Views
             panel_Body.Controls.Clear();
             panel_Body.Controls.Add(activeChildForm);
             panel_Body.Tag = childForm;
+
+            // Thêm độ trễ trước khi hiển thị form con
+            await Task.Delay(300);
+
+            switch (childForm)
+            {
+                case UserView userView:
+                    label_Title.Text = "User Management";
+                    break;
+                case ClassView classView:
+                    label_Title.Text = "Class Management";
+                    break;
+                case DeckView deckView:
+                    label_Title.Text = "Deck Management";
+                    break;
+                case CardView cardView:
+                    label_Title.Text = "Card Management";
+                    break;
+            }
 
             childForm.BringToFront();
             childForm.Show();
