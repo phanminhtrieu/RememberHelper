@@ -1,5 +1,5 @@
 ﻿using rmbh_backoffice.MVC.Controllers.Login;
-using rmbh_backoffice.MVC.Views;
+using rmbh_backoffice.MVC.Views.UsersManagement;
 
 namespace rmbh_backoffice.MVC.Views
 {
@@ -44,11 +44,10 @@ namespace rmbh_backoffice.MVC.Views
         {
             Button? clickedButton = sender as Button;
 
-            if (clickedButton != null) 
+            if (clickedButton != null)
                 setActiveButton(clickedButton);
 
             label_Title.Text = "Home";
-
         }
 
         private void button_UsersManagement_Click(object sender, EventArgs e)
@@ -59,6 +58,8 @@ namespace rmbh_backoffice.MVC.Views
                 setActiveButton(clickedButton);
 
             label_Title.Text = "Users Management";
+
+            openChildForm(new UsersView());
         }
 
         private void button_FlashsCards_Click(object sender, EventArgs e)
@@ -79,6 +80,7 @@ namespace rmbh_backoffice.MVC.Views
                 setActiveButton(clickedButton);
 
             label_Title.Text = "Classes Management";
+
         }
 
         private void button_DeckManagement_Click(object sender, EventArgs e)
@@ -101,7 +103,7 @@ namespace rmbh_backoffice.MVC.Views
             label_Title.Text = "Cards Management";
         }
 
-        private Form acctiveform = null;
+        private Form activeChildForm = null;
 
         private void button_Logout_Click(object sender, EventArgs e)
         {
@@ -113,18 +115,22 @@ namespace rmbh_backoffice.MVC.Views
             }
         }
 
-        private void openChildForm(Form childFrom)
+        private void openChildForm(Form childForm)
         {
-            if (acctiveform != null)
-                acctiveform.Close();
-            acctiveform = childFrom;
-            childFrom.TopLevel = false;
-            childFrom.FormBorderStyle = FormBorderStyle.None;
-            childFrom.Dock = DockStyle.Fill;
-            panel_Body.Controls.Add(childFrom);
-            panel_Body.Tag = childFrom;
-            childFrom.BringToFront();
-            childFrom.Show();
+            if (activeChildForm != null)
+                activeChildForm.Close();
+
+            activeChildForm = childForm;
+            activeChildForm.TopLevel = false;
+            activeChildForm.FormBorderStyle = FormBorderStyle.None;
+            activeChildForm.Dock = DockStyle.Fill;
+
+            panel_Body.Controls.Clear();
+            panel_Body.Controls.Add(activeChildForm);
+            panel_Body.Tag = childForm;
+
+            childForm.BringToFront();
+            childForm.Show();
         }
 
         private void setActiveButton(Button clickedButton)

@@ -42,14 +42,15 @@
             button_Home = new Button();
             button_FlashsCards = new Button();
             panel_Footer = new Panel();
-            panel_Body = new Panel();
+            panel_ContentContainer = new Panel();
             panel_Header = new Panel();
             label_Title = new Label();
             sideparTimer = new System.Windows.Forms.Timer(components);
+            panel_Body = new Panel();
             panel_SideMenu.SuspendLayout();
             panel_SidebarItem.SuspendLayout();
             panel_FlashsCards.SuspendLayout();
-            panel_Body.SuspendLayout();
+            panel_ContentContainer.SuspendLayout();
             panel_Header.SuspendLayout();
             SuspendLayout();
             // 
@@ -234,15 +235,15 @@
             panel_Footer.Size = new Size(1326, 71);
             panel_Footer.TabIndex = 1;
             // 
-            // panel_Body
+            // panel_ContentContainer
             // 
-            panel_Body.BackColor = Color.Snow;
-            panel_Body.Controls.Add(panel_Header);
-            panel_Body.Dock = DockStyle.Fill;
-            panel_Body.Location = new Point(256, 0);
-            panel_Body.Name = "panel_Body";
-            panel_Body.Size = new Size(1326, 782);
-            panel_Body.TabIndex = 2;
+            panel_ContentContainer.BackColor = Color.Snow;
+            panel_ContentContainer.Controls.Add(panel_Body);
+            panel_ContentContainer.Controls.Add(panel_Header);
+            panel_ContentContainer.Location = new Point(256, 0);
+            panel_ContentContainer.Name = "panel_ContentContainer";
+            panel_ContentContainer.Size = new Size(1326, 782);
+            panel_ContentContainer.TabIndex = 2;
             // 
             // panel_Header
             // 
@@ -269,12 +270,20 @@
             // 
             sideparTimer.Interval = 10;
             // 
+            // panel_Body
+            // 
+            panel_Body.Dock = DockStyle.Fill;
+            panel_Body.Location = new Point(0, 66);
+            panel_Body.Name = "panel_Body";
+            panel_Body.Size = new Size(1326, 716);
+            panel_Body.TabIndex = 1;
+            // 
             // HomeView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1582, 853);
-            Controls.Add(panel_Body);
+            Controls.Add(panel_ContentContainer);
             Controls.Add(panel_Footer);
             Controls.Add(panel_SideMenu);
             Name = "HomeView";
@@ -282,7 +291,7 @@
             panel_SideMenu.ResumeLayout(false);
             panel_SidebarItem.ResumeLayout(false);
             panel_FlashsCards.ResumeLayout(false);
-            panel_Body.ResumeLayout(false);
+            panel_ContentContainer.ResumeLayout(false);
             panel_Header.ResumeLayout(false);
             panel_Header.PerformLayout();
             ResumeLayout(false);
@@ -300,12 +309,13 @@
         private Button button_DeckManagement;
         private Button button_ClassesManagement;
         private Panel panel_Footer;
-        private Panel panel_Body;
+        private Panel panel_ContentContainer;
         private Panel panel_Header;
         private System.Windows.Forms.Timer sideparTimer;
         private Label label_Title;
         private Panel panel3;
         private Button button_Logout;
         private Panel panel_SidebarItem;
+        private Panel panel_Body;
     }
 }
