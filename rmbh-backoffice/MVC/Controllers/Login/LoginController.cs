@@ -2,12 +2,6 @@
 using rmbh_backoffice.MVC.Models.Dtos.Authentications;
 using rmbh_backoffice.MVC.Models.Services.Authentications;
 using rmbh_backoffice.MVC.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 
 namespace rmbh_backoffice.MVC.Controllers.Login
 {
@@ -50,8 +44,8 @@ namespace rmbh_backoffice.MVC.Controllers.Login
         {
             if (_loginView != null)
             {
-                var authenticationRequest = new AuthenticationRequest() 
-                { 
+                var authenticationRequest = new AuthenticationRequest()
+                {
                     Email = _loginView.TextBoxUserName.Text,
                     Password = _loginView.TextBoxPassword.Text,
                 };

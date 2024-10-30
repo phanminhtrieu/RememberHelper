@@ -10,15 +10,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="MVC\Models\Services\Collab\**" />
-    <Compile Remove="MVC\Models\Services\FlashCard\**" />
-    <Compile Remove="MVC\Models\Services\Users\**" />
-    <EmbeddedResource Remove="MVC\Models\Services\Collab\**" />
-    <EmbeddedResource Remove="MVC\Models\Services\FlashCard\**" />
-    <EmbeddedResource Remove="MVC\Models\Services\Users\**" />
-    <None Remove="MVC\Models\Services\Collab\**" />
-    <None Remove="MVC\Models\Services\FlashCard\**" />
-    <None Remove="MVC\Models\Services\Users\**" />
+    <Compile Remove=".MVC\**" />
+    <EmbeddedResource Remove=".MVC\**" />
+    <None Remove=".MVC\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +28,25 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="MVC\Views\Logout\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

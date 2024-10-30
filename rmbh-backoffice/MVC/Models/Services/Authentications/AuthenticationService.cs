@@ -1,11 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using rmbh.Entity;
+﻿using rmbh.Entity;
 using rmbh_backoffice.MVC.Models.Dtos.Authentications;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace rmbh_backoffice.MVC.Models.Services.Authentications
 {

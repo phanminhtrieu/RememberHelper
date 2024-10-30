@@ -71,7 +71,6 @@
             button_Login.TabIndex = 3;
             button_Login.Text = "Log in";
             button_Login.UseVisualStyleBackColor = false;
-            button_Login.Click += button_Login_Click;
             // 
             // textBox_Username
             // 
@@ -82,7 +81,6 @@
             textBox_Username.Name = "textBox_Username";
             textBox_Username.Size = new Size(272, 20);
             textBox_Username.TabIndex = 1;
-            textBox_Username.TextChanged += textBox_Username_TextChanged;
             // 
             // label_Login
             // 

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace rmbh_backoffice.MVC.Views
+﻿namespace rmbh_backoffice.MVC.Views
 {
     public interface IView
     {
