@@ -12,8 +12,8 @@ using rmbh.Entity;
 namespace rmbh.Entity.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241024034923_InitialAppDb")]
-    partial class InitialAppDb
+    [Migration("20241028070924_InitializeAppDb")]
+    partial class InitializeAppDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,20 +41,23 @@ namespace rmbh.Entity.Migrations
                     b.Property<string>("AnswerFootnote")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("AsnImg")
+                    b.Property<byte[]>("AnswerImg")
                         .HasColumnType("varbinary(max)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("DeckId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("CreatedUserId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("MasteryScore")
+                    b.Property<int?>("DeckId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ModifiedUserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Question")
                         .HasColumnType("nvarchar(max)");
@@ -89,16 +92,7 @@ namespace rmbh.Entity.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("DefaultStudyMixType")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DescriptionAbout")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HeadlineAbout")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("Logo")
@@ -107,7 +101,7 @@ namespace rmbh.Entity.Migrations
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Visibility")
@@ -116,6 +110,35 @@ namespace rmbh.Entity.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Classes", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedDate = new DateTime(2024, 10, 28, 14, 9, 24, 536, DateTimeKind.Local).AddTicks(8218),
+                            Description = "ReactJS is a JavaScript library by Facebook for building interactive user interfaces with reusable components. Students will learn concepts like JSX and component lifecycle, enhancing their ability to create efficient applications.",
+                            ModifiedDate = new DateTime(2024, 10, 28, 14, 9, 24, 536, DateTimeKind.Local).AddTicks(8218),
+                            Title = "ReactJS",
+                            Visibility = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedDate = new DateTime(2024, 10, 28, 14, 9, 24, 536, DateTimeKind.Local).AddTicks(8218),
+                            Description = "ASP.NET Core MVC is a Microsoft framework that uses the Model-View-Controller (MVC) pattern to separate application logic from user interface. Students will learn to build APIs and manage data with Entity Framework Core while ensuring application security.",
+                            ModifiedDate = new DateTime(2024, 10, 28, 14, 9, 24, 536, DateTimeKind.Local).AddTicks(8218),
+                            Title = "ASP.NET Core MVC",
+                            Visibility = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedDate = new DateTime(2024, 10, 28, 14, 9, 24, 536, DateTimeKind.Local).AddTicks(8218),
+                            Description = "Tailwind CSS is a utility-first framework that allows for rapid and flexible UI design using utility classes. Students will discover how to integrate it into projects and customize layouts efficiently.",
+                            ModifiedDate = new DateTime(2024, 10, 28, 14, 9, 24, 536, DateTimeKind.Local).AddTicks(8218),
+                            Title = "TailwindCSS",
+                            Visibility = 1
+                        });
                 });
 
             modelBuilder.Entity("rmbh.Entity.Entities.Manipulation.Deck", b =>
@@ -132,13 +155,19 @@ namespace rmbh.Entity.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("SortOrder")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Objective")
+                    b.Property<int>("StudyDeckType")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -146,37 +175,6 @@ namespace rmbh.Entity.Migrations
                     b.HasIndex("ClassId");
 
                     b.ToTable("Decks", (string)null);
-                });
-
-            modelBuilder.Entity("rmbh.Entity.Entities.Manipulation.Team", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<byte[]>("Avatar")
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Teams", (string)null);
                 });
 
             modelBuilder.Entity("rmbh.Entity.Entities.Manipulation.User", b =>
@@ -211,9 +209,6 @@ namespace rmbh.Entity.Migrations
 
                     b.Property<int>("Role")
                         .HasColumnType("int");
-
-                    b.Property<string>("SchoolName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -497,6 +492,47 @@ namespace rmbh.Entity.Migrations
                         });
                 });
 
+            modelBuilder.Entity("rmbh.Entity.Entities.Manipulation.UserCardStatistic", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("CardId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Day")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MasteryScore")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Month")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long?>("TimeSpent")
+                        .HasColumnType("bigint");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CardId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserCardStatistic");
+                });
+
             modelBuilder.Entity("rmbh.Entity.Entities.Manipulation.UserClass", b =>
                 {
                     b.Property<int>("Id")
@@ -506,6 +542,12 @@ namespace rmbh.Entity.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("ClassId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("JoinedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Role")
                         .HasColumnType("int");
 
                     b.Property<Guid>("UserId")
@@ -518,9 +560,19 @@ namespace rmbh.Entity.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("UserClasses", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ClassId = 1,
+                            JoinedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Role = 0,
+                            UserId = new Guid("f8d170a5-02f7-4ff4-8c12-4eb83451fcd6")
+                        });
                 });
 
-            modelBuilder.Entity("rmbh.Entity.Entities.Manipulation.UserTeam", b =>
+            modelBuilder.Entity("rmbh.Entity.Entities.Manipulation.UserClassStatistic", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -528,25 +580,66 @@ namespace rmbh.Entity.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<DateTime>("JoinedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Role")
+                    b.Property<int?>("ClassId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TeamId")
+                    b.Property<int?>("MasteryScore")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<long?>("TimeSpent")
+                        .HasColumnType("bigint");
+
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TeamId");
+                    b.HasIndex("ClassId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserTeams", (string)null);
+                    b.ToTable("UserClassStatistic");
+                });
+
+            modelBuilder.Entity("rmbh.Entity.Entities.Manipulation.UserDeckStatistic", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("Day")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DeckId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MasteryScore")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Month")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long?>("TimeSpent")
+                        .HasColumnType("bigint");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeckId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserDeckStatistic");
                 });
 
             modelBuilder.Entity("rmbh.Entity.Entities.Manipulation.Card", b =>
@@ -569,6 +662,21 @@ namespace rmbh.Entity.Migrations
                     b.Navigation("Class");
                 });
 
+            modelBuilder.Entity("rmbh.Entity.Entities.Manipulation.UserCardStatistic", b =>
+                {
+                    b.HasOne("rmbh.Entity.Entities.Manipulation.Card", "Card")
+                        .WithMany("UserCardStatistics")
+                        .HasForeignKey("CardId");
+
+                    b.HasOne("rmbh.Entity.Entities.Manipulation.User", "User")
+                        .WithMany("UserCardStatistics")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Card");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("rmbh.Entity.Entities.Manipulation.UserClass", b =>
                 {
                     b.HasOne("rmbh.Entity.Entities.Manipulation.Class", "Class")
@@ -588,28 +696,50 @@ namespace rmbh.Entity.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("rmbh.Entity.Entities.Manipulation.UserTeam", b =>
+            modelBuilder.Entity("rmbh.Entity.Entities.Manipulation.UserClassStatistic", b =>
                 {
-                    b.HasOne("rmbh.Entity.Entities.Manipulation.Team", "Team")
-                        .WithMany("UserTeams")
-                        .HasForeignKey("TeamId")
+                    b.HasOne("rmbh.Entity.Entities.Manipulation.Class", "Class")
+                        .WithMany("UserClassStatistics")
+                        .HasForeignKey("ClassId");
+
+                    b.HasOne("rmbh.Entity.Entities.Manipulation.User", "User")
+                        .WithMany("UserClassStatistics")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Class");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("rmbh.Entity.Entities.Manipulation.UserDeckStatistic", b =>
+                {
+                    b.HasOne("rmbh.Entity.Entities.Manipulation.Deck", "Deck")
+                        .WithMany("UserDeckStatistics")
+                        .HasForeignKey("DeckId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("rmbh.Entity.Entities.Manipulation.User", "User")
-                        .WithMany("UserTeams")
+                        .WithMany("UserDeckStatistics")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Team");
+                    b.Navigation("Deck");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("rmbh.Entity.Entities.Manipulation.Card", b =>
+                {
+                    b.Navigation("UserCardStatistics");
                 });
 
             modelBuilder.Entity("rmbh.Entity.Entities.Manipulation.Class", b =>
                 {
                     b.Navigation("Decks");
+
+                    b.Navigation("UserClassStatistics");
 
                     b.Navigation("UserClasses");
                 });
@@ -617,18 +747,19 @@ namespace rmbh.Entity.Migrations
             modelBuilder.Entity("rmbh.Entity.Entities.Manipulation.Deck", b =>
                 {
                     b.Navigation("Cards");
-                });
 
-            modelBuilder.Entity("rmbh.Entity.Entities.Manipulation.Team", b =>
-                {
-                    b.Navigation("UserTeams");
+                    b.Navigation("UserDeckStatistics");
                 });
 
             modelBuilder.Entity("rmbh.Entity.Entities.Manipulation.User", b =>
                 {
+                    b.Navigation("UserCardStatistics");
+
+                    b.Navigation("UserClassStatistics");
+
                     b.Navigation("UserClasses");
 
-                    b.Navigation("UserTeams");
+                    b.Navigation("UserDeckStatistics");
                 });
 #pragma warning restore 612, 618
         }

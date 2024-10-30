@@ -5,6 +5,7 @@ namespace rmbh_backoffice.MVC.Views
 {
     public partial class HomeView : Form, IView
     {
+        private Button activeButton = null;
         public HomeView()
         {
             InitializeComponent();
@@ -39,86 +40,79 @@ namespace rmbh_backoffice.MVC.Views
 
         }
 
-        private void hideSubMenu()
-        {
-
-            if (panel_FlashsCards.Visible == true)
-                panel_FlashsCards.Visible = false;
-        }
-
-        private void showSubMenu(Panel subMenu)
-        {
-            if (subMenu.Visible == false)
-            {
-                hideSubMenu();
-                subMenu.Visible = true;
-            }
-            else
-                subMenu.Visible = false;
-        }
-
         private void button_Home_Click(object sender, EventArgs e)
         {
-            //.. 
-            //.. code minh
+            Button? clickedButton = sender as Button;
+
+            if (clickedButton != null) 
+                setActiveButton(clickedButton);
+
             label_Title.Text = "Home";
 
         }
 
         private void button_UsersManagement_Click(object sender, EventArgs e)
         {
-            //.. 
-            //.. code minh
+            Button? clickedButton = sender as Button;
+
+            if (clickedButton != null)
+                setActiveButton(clickedButton);
 
             label_Title.Text = "Users Management";
         }
 
-        private void button_TeamsManagement_Click(object sender, EventArgs e)
-        {
-            //.. 
-            //.. code minh
-            hideSubMenu();
-            label_Title.Text = "Teams Management";
-        }
-
         private void button_FlashsCards_Click(object sender, EventArgs e)
         {
+            Button? clickedButton = sender as Button;
+
+            if (clickedButton != null)
+                setActiveButton(clickedButton);
+
             showSubMenu(panel_FlashsCards);
-            label_Title.Text = "Flashs Cards";
         }
 
-        #region tool
         private void button_ClassManagement_Click(object sender, EventArgs e)
         {
-            //.. 
-            //.. code minh
-            hideSubMenu();
+            Button? clickedButton = sender as Button;
+
+            if (clickedButton != null)
+                setActiveButton(clickedButton);
+
+            label_Title.Text = "Classes Management";
         }
 
         private void button_DeckManagement_Click(object sender, EventArgs e)
         {
-            //.. 
-            //.. code minh
-            hideSubMenu();
+            Button? clickedButton = sender as Button;
+
+            if (clickedButton != null)
+                setActiveButton(clickedButton);
+
+            label_Title.Text = "Decks Management";
         }
 
         private void button_CardsManagement_Click(object sender, EventArgs e)
         {
-            //.. 
-            //.. code minh
-            hideSubMenu();
+            Button? clickedButton = sender as Button;
+
+            if (clickedButton != null)
+                setActiveButton(clickedButton);
+
+            label_Title.Text = "Cards Management";
         }
 
-        #endregion
-        private void button_Help_Click(object sender, EventArgs e)
-        {
-            //.. 
-            //.. code minh
-            hideSubMenu();
-            label_Title.Text = "Help";
-
-        }
         private Form acctiveform = null;
+
+        private void button_Logout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Confirm log out.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                AppManager.Instance.Load<LoginController>();
+            }
+        }
+
         private void openChildForm(Form childFrom)
         {
             if (acctiveform != null)
@@ -133,246 +127,42 @@ namespace rmbh_backoffice.MVC.Views
             childFrom.Show();
         }
 
-        private void button_Logout_Click(object sender, EventArgs e)
+        private void setActiveButton(Button clickedButton)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            // Nếu người dùng chọn "Yes", thực hiện hành động logout
-            if (result == DialogResult.Yes)
+            // Nếu có nút active trước đó, đặt lại màu cho nó
+            if (activeButton != null)
             {
-
-                AppManager.Instance.Load<LoginController>();
+                activeButton.BackColor = Color.OliveDrab; // Màu mặc định
             }
+
+            // Đặt màu active cho nút vừa nhấn
+            activeButton = clickedButton;
+            activeButton.BackColor = Color.YellowGreen; // Màu cho trạng thái active
         }
 
-        #region Mouse_Color_Home
-
-        private void button_Home_MouseEnter(object sender, EventArgs e)
+        private void hideSubMenu(Panel panel)
         {
-            button_Home.BackColor = Color.FromArgb(100, 149, 237); // Màu sáng khi di chuột vào
-            button_Home.FlatAppearance.BorderColor = Color.CornflowerBlue; // Viền sáng khi di chuột vào}
+            if (panel.Visible == true)
+                panel.Visible = false;
         }
 
-        private void button_Home_Leave(object sender, EventArgs e)
+        private void showSubMenu(Panel subMenu)
         {
-            button_Home.BackColor = Color.OliveDrab; // Màu nền mặc định
-            button_Home.FlatAppearance.BorderColor = Color.OliveDrab; // Viền mặc định
+            if (subMenu.Visible == false)
+            {
+                hideSubMenu(subMenu);
+                subMenu.Visible = true;
+            }
+            else
+                subMenu.Visible = false;
         }
-
-        private void button_Home_Down(object sender, MouseEventArgs e)
-        {
-            button_Home.BackColor = Color.FromArgb(65, 105, 225); // Màu tối hơn khi nhấn nút
-            button_Home.FlatAppearance.BorderColor = Color.RoyalBlue; // Viền tối hơn khi nhấn nút
-        }
-
-        private void button_Home_Up(object sender, MouseEventArgs e)
-        {
-            button_Home.BackColor = Color.FromArgb(100, 149, 237); // Màu sáng trở lại khi thả chuột
-            button_Home.FlatAppearance.BorderColor = Color.CornflowerBlue; // Viền sáng trở lại
-        }
-        #endregion
-
-        #region Mouse_Color_UsersManagement
-        private void button_UsersManagement_MouseDown(object sender, MouseEventArgs e)
-        {
-            button_UsersManagement.BackColor = Color.FromArgb(65, 105, 225); // Màu tối hơn khi nhấn nút
-            button_UsersManagement.FlatAppearance.BorderColor = Color.RoyalBlue; // Viền tối hơn khi nhấn nút
-        }
-
-        private void button_UsersManagement_MouseEnter(object sender, EventArgs e)
-        {
-            button_UsersManagement.BackColor = Color.FromArgb(100, 149, 237); // Màu sáng khi di chuột vào
-            button_UsersManagement.FlatAppearance.BorderColor = Color.CornflowerBlue; // Viền sáng khi di chuột vào}
-        }
-
-        private void button_UsersManagement_MouseLeave(object sender, EventArgs e)
-        {
-            button_UsersManagement.BackColor = Color.OliveDrab; // Màu nền mặc định
-            button_UsersManagement.FlatAppearance.BorderColor = Color.OliveDrab; // Viền mặc định nút
-        }
-
-        private void button_UsersManagement_MouseUp(object sender, MouseEventArgs e)
-        {
-            button_UsersManagement.BackColor = Color.FromArgb(100, 149, 237); // Màu sáng trở lại khi thả chuột
-            button_UsersManagement.FlatAppearance.BorderColor = Color.CornflowerBlue; // Viền sáng trở lại
-        }
-        #endregion
-
-        #region Mouse_Color_TeamsManagement
-
-        private void button_TeamsManagement_MouseEnter(object sender, EventArgs e)
-        {
-            button_TeamsManagement.BackColor = Color.FromArgb(100, 149, 237); // Màu sáng khi di chuột vào
-            button_TeamsManagement.FlatAppearance.BorderColor = Color.CornflowerBlue; // Viền sáng khi di chuột vào}
-        }
-
-        private void button_TeamsManagement_MouseLeave(object sender, EventArgs e)
-        {
-            button_TeamsManagement.BackColor = Color.OliveDrab; // Màu nền mặc định
-            button_TeamsManagement.FlatAppearance.BorderColor = Color.OliveDrab; // Viền mặc định nút
-        }
-
-        private void button_TeamsManagement_MouseDown(object sender, MouseEventArgs e)
-        {
-            button_TeamsManagement.BackColor = Color.FromArgb(65, 105, 225); // Màu tối hơn khi nhấn nút
-            button_TeamsManagement.FlatAppearance.BorderColor = Color.RoyalBlue; // Viền tối hơn khi nhấn nút
-        }
-
-        private void button_TeamsManagement_MouseUp(object sender, MouseEventArgs e)
-        {
-            button_TeamsManagement.BackColor = Color.FromArgb(100, 149, 237); // Màu sáng trở lại khi thả chuột
-            button_TeamsManagement.FlatAppearance.BorderColor = Color.CornflowerBlue; // Viền sáng trở lại
-        }
-        #endregion
-
-        #region Mouse_Color_FlashsCard
-
-        private void button_FlashsCards_MouseEnter(object sender, EventArgs e)
-        {
-            button_FlashsCards.BackColor = Color.FromArgb(100, 149, 237); // Màu sáng khi di chuột vào
-            button_FlashsCards.FlatAppearance.BorderColor = Color.CornflowerBlue; // Viền sáng khi di chuột 
-        }
-
-        private void button_FlashsCards_MouseLeave(object sender, EventArgs e)
-        {
-            button_FlashsCards.BackColor = Color.OliveDrab; // Màu nền mặc định
-            button_FlashsCards.FlatAppearance.BorderColor = Color.OliveDrab; // Viền mặc định nút
-        }
-
-
-        private void button_FlashsCards_MouseDown(object sender, MouseEventArgs e)
-        {
-            button_FlashsCards.BackColor = Color.FromArgb(65, 105, 225); // Màu tối hơn khi nhấn nút
-            button_FlashsCards.FlatAppearance.BorderColor = Color.RoyalBlue; // Viền tối hơn khi nhấn nút
-        }
-
-        private void button_FlashsCards_MouseUp(object sender, MouseEventArgs e)
-        {
-            button_FlashsCards.BackColor = Color.FromArgb(100, 149, 237); // Màu sáng trở lại khi thả chuột
-            button_FlashsCards.FlatAppearance.BorderColor = Color.CornflowerBlue; // Viền sáng trở lại
-        }
-        #endregion
-
-        #region Mouse_Color_Help
-
-        private void button_Help_MouseEnter(object sender, EventArgs e)
-        {
-            button_Help.BackColor = Color.FromArgb(100, 149, 237); // Màu sáng khi di chuột vào
-            button_Help.FlatAppearance.BorderColor = Color.CornflowerBlue; // Viền sáng khi di chuột
-        }
-
-        private void button_Help_MouseLeave(object sender, EventArgs e)
-        {
-
-            button_Help.BackColor = Color.OliveDrab; // Màu nền mặc định
-            button_Help.FlatAppearance.BorderColor = Color.OliveDrab; // Viền mặc định nút
-        }
-
-        private void button_Help_MouseDown(object sender, MouseEventArgs e)
-        {
-            button_Help.BackColor = Color.FromArgb(65, 105, 225); // Màu tối hơn khi nhấn nút
-            button_Help.FlatAppearance.BorderColor = Color.RoyalBlue; // Viền tối hơn khi nhấn nút
-        }
-
-        private void button_Help_MouseUp(object sender, MouseEventArgs e)
-        {
-            button_Help.BackColor = Color.FromArgb(100, 149, 237); // Màu sáng trở lại khi thả chuột
-            button_Help.FlatAppearance.BorderColor = Color.CornflowerBlue; // Viền sáng trở lại
-        }
-
-        #endregion
-
-        #region Mouse_Color_ClassesManament
-
-        private void button_ClassesManagement_MouseEnter(object sender, EventArgs e)
-        {
-            button_ClassesManagement.BackColor = Color.FromArgb(100, 149, 237); // Màu sáng khi di chuột vào
-            button_ClassesManagement.FlatAppearance.BorderColor = Color.CornflowerBlue; // Viền sáng khi di chuột
-        }
-
-        private void button_ClassesManagement_MouseLeave(object sender, EventArgs e)
-        {
-            button_ClassesManagement.BackColor = Color.OliveDrab; // Màu nền mặc định
-            button_ClassesManagement.FlatAppearance.BorderColor = Color.OliveDrab; // Viền mặc định nút
-        }
-
-        private void button_ClassesManagement_MouseDown(object sender, MouseEventArgs e)
-        {
-            button_ClassesManagement.BackColor = Color.FromArgb(65, 105, 225); // Màu tối hơn khi nhấn nút
-            button_ClassesManagement.FlatAppearance.BorderColor = Color.RoyalBlue; // Viền tối hơn khi nhấn nút
-        }
-
-        private void button_ClassesManagement_MouseUp(object sender, MouseEventArgs e)
-        {
-            button_ClassesManagement.BackColor = Color.FromArgb(100, 149, 237); // Màu sáng trở lại khi thả chuột
-            button_ClassesManagement.FlatAppearance.BorderColor = Color.CornflowerBlue; // Viền sáng trở lại
-        }
-        #endregion
-
-        #region Mouse_Color_DeckManagement
-
-        private void button_DeckManagement_MouseEnter(object sender, EventArgs e)
-        {
-
-            button_DeckManagement.BackColor = Color.FromArgb(100, 149, 237); // Màu sáng khi di chuột vào
-            button_DeckManagement.FlatAppearance.BorderColor = Color.CornflowerBlue; // Viền sáng khi di chuột
-        }
-
-        private void button_DeckManagement_MouseLeave(object sender, EventArgs e)
-        {
-            button_DeckManagement.BackColor = Color.OliveDrab; // Màu nền mặc định
-            button_DeckManagement.FlatAppearance.BorderColor = Color.OliveDrab; // Viền mặc định nút
-        }
-
-        private void button_DeckManagement_MouseDown(object sender, MouseEventArgs e)
-        {
-            button_DeckManagement.BackColor = Color.FromArgb(65, 105, 225); // Màu tối hơn khi nhấn nút
-            button_DeckManagement.FlatAppearance.BorderColor = Color.RoyalBlue; // Viền tối hơn khi nhấn nút
-        }
-
-
-        private void button_DeckManagement_MouseUp(object sender, MouseEventArgs e)
-        {
-            button_DeckManagement.BackColor = Color.FromArgb(100, 149, 237); // Màu sáng trở lại khi thả chuột
-            button_DeckManagement.FlatAppearance.BorderColor = Color.CornflowerBlue; // Viền sáng trở lại
-        }
-
-        #endregion
-
-        #region Mouse_Color_CardsManagement
-
-        private void button_CardsManagement_MouseEnter(object sender, EventArgs e)
-        {
-            button_CardsManagement.BackColor = Color.FromArgb(100, 149, 237); // Màu sáng khi di chuột vào
-            button_CardsManagement.FlatAppearance.BorderColor = Color.CornflowerBlue; // Viền sáng khi di chuột
-        }
-
-        private void button_CardsManagement_MouseLeave(object sender, EventArgs e)
-        {
-            button_CardsManagement.BackColor = Color.OliveDrab; // Màu nền mặc định
-            button_CardsManagement.FlatAppearance.BorderColor = Color.OliveDrab; // Viền mặc định nút
-        }
-
-        private void button_CardsManagement_MouseDown(object sender, MouseEventArgs e)
-        {
-            button_CardsManagement.BackColor = Color.FromArgb(65, 105, 225); // Màu tối hơn khi nhấn nút
-            button_CardsManagement.FlatAppearance.BorderColor = Color.RoyalBlue; // Viền tối hơn khi nhấn nút
-        }
-
-        private void button_CardsManagement_MouseUp(object sender, MouseEventArgs e)
-        {
-            button_CardsManagement.BackColor = Color.FromArgb(100, 149, 237); // Màu sáng trở lại khi thả chuột
-            button_CardsManagement.FlatAppearance.BorderColor = Color.CornflowerBlue; // Viền sáng trở lại
-        }
-        #endregion
-
-       
     }
 
 }
 
 
-    
-    
+
+
 
 
 

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace rmbh.Entity.Interfaces
+﻿namespace rmbh.Entity.Interfaces
 {
+    /// <summary>
+    /// SortOrder
+    /// </summary>
     public interface IHasSortable
     {
         int? SortOrder { get; set; }

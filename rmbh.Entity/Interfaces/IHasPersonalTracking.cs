@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace rmbh.Entity.Interfaces
+﻿namespace rmbh.Entity.Interfaces
 {
+    /// <summary>
+    /// CreatedUserId,
+    /// ModifiedUserId
+    /// </summary>
     public interface IHasPersonTracking
     {
         Guid CreatedUserId { set; get; }
