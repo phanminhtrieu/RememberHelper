@@ -197,7 +197,7 @@
             button_Logout.Padding = new Padding(9, 0, 0, 0);
             button_Logout.Size = new Size(219, 34);
             button_Logout.TabIndex = 8;
-            button_Logout.Text = "Logout";
+            button_Logout.Text = "Log out";
             button_Logout.UseVisualStyleBackColor = true;
             button_Logout.Click += button_Logout_Click;
             // 
