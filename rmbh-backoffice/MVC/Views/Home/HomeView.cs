@@ -17,6 +17,7 @@ namespace rmbh_backoffice.MVC.Views
         {
             InitializeComponent();
             hideAllSubMenu();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         public Form Form
