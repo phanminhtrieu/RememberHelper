@@ -4,7 +4,7 @@ namespace rmbh_backoffice.MVC.Controllers.Home
 {
     public class HomeController : BaseController
     {
-        private IView _view;
+        private IView? _view;
 
         public override IView View
         {
