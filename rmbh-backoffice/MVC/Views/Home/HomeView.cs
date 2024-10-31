@@ -1,4 +1,6 @@
-﻿using rmbh_backoffice.MVC.Controllers.Login;
+﻿using rmbh_backoffice.MVC.Controllers.Learning.Class;
+using rmbh_backoffice.MVC.Controllers.Login;
+using rmbh_backoffice.MVC.Controllers.User;
 using rmbh_backoffice.MVC.Views.Learning.Card;
 using rmbh_backoffice.MVC.Views.Learning.Class;
 using rmbh_backoffice.MVC.Views.Learning.Deck;
@@ -52,7 +54,7 @@ namespace rmbh_backoffice.MVC.Views
             if (clickedButton != null)
                 setActiveButton(clickedButton);
 
-            label_Title.Text = "Home";
+            changeTitle("Home");
         }
 
         private void button_UsersManagement_Click(object sender, EventArgs e)
@@ -62,7 +64,9 @@ namespace rmbh_backoffice.MVC.Views
             if (clickedButton != null)
                 setActiveButton(clickedButton);
 
-            openChildForm(new UserView());
+            AppManager.Instance.LoadChildView<UserController>();
+
+            changeTitle("User Management");
         }
 
         private void button_Learning_Click(object sender, EventArgs e)
@@ -82,7 +86,9 @@ namespace rmbh_backoffice.MVC.Views
             if (clickedButton != null)
                 setActiveButton(clickedButton);
 
-            openChildForm(new ClassView());
+            AppManager.Instance.LoadChildView<ClassController>();
+
+            label_Title.Text = "Class Management";
         }
 
         private void button_DeckManagement_Click(object sender, EventArgs e)
@@ -92,7 +98,10 @@ namespace rmbh_backoffice.MVC.Views
             if (clickedButton != null)
                 setActiveButton(clickedButton);
 
-            openChildForm(new DeckView());
+            //openChildForm(new DeckView());
+
+            label_Title.Text = "Class Management";
+
         }
 
         private void button_CardsManagement_Click(object sender, EventArgs e)
@@ -102,7 +111,10 @@ namespace rmbh_backoffice.MVC.Views
             if (clickedButton != null)
                 setActiveButton(clickedButton);
 
-            openChildForm(new CardView());
+            //openChildForm(new CardView());
+
+            label_Title.Text = "Class Management";
+
         }
 
         private void button_Logout_Click(object sender, EventArgs e)
@@ -115,41 +127,9 @@ namespace rmbh_backoffice.MVC.Views
             }
         }
 
-        private async void openChildForm(Form childForm)
+        private void changeTitle(string title)
         {
-            if (_activeChildForm != null)
-                _activeChildForm.Close();
-
-            _activeChildForm = childForm;
-            _activeChildForm.TopLevel = false;
-            _activeChildForm.FormBorderStyle = FormBorderStyle.None;
-            _activeChildForm.Dock = DockStyle.Fill;
-
-            panel_Body.Controls.Clear();
-            panel_Body.Controls.Add(_activeChildForm);
-            panel_Body.Tag = childForm;
-
-            // Thêm độ trễ trước khi hiển thị form con
-            await Task.Delay(300);
-
-            switch (childForm)
-            {
-                case UserView userView:
-                    label_Title.Text = "User Management";
-                    break;
-                case ClassView classView:
-                    label_Title.Text = "Class Management";
-                    break;
-                case DeckView deckView:
-                    label_Title.Text = "Deck Management";
-                    break;
-                case CardView cardView:
-                    label_Title.Text = "Card Management";
-                    break;
-            }
-
-            childForm.BringToFront();
-            childForm.Show();
+            label_Title.Text = title;
         }
 
         private void setActiveButton(Button clickedButton)
