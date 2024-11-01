@@ -26,6 +26,11 @@ namespace rmbh_backoffice.MVC
         private IView _currentView;
 
         /// <summary>
+        /// The current WinForms-Child-Form instance
+        /// </summary>
+        private IView _currentChildView;
+
+        /// <summary>
         /// The controller factory for creating controllers
         /// </summary>
         private readonly ControllerFactory _controllerFactory;
@@ -46,15 +51,11 @@ namespace rmbh_backoffice.MVC
         /// <summary>
         /// Starts the AppManager and creates a singleton for this class
         /// </summary>
-        public static void Start<T>(ControllerFactory controllerFactory)
-            where T : BaseController
+        public static void Start<T>(ControllerFactory controllerFactory) where T : BaseController
         {
             if (_started) return;
 
             _started = true;
-
-            // Create Controller without ControllerFactory
-            //T controller = Activator.CreateInstance<T>();
 
             // Create Controller with ControllerFactory
             T controller = controllerFactory.CreateController<T>();
@@ -78,10 +79,8 @@ namespace rmbh_backoffice.MVC
         /// Loads a Controller, handles the loading state
         /// </summary>
         /// <typeparam name="T">Generic Type where T extends Controller</typeparam>
-        public void Load<T>()
-            where T : BaseController
+        public void Load<T>() where T : BaseController
         {
-            //T controller = Activator.CreateInstance<T>();
             T controller = _controllerFactory.CreateController<T>();
 
             if (controller != null)
@@ -109,8 +108,7 @@ namespace rmbh_backoffice.MVC
         {
             if (_currentView != null)
             {
-                _currentView.Close();
-                _currentView.Form.Dispose();
+                closeForm();
             }
 
             _currentView = controller.View;
@@ -118,6 +116,71 @@ namespace rmbh_backoffice.MVC
             Thread th = new Thread(openForm);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
+        }
+
+        public void LoadChildView<T>() where T : BaseController
+        {
+            var controller = _controllerFactory.CreateController<T>();
+
+            if (controller != null)
+            {
+                ShowChildView(controller.View);
+            }
+        }
+
+        private async void ShowChildView(IView childView) 
+        {
+            if (_currentChildView != null)
+            {
+                closeChildForm();
+            }
+
+            _currentChildView = childView;
+            var childForm = _currentChildView.Form;
+
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+
+            await Task.Delay(500);
+
+            // Lấy panel_ContentContainer từ _currentView
+            var panelContentContainer = _currentView.Form.Controls["panel_ContentContainer"] as Panel;
+            if (panelContentContainer != null)
+            {
+                var panelBody = panelContentContainer.Controls["panel_Body"] as Panel;
+
+                if (panelBody != null)
+                {
+                    // Lấy panel_Body từ panel_ContentContainer
+
+                    // Xóa tất cả controls hiện tại trong panel_Body
+                    panelBody.Controls.Clear();
+
+                    // Thiết lập thuộc tính cho childForm
+                    childForm.TopLevel = false;
+                    childForm.FormBorderStyle = FormBorderStyle.None;
+                    childForm.Dock = DockStyle.Fill;
+
+                    // Thêm childForm vào panel_Body
+                    panelBody.Controls.Add(childForm);
+                    childForm.BringToFront();
+
+                    childForm.Show();
+                }
+            }
+        }
+
+        private void closeForm()
+        {
+            _currentView.Close();
+            _currentView.Form.Dispose();
+        }
+
+        private void closeChildForm()
+        {
+            //_currentChildView.Close();
+            _currentChildView.Form.Dispose();
         }
 
         /// <summary>
