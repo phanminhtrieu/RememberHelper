@@ -4,6 +4,7 @@ namespace rmbh_backoffice.MVC.Models.Dtos.Users
 {
     public class UserDto
     {
+        public Guid Id { get; set; }
         public byte[]? Avatar { get; set; }
         public string? FisrtName { get; set; }
         public string? LastName { get; set; }

@@ -33,17 +33,6 @@
             button_Add = new Button();
             panel_DataGrid = new Panel();
             dataGridView = new DataGridView();
-            FirstName = new DataGridViewTextBoxColumn();
-            LastName = new DataGridViewTextBoxColumn();
-            Avatar = new DataGridViewImageColumn();
-            Email = new DataGridViewTextBoxColumn();
-            Bio = new DataGridViewTextBoxColumn();
-            Password = new DataGridViewTextBoxColumn();
-            Role = new DataGridViewComboBoxColumn();
-            CreatedDate = new DataGridViewTextBoxColumn();
-            ModifiedDate = new DataGridViewTextBoxColumn();
-            Edit = new DataGridViewButtonColumn();
-            Delete = new DataGridViewButtonColumn();
             panel_Operation.SuspendLayout();
             panel_DataGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
@@ -67,9 +56,10 @@
             textBox_Searching.Location = new Point(134, 19);
             textBox_Searching.Margin = new Padding(3, 4, 3, 4);
             textBox_Searching.Name = "textBox_Searching";
-            textBox_Searching.PlaceholderText = "   Search by first name, last name...";
+            textBox_Searching.PlaceholderText = "   Search by first name, last name, email";
             textBox_Searching.Size = new Size(443, 34);
             textBox_Searching.TabIndex = 1;
+            textBox_Searching.TextChanged += textBox_Searching_TextChanged;
             // 
             // button_Add
             // 
@@ -97,7 +87,6 @@
             // dataGridView
             // 
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Columns.AddRange(new DataGridViewColumn[] { FirstName, LastName, Avatar, Email, Bio, Password, Role, CreatedDate, ModifiedDate, Edit, Delete });
             dataGridView.Dock = DockStyle.Fill;
             dataGridView.Location = new Point(17, 0);
             dataGridView.Margin = new Padding(3, 4, 3, 4);
@@ -106,92 +95,6 @@
             dataGridView.RowTemplate.Height = 25;
             dataGridView.Size = new Size(876, 501);
             dataGridView.TabIndex = 0;
-            dataGridView.CellValueChanged += dataGridView_CellValueChanged;
-            // 
-            // FirstName
-            // 
-            FirstName.HeaderText = "First name";
-            FirstName.MinimumWidth = 6;
-            FirstName.Name = "FirstName";
-            FirstName.Width = 125;
-            // 
-            // LastName
-            // 
-            LastName.HeaderText = "Last name";
-            LastName.MinimumWidth = 6;
-            LastName.Name = "LastName";
-            LastName.Width = 125;
-            // 
-            // Avatar
-            // 
-            Avatar.HeaderText = "Avatar";
-            Avatar.MinimumWidth = 6;
-            Avatar.Name = "Avatar";
-            Avatar.Resizable = DataGridViewTriState.True;
-            Avatar.SortMode = DataGridViewColumnSortMode.Automatic;
-            Avatar.Width = 125;
-            // 
-            // Email
-            // 
-            Email.HeaderText = "Email";
-            Email.MinimumWidth = 6;
-            Email.Name = "Email";
-            Email.Width = 125;
-            // 
-            // Bio
-            // 
-            Bio.HeaderText = "Bio";
-            Bio.MinimumWidth = 6;
-            Bio.Name = "Bio";
-            Bio.Width = 125;
-            // 
-            // Password
-            // 
-            Password.HeaderText = "Password";
-            Password.MinimumWidth = 6;
-            Password.Name = "Password";
-            Password.Width = 125;
-            // 
-            // Role
-            // 
-            Role.HeaderText = "Role";
-            Role.MinimumWidth = 6;
-            Role.Name = "Role";
-            Role.Width = 125;
-            // 
-            // CreatedDate
-            // 
-            CreatedDate.HeaderText = "Created date";
-            CreatedDate.MinimumWidth = 6;
-            CreatedDate.Name = "CreatedDate";
-            CreatedDate.Resizable = DataGridViewTriState.True;
-            CreatedDate.SortMode = DataGridViewColumnSortMode.NotSortable;
-            CreatedDate.Width = 125;
-            // 
-            // ModifiedDate
-            // 
-            ModifiedDate.HeaderText = "ModifiedDate";
-            ModifiedDate.MinimumWidth = 6;
-            ModifiedDate.Name = "ModifiedDate";
-            ModifiedDate.Resizable = DataGridViewTriState.True;
-            ModifiedDate.SortMode = DataGridViewColumnSortMode.NotSortable;
-            ModifiedDate.Width = 125;
-            // 
-            // Edit
-            // 
-            Edit.HeaderText = "";
-            Edit.MinimumWidth = 6;
-            Edit.Name = "Edit";
-            Edit.Text = "Edit";
-            Edit.Width = 125;
-            // 
-            // Delete
-            // 
-            Delete.HeaderText = "";
-            Delete.MinimumWidth = 6;
-            Delete.Name = "Delete";
-            Delete.Text = "Delete";
-            Delete.Width = 125;
             // 
             // UserView
             // 
@@ -220,16 +123,5 @@
         private Button button_Add;
         private Panel panel_DataGrid;
         private DataGridView dataGridView;
-        private DataGridViewTextBoxColumn FirstName;
-        private DataGridViewTextBoxColumn LastName;
-        private DataGridViewImageColumn Avatar;
-        private DataGridViewTextBoxColumn Email;
-        private DataGridViewTextBoxColumn Bio;
-        private DataGridViewTextBoxColumn Password;
-        private DataGridViewComboBoxColumn Role;
-        private DataGridViewTextBoxColumn CreatedDate;
-        private DataGridViewTextBoxColumn ModifiedDate;
-        private DataGridViewButtonColumn Edit;
-        private DataGridViewButtonColumn Delete;
     }
 }
