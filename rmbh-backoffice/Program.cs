@@ -16,7 +16,7 @@ namespace rmbh_backoffice
 
             var controllerFactory = ServiceConfigurator.ConfigureServices();
 
-            AppManager.Start<HomeController>(controllerFactory);    
+            AppManager.Start<LoginController>(controllerFactory);    
         }
     }
 }

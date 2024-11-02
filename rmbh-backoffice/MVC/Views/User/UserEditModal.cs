@@ -22,7 +22,7 @@ namespace rmbh_backoffice.MVC.Views.User
             comboBox_Role.DataSource = Enum.GetValues(typeof(UserRole));
 
             // Show
-            textBox_Id.Text = _user.Id.ToString();  
+            textBox_Id.Text = _user.Id.ToString();
             textBox_FirstName.Text = _user.FisrtName;
             textBox_LastName.Text = _user.LastName;
             textBox_Email.Text = _user.Email;
@@ -30,7 +30,7 @@ namespace rmbh_backoffice.MVC.Views.User
             textBox_Bio.Text = _user.Bio;
             comboBox_Role.SelectedItem = _user.Role;
             dateTimePicker_CreatedDate.Value = _user.CreatedDate;
-            dateTimePicker_ModifiedDate.Value = _user.ModifiedDate;
+            dateTimePicker_ModifiedDate.Value = DateTime.Now;
         }
 
         private void button_Cancel_Click(object sender, EventArgs e)
