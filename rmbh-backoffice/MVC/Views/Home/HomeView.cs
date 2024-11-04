@@ -1,4 +1,5 @@
 ﻿using rmbh_backoffice.MVC.Controllers.Learning.Class;
+using rmbh_backoffice.MVC.Controllers.Learning.Deck;
 using rmbh_backoffice.MVC.Controllers.Login;
 using rmbh_backoffice.MVC.Controllers.User;
 using rmbh_backoffice.MVC.Views.Learning.Card;
@@ -99,9 +100,9 @@ namespace rmbh_backoffice.MVC.Views
             if (clickedButton != null)
                 setActiveButton(clickedButton);
 
-            //openChildForm(new DeckView());
+           AppManager.Instance.LoadChildView<DeckController>();
 
-            label_Title.Text = "Class Management";
+            label_Title.Text = "Deck Management";
 
         }
 
@@ -161,6 +162,11 @@ namespace rmbh_backoffice.MVC.Views
             }
             else
                 subMenu.Visible = false;
+        }
+
+        private void HomeView_Load(object sender, EventArgs e)
+        {
+
         }
     }
 
