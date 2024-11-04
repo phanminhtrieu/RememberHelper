@@ -13,6 +13,11 @@ namespace rmbh.API.Controllers.Frontend
             _deckService = deckService;
         }
 
+        /// <summary>
+        /// Get all decks by class id
+        /// </summary>
+        /// <param name="classId"></param>
+        /// <returns></returns>
         [HttpGet("class/{classId}")]
         public async Task<IActionResult> GetAllDecksByClassId(int classId)
         {
