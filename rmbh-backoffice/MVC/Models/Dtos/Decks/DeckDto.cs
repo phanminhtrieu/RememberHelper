@@ -11,6 +11,7 @@ namespace rmbh_backoffice.MVC.Models.Dtos.Decks
     {
         public int Id { get; set; }
         public string? Title { get; set; }
+        public string? Description { get; set; }
         public string? ClassTitle { get; set; }
         public int? SortOrder { get; set; }
         public StudyDeckType StudyMode { get; set; }

@@ -1,20 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using rmbh.Entity;
-using rmbh.Entity.Entities.Manipulation;
 using rmbh_backoffice.MVC.Models.Dtos.Decks;
-using rmbh_backoffice.MVC.Models.Dtos.Users;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace rmbh_backoffice.MVC.Models.Services.Decks
 {
     public interface IDeckService 
     {
         List<DeckDto> GetAll();
+        Task<IEnumerable<DeckDto>> GetAllDecksByClassId(int classId);
         int Add(DeckRequest request);
         int Update(int id, DeckRequest request);
         int Delete(int id);
@@ -26,12 +19,28 @@ namespace rmbh_backoffice.MVC.Models.Services.Decks
     {
         private readonly AppDbContext _context;
 
-        public DeckService() { }
-
         public DeckService(AppDbContext context) 
         {
             _context = context;
         }
+
+        public async Task<IEnumerable<DeckDto>> GetAllDecksByClassId(int classId)
+        {
+            // Lấy danh sách Decks theo classId từ cơ sở dữ liệu
+            var decks = await _context.Decks
+                .Where(deck => deck.ClassId == classId)
+                .Select(deck => new DeckDto
+                {
+                    Id = deck.Id,
+                    Title = deck.Title,
+                    Description = deck.Description,
+                    StudyMode = deck.StudyDeckType,
+                })
+                .ToListAsync();
+
+            return decks;
+        }
+
 
         public List<DeckDto> GetAll()
         {
