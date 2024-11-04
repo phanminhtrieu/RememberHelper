@@ -1,11 +1,14 @@
-﻿using rmbh.Entity;
+﻿using Microsoft.EntityFrameworkCore;
+using rmbh.Entity;
 using rmbh_backoffice.MVC.Models.Dtos.Authentications;
+using rmbh_backoffice.MVC.Models.Dtos.Users;
 
 namespace rmbh_backoffice.MVC.Models.Services.Authentications
 {
     public interface IAuthenticationService
     {
         bool IsLoginSuccessful(AuthenticationRequest authenticationRequest);
+        Task<UserDto> GetUserByEmail(string email);
     }
 
     public class AuthenticationService : IAuthenticationService
@@ -15,6 +18,26 @@ namespace rmbh_backoffice.MVC.Models.Services.Authentications
         public AuthenticationService(AppDbContext context)
         {
             _context = context;
+        }
+
+        public async Task<UserDto> GetUserByEmail(string email)
+        {
+            var user = await _context.Users
+                .SingleOrDefaultAsync(u => u.Email == email);
+
+            if (user == null)
+            {
+                return null; // Nếu không tìm thấy người dùng
+            }
+
+            return new UserDto
+            {
+                Id = user.Id, 
+                Email = user.Email,
+                FisrtName = user.FirstName,
+                LastName = user.LastName,
+                Role = user.Role,
+            };
         }
 
         public bool IsLoginSuccessful(AuthenticationRequest authenticationRequest)

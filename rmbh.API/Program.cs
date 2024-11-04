@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using rmbh.Entity;
+using rmbh_backoffice.MVC.Models.Services.Authentications;
 using rmbh_backoffice.MVC.Models.Services.Classes;
 using rmbh_backoffice.MVC.Models.Services.Decks;
 using rmbh_backoffice.MVC.Models.Services.Users;
@@ -33,6 +34,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddScoped<IClassService, ClassService>();
 builder.Services.AddScoped<IDeckService, DeckService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 
 
 builder.Services.AddSwaggerGen(c =>

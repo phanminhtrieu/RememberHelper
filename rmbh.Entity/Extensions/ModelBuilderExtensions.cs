@@ -179,7 +179,7 @@ namespace rmbh.Entity.Extensions
                     Id = 10,
                     UserId = new Guid("f8d170a5-02f7-4ff4-8c12-4eb83451fcd6"),
                     ClassId = 2,
-                    Role = ClassRole.Member,
+                    Role = ClassRole.Owner,
                     JoinedDate = DateTime.Now,
                     TimeSpent = 290,
                     MasteryScore = MasteryScore.Excellent,
@@ -334,7 +334,7 @@ namespace rmbh.Entity.Extensions
                     Id = 24,
                     UserId = new Guid("f8d170a5-02f7-4ff4-8c12-4eb83451fcd6"),
                     ClassId = 3,
-                    Role = ClassRole.Member,
+                    Role = ClassRole.Owner,
                     JoinedDate = DateTime.Now,
                     TimeSpent = 350,
                     MasteryScore = MasteryScore.Good,
@@ -374,7 +374,7 @@ namespace rmbh.Entity.Extensions
                     Description = "Learn the basics of ASP.NET Core, including routing, middleware, and dependency injection.",
                     CreatedDate = DateTime.Now,
                     ModifiedDate = DateTime.Now,
-                    SortOrder = 1,
+                    SortOrder = 3,
                     StudyDeckType = StudyDeckType.Random
                 },
                 new Deck
@@ -385,7 +385,7 @@ namespace rmbh.Entity.Extensions
                     Description = "This deck focuses on creating RESTful APIs using ASP.NET Core MVC and Entity Framework.",
                     CreatedDate = DateTime.Now,
                     ModifiedDate = DateTime.Now,
-                    SortOrder = 2,
+                    SortOrder = 4,
                     StudyDeckType = StudyDeckType.Progressive
                 },
 
@@ -397,7 +397,7 @@ namespace rmbh.Entity.Extensions
                     Description = "Discover the utility-first approach to CSS with TailwindCSS and how to get started with it.",
                     CreatedDate = DateTime.Now,
                     ModifiedDate = DateTime.Now,
-                    SortOrder = 1,
+                    SortOrder = 5,
                     StudyDeckType = StudyDeckType.Random
                 },
                 new Deck
@@ -408,7 +408,7 @@ namespace rmbh.Entity.Extensions
                     Description = "Learn advanced techniques in TailwindCSS for customizing designs and improving workflow.",
                     CreatedDate = DateTime.Now,
                     ModifiedDate = DateTime.Now,
-                    SortOrder = 2,
+                    SortOrder = 6,
                     StudyDeckType = StudyDeckType.Progressive
                 });
 
