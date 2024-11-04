@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using rmbh.Entity;
 using rmbh_backoffice.MVC.Models.Services.Classes;
+using rmbh_backoffice.MVC.Models.Services.Decks;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,8 @@ builder.Services.AddCors(options =>
 
 // DI Container
 builder.Services.AddScoped<IClassService, ClassService>();
+builder.Services.AddScoped<IDeckService, DeckService>();
+
 
 var app = builder.Build(); // Xây dựng ứng dụng
 
