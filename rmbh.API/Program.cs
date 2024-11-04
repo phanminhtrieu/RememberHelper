@@ -2,6 +2,8 @@
 using rmbh.Entity;
 using rmbh_backoffice.MVC.Models.Services.Classes;
 using rmbh_backoffice.MVC.Models.Services.Decks;
+using rmbh_backoffice.MVC.Models.Services.Users;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,7 +32,15 @@ builder.Services.AddCors(options =>
 // DI Container
 builder.Services.AddScoped<IClassService, ClassService>();
 builder.Services.AddScoped<IDeckService, DeckService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
+
+builder.Services.AddSwaggerGen(c =>
+{
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    c.IncludeXmlComments(xmlPath);
+});
 
 var app = builder.Build(); // Xây dựng ứng dụng
 
