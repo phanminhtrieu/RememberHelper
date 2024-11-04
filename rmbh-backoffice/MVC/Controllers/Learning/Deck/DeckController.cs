@@ -1,6 +1,145 @@
-﻿namespace rmbh_backoffice.MVC.Controllers.Learning.Deck
+﻿using rmbh_backoffice.MVC.Models.Dtos.Decks;
+using rmbh_backoffice.MVC.Models.Services.Decks;
+using rmbh_backoffice.MVC.Views;
+using rmbh_backoffice.MVC.Views.Learning.Deck;
+using rmbh_backoffice.MVC.Views.User;
+
+namespace rmbh_backoffice.MVC.Controllers.Learning.Deck
 {
-    internal class DeckController
+    public class DeckController : BaseController
     {
+        private DeckView _deckView { get; set; } = new DeckView();
+        private IView? _view;
+        private IDeckService _deckService;
+
+        public override IView View
+        {
+            get
+            {
+                if (_view == null)
+                {
+                    _view = new DeckView();
+                }
+                if (_view is DeckView deckView)
+                {
+
+                    _deckView = deckView;
+                    _deckView.Form.Load += Form_Load;
+                    _deckView.AddButton.Click += AddButton_Click;
+                    _deckView.DataGridView.CellContentClick += DataGridView_CellContenClick;
+                    _deckView.DataGridView.DataBindingComplete += DataGridView_DataBindingComplete;
+                    _deckView.TextBox.TextChanged += TextBox_Search_TextChanged;
+                }
+
+                return _view;
+            }
+        }
+
+        public DeckController(IDeckService deckService)
+        {
+            _deckService = deckService;
+        }
+
+        private void Form_Load(object? sender, EventArgs e)
+        {
+            // Thêm cột số thứ tự trước khi gán DataSource
+            DataGridViewTextBoxColumn numberColumn = new DataGridViewTextBoxColumn
+            {
+                Name = "numberColumn",
+                HeaderText = "No.",
+                ReadOnly = true,
+            };
+            _deckView.DataGridView.Columns.Insert(0, numberColumn);
+
+            //// Thêm cột Id nhưng ẩn đi để có thể lấy data nhưng không show ra
+            //DataGridViewTextBoxColumn userIdColumn = new DataGridViewTextBoxColumn
+            //{
+            //    HeaderText = "Id",
+            //    Name = "Id",
+            //    DataPropertyName = "Id",
+            //    Visible = false,
+            //};
+            //_deckView.DataGridView.Columns.Insert(1, userIdColumn);
+
+            //hiện thị db còn lại
+            LoadData();
+            //theem 2 nuts delete and edit
+
+            addingEditButtonAndDeleteButtonIntoDataGridView();
+
+        }
+
+        private void LoadData()
+        {
+            if (_deckView != null)
+            {
+                List<DeckDto> decks = _deckService.GetAll();
+
+                _deckView.DataGridView.DataSource = decks;
+            }
+        }
+
+        public override bool Loadable()
+        {
+            return true;
+        }
+
+        private void DataGridView_DataBindingComplete(object? sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            addingOrderNumberValue();
+        }
+
+        private void TextBox_Search_TextChanged(object? sender, EventArgs e)
+        {
+            //if (_deckView != null)
+            //{
+            //    string searchValue = _deckView.TextBox.Text.ToLower();
+            //    var filteredUsers = _deckView.GetAll().Where(user =>
+            //        user.Email.ToLower().Contains(searchValue) ||
+            //        user.FisrtName.ToLower().Contains(searchValue) ||
+            //        user.LastName.ToLower().Contains(searchValue)).ToList();
+
+            //    _deckView.DataGridView.DataSource = filteredUsers; // Cập nhật DataSource với danh sách đã lọc
+            //}
+        }
+
+        private void DataGridView_CellContenClick(object? sender, DataGridViewCellEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void AddButton_Click(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void addingEditButtonAndDeleteButtonIntoDataGridView()
+        {
+            // Thêm cột chứa nút "Edit"
+            DataGridViewButtonColumn editButtonColumn = new DataGridViewButtonColumn();
+            editButtonColumn.Name = "button_Edit";
+            editButtonColumn.HeaderText = "";
+            editButtonColumn.Text = "Edit";
+            editButtonColumn.UseColumnTextForButtonValue = true; // Hiển thị văn bản trong các ô
+            _deckView.DataGridView.Columns.Add(editButtonColumn);
+
+            // Thêm cột chứa nút "Delete"
+            DataGridViewButtonColumn deleteButtonColumn = new DataGridViewButtonColumn();
+            deleteButtonColumn.Name = "button_Delete";
+            deleteButtonColumn.HeaderText = "";
+            deleteButtonColumn.Text = "Delete";
+            deleteButtonColumn.UseColumnTextForButtonValue = true; // Hiển thị văn bản trong các ô
+            _deckView.DataGridView.Columns.Add(deleteButtonColumn);
+        }
+
+        private void addingOrderNumberValue()
+        {
+            for (int i = 0; i < _deckView.DataGridView.RowCount; i++)
+            {
+                _deckView.DataGridView.Rows[i].Cells["numberColumn"].Value = i + 1;
+            }
+        }
+
     }
 }
+
