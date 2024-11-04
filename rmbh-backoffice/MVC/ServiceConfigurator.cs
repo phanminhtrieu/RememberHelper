@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using rmbh.Entity;
 using rmbh_backoffice.MVC.Models.Services.Authentications;
+using rmbh_backoffice.MVC.Models.Services.Cards;
 using rmbh_backoffice.MVC.Models.Services.Classes;
 using rmbh_backoffice.MVC.Models.Services.Users;
 
@@ -33,8 +34,10 @@ namespace rmbh_backoffice.MVC
             // User
             IUserService userService = new UserService(context);
 
-            //Learning
+            // Learning
             IClassService classService = new ClassService(context);
+            ICardService cardService = new CardService(context);
+
 
             #endregion
 
@@ -47,7 +50,8 @@ namespace rmbh_backoffice.MVC
                     userService,
 
                     // Learning
-                    classService
+                    classService,
+                    cardService
                 );
         }
     }

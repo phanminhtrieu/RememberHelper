@@ -8,6 +8,9 @@ namespace rmbh_backoffice.MVC.Views.Learning.Card
 {
     public partial class CardView : BaseChildForm, IView
     {
+        public Button AddButton => button_Add;
+        public TextBox TextBoxSearching => textBox_Searching;
+        public DataGridView DataGridView => dataGridView;
         public Form Form
         {
             get
@@ -29,25 +32,14 @@ namespace rmbh_backoffice.MVC.Views.Learning.Card
             }
         }
 
-        private readonly AppDbContext _context;
-
         public CardView()
         {
             InitializeComponent();
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .Build();
-
-            var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("rmbh"));
-
-            _context = new AppDbContext(optionsBuilder.Options);
         }
 
-        private void CardView_Load(object sender, EventArgs e)
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridView.DataSource = _context.Cards.ToList();
+
         }
     }
 }

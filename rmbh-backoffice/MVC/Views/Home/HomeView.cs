@@ -1,4 +1,5 @@
-﻿using rmbh_backoffice.MVC.Controllers.Learning.Class;
+﻿using rmbh_backoffice.MVC.Controllers.Learning.Card;
+using rmbh_backoffice.MVC.Controllers.Learning.Class;
 using rmbh_backoffice.MVC.Controllers.Login;
 using rmbh_backoffice.MVC.Controllers.User;
 using rmbh_backoffice.MVC.Views.Learning.Card;
@@ -112,10 +113,9 @@ namespace rmbh_backoffice.MVC.Views
             if (clickedButton != null)
                 setActiveButton(clickedButton);
 
-            //openChildForm(new CardView());
+            AppManager.Instance.LoadChildView<CardController>();
 
-            label_Title.Text = "Class Management";
-
+            label_Title.Text = "Card Management";
         }
 
         private void button_Logout_Click(object sender, EventArgs e)

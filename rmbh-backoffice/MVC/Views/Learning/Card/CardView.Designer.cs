@@ -29,21 +29,10 @@
         private void InitializeComponent()
         {
             panel_Operation = new Panel();
-            textBox1 = new TextBox();
+            textBox_Searching = new TextBox();
             button_Add = new Button();
             panel_DataGrid = new Panel();
             dataGridView = new DataGridView();
-            Question = new DataGridViewTextBoxColumn();
-            Answer = new DataGridViewTextBoxColumn();
-            QuestionImg = new DataGridViewTextBoxColumn();
-            AnswerImg = new DataGridViewTextBoxColumn();
-            QuestionClarifier = new DataGridViewTextBoxColumn();
-            AnswerClarifier = new DataGridViewTextBoxColumn();
-            QuestionFootnote = new DataGridViewTextBoxColumn();
-            AnswerFootnote = new DataGridViewTextBoxColumn();
-            SortOrder = new DataGridViewTextBoxColumn();
-            CreatedDate = new DataGridViewTextBoxColumn();
-            ModifiedDate = new DataGridViewTextBoxColumn();
             panel_Operation.SuspendLayout();
             panel_DataGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
@@ -51,7 +40,7 @@
             // 
             // panel_Operation
             // 
-            panel_Operation.Controls.Add(textBox1);
+            panel_Operation.Controls.Add(textBox_Searching);
             panel_Operation.Controls.Add(button_Add);
             panel_Operation.Dock = DockStyle.Top;
             panel_Operation.Location = new Point(2, 3);
@@ -60,16 +49,16 @@
             panel_Operation.Size = new Size(910, 73);
             panel_Operation.TabIndex = 0;
             // 
-            // textBox1
+            // textBox_Searching
             // 
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(134, 19);
-            textBox1.Margin = new Padding(3, 4, 3, 4);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(443, 34);
-            textBox1.TabIndex = 1;
-            textBox1.Text = "Search...";
+            textBox_Searching.BorderStyle = BorderStyle.FixedSingle;
+            textBox_Searching.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox_Searching.Location = new Point(134, 19);
+            textBox_Searching.Margin = new Padding(3, 4, 3, 4);
+            textBox_Searching.Name = "textBox_Searching";
+            textBox_Searching.Size = new Size(443, 34);
+            textBox_Searching.TabIndex = 1;
+            textBox_Searching.Text = "Search...";
             // 
             // button_Add
             // 
@@ -97,7 +86,6 @@
             // dataGridView
             // 
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Columns.AddRange(new DataGridViewColumn[] { Question, Answer, QuestionImg, AnswerImg, QuestionClarifier, AnswerClarifier, QuestionFootnote, AnswerFootnote, SortOrder, CreatedDate, ModifiedDate });
             dataGridView.Dock = DockStyle.Fill;
             dataGridView.Location = new Point(17, 0);
             dataGridView.Margin = new Padding(3, 4, 3, 4);
@@ -106,83 +94,7 @@
             dataGridView.RowTemplate.Height = 25;
             dataGridView.Size = new Size(876, 501);
             dataGridView.TabIndex = 0;
-            // 
-            // Question
-            // 
-            Question.HeaderText = "Front - Question";
-            Question.MinimumWidth = 6;
-            Question.Name = "Question";
-            Question.Width = 125;
-            // 
-            // Answer
-            // 
-            Answer.HeaderText = "Back - Answer";
-            Answer.MinimumWidth = 6;
-            Answer.Name = "Answer";
-            Answer.Width = 125;
-            // 
-            // QuestionImg
-            // 
-            QuestionImg.HeaderText = "Question Image";
-            QuestionImg.MinimumWidth = 6;
-            QuestionImg.Name = "QuestionImg";
-            QuestionImg.Width = 125;
-            // 
-            // AnswerImg
-            // 
-            AnswerImg.HeaderText = "Answer Image";
-            AnswerImg.MinimumWidth = 6;
-            AnswerImg.Name = "AnswerImg";
-            AnswerImg.Width = 125;
-            // 
-            // QuestionClarifier
-            // 
-            QuestionClarifier.HeaderText = "Question Clarifier";
-            QuestionClarifier.MinimumWidth = 6;
-            QuestionClarifier.Name = "QuestionClarifier";
-            QuestionClarifier.Width = 125;
-            // 
-            // AnswerClarifier
-            // 
-            AnswerClarifier.HeaderText = "Answer Clarifier";
-            AnswerClarifier.MinimumWidth = 6;
-            AnswerClarifier.Name = "AnswerClarifier";
-            AnswerClarifier.Width = 125;
-            // 
-            // QuestionFootnote
-            // 
-            QuestionFootnote.HeaderText = "Question Footnote";
-            QuestionFootnote.MinimumWidth = 6;
-            QuestionFootnote.Name = "QuestionFootnote";
-            QuestionFootnote.Width = 125;
-            // 
-            // AnswerFootnote
-            // 
-            AnswerFootnote.HeaderText = "Answer Footnote";
-            AnswerFootnote.MinimumWidth = 6;
-            AnswerFootnote.Name = "AnswerFootnote";
-            AnswerFootnote.Width = 125;
-            // 
-            // SortOrder
-            // 
-            SortOrder.HeaderText = "Sort Order";
-            SortOrder.MinimumWidth = 6;
-            SortOrder.Name = "SortOrder";
-            SortOrder.Width = 125;
-            // 
-            // CreatedDate
-            // 
-            CreatedDate.HeaderText = "Date Created";
-            CreatedDate.MinimumWidth = 6;
-            CreatedDate.Name = "CreatedDate";
-            CreatedDate.Width = 125;
-            // 
-            // ModifiedDate
-            // 
-            ModifiedDate.HeaderText = "Date Modified";
-            ModifiedDate.MinimumWidth = 6;
-            ModifiedDate.Name = "ModifiedDate";
-            ModifiedDate.Width = 125;
+            dataGridView.CellContentClick += dataGridView_CellContentClick;
             // 
             // CardView
             // 
@@ -195,8 +107,7 @@
             Margin = new Padding(3, 5, 3, 5);
             Name = "CardView";
             Padding = new Padding(2, 3, 2, 3);
-            Text = "UserView";
-            Load += CardView_Load;
+            Text = "CardView";
             panel_Operation.ResumeLayout(false);
             panel_Operation.PerformLayout();
             panel_DataGrid.ResumeLayout(false);
@@ -207,20 +118,9 @@
         #endregion
 
         private Panel panel_Operation;
-        private TextBox textBox1;
+        private TextBox textBox_Searching;
         private Button button_Add;
         private Panel panel_DataGrid;
         private DataGridView dataGridView;
-        private DataGridViewTextBoxColumn Question;
-        private DataGridViewTextBoxColumn Answer;
-        private DataGridViewTextBoxColumn QuestionImg;
-        private DataGridViewTextBoxColumn AnswerImg;
-        private DataGridViewTextBoxColumn QuestionClarifier;
-        private DataGridViewTextBoxColumn AnswerClarifier;
-        private DataGridViewTextBoxColumn QuestionFootnote;
-        private DataGridViewTextBoxColumn AnswerFootnote;
-        private DataGridViewTextBoxColumn SortOrder;
-        private DataGridViewTextBoxColumn CreatedDate;
-        private DataGridViewTextBoxColumn ModifiedDate;
     }
 }

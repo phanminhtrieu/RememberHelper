@@ -1,8 +1,10 @@
 ﻿using rmbh_backoffice.MVC.Controllers;
+using rmbh_backoffice.MVC.Controllers.Learning.Card;
 using rmbh_backoffice.MVC.Controllers.Learning.Class;
 using rmbh_backoffice.MVC.Controllers.Login;
 using rmbh_backoffice.MVC.Controllers.User;
 using rmbh_backoffice.MVC.Models.Services.Authentications;
+using rmbh_backoffice.MVC.Models.Services.Cards;
 using rmbh_backoffice.MVC.Models.Services.Classes;
 using rmbh_backoffice.MVC.Models.Services.Users;
 
@@ -17,15 +19,18 @@ namespace rmbh_backoffice.MVC
         private readonly IAuthenticationService _authenticationService;
         private readonly IUserService _userService;
         private readonly IClassService _classService;
+        private readonly ICardService _cardService;
 
         public ControllerFactory(
             IAuthenticationService authenticationService, 
             IUserService userService,
-            IClassService classService)
+            IClassService classService,
+            ICardService cardService)
         {
             _authenticationService = authenticationService;
             _userService = userService;
             _classService = classService;
+            _cardService = cardService;
         }
 
         public T CreateController<T>() where T : BaseController
@@ -44,6 +49,10 @@ namespace rmbh_backoffice.MVC
 
                 case Type t when t == typeof(ClassController):
                     controller = new ClassController(_classService);
+                    break;
+
+                case Type t when t == typeof(CardController):
+                    controller = new CardController(_cardService);
                     break;
 
                 // Tạo một Controller không có inject các service vào (hay Controller đó chỉ sử dụng constructor không có tham số)
