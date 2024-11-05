@@ -154,7 +154,6 @@ namespace rmbh_backoffice.MVC.Controllers.Learning.Card
                 {
                     List<DeckDto> decks = _deckService.GetAll();
 
-
                     _cardAddModal.ComboBoxDeck.DataSource = decks;
                     _cardAddModal.ComboBoxDeck.DisplayMember = "Title";
                     _cardAddModal.ComboBoxDeck.ValueMember = "Id";

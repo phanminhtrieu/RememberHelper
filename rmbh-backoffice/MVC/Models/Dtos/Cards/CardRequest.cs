@@ -19,6 +19,6 @@ namespace rmbh_backoffice.MVC.Models.Dtos.Cards
         public DateTime ModifiedDate { get; set; }
         public string? CreatedUserName { get; set; }
         public string? ModifiedUserName { get; set; }
-        public string? DeckName { get; set; }
+        public int? DeckId { get; set; }
     }
 }
