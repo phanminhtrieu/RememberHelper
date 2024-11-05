@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic.ApplicationServices;
 using rmbh.Entity;
+using rmbh.Entity.Entities.Manipulation;
 using rmbh_backoffice.MVC.Models.Dtos.Decks;
 
 namespace rmbh_backoffice.MVC.Models.Services.Decks
@@ -63,7 +65,19 @@ namespace rmbh_backoffice.MVC.Models.Services.Decks
 
         public int Add(DeckRequest request)
         {
-            throw new NotImplementedException();
+            Deck deck = new Deck
+            {
+                Title = request.Title,
+                Description = request.Description,
+                SortOrder= request.SortOrder,
+                StudyDeckType = request.StudyDeckType,
+                CreatedDate= request.CreatedDate,
+                ModifiedDate= request.ModifiedDate,
+                ClassId = request.ClassId,
+            };
+            _context.Decks.Add(deck);
+
+            return _context.SaveChanges();
         }
 
         public int Update(int id, DeckRequest request)
@@ -73,7 +87,15 @@ namespace rmbh_backoffice.MVC.Models.Services.Decks
 
         public int Delete(int id)
         {
-            throw new NotImplementedException();
+            Deck deck = _context.Decks.Find(id);
+
+            if (deck != null)
+            {
+                _context.Decks.Remove(deck);
+            }
+
+            return _context.SaveChanges();
         }
     }
+    
 }

@@ -16,5 +16,6 @@ namespace rmbh_backoffice.MVC.Models.Dtos.Decks
         public StudyDeckType StudyDeckType { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
+        public int ClassId { get; set; }
     }
 }
