@@ -53,8 +53,7 @@ namespace rmbh_backoffice.MVC
 
                     // Learning
                     classService,
-                    cardService
-                    classService,
+                    cardService,
                     deckService
                 );
         }
