@@ -5,10 +5,10 @@ namespace rmbh_backoffice.MVC.Views.User
 {
     public partial class UserEditModal : Form
     {
-        private readonly UserDto _user;
+        private readonly UserGetAllDto _user;
         public UserRequest UserRequest { get; set; } = new UserRequest();
 
-        public UserEditModal(UserDto user)
+        public UserEditModal(UserGetAllDto user)
         {
             InitializeComponent();
 
