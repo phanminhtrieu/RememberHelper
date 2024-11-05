@@ -11,6 +11,7 @@ namespace rmbh_backoffice.MVC.Views.Learning.Card
         public Button AddButton => button_Add;
         public TextBox TextBoxSearching => textBox_Searching;
         public DataGridView DataGridView => dataGridView;
+
         public Form Form
         {
             get

@@ -1,5 +1,7 @@
 ﻿using rmbh_backoffice.MVC.Models.Dtos.Cards;
+using rmbh_backoffice.MVC.Models.Dtos.Decks;
 using rmbh_backoffice.MVC.Models.Services.Cards;
+using rmbh_backoffice.MVC.Models.Services.Decks;
 using rmbh_backoffice.MVC.Views;
 using rmbh_backoffice.MVC.Views.Learning.Card;
 using rmbh_backoffice.MVC.Views.User;
@@ -10,7 +12,10 @@ namespace rmbh_backoffice.MVC.Controllers.Learning.Card
     {
         private CardView _cardView { get; set; } = new CardView();
         private IView? _view;
+        private CardAddModal _cardAddModal;
+        private CardEditModal _cardEditModal;
         private ICardService? _cardService;
+        private IDeckService? _deckService;
 
         public override IView View
         {
@@ -34,9 +39,10 @@ namespace rmbh_backoffice.MVC.Controllers.Learning.Card
             }
         }
 
-        public CardController(ICardService cardService) 
+        public CardController(ICardService cardService, IDeckService deckService) 
         {
             _cardService = cardService;
+            _deckService = deckService;
         }
 
         private void TextBox_Search_TextChanged(object? sender, EventArgs e)
@@ -119,23 +125,41 @@ namespace rmbh_backoffice.MVC.Controllers.Learning.Card
 
         private void AddButton_Click(object? sender, EventArgs e)
         {
-            //var cardAddModal = new CardAddModal();
+            _cardAddModal = new CardAddModal();
 
-            //if (cardAddModal.ShowDialog() == DialogResult.OK)
-            //{
-            //    var addedRecord = _cardService.Add(cardAddModal.CardRequest);
+            _cardAddModal.Load += CardAddModal_Load;
 
-            //    if (addedRecord > 0)
-            //    {
-            //        MessageBox.Show("Card added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("No card was added. Please try again.", "Nothing added", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    }
+            if (_cardAddModal.ShowDialog() == DialogResult.OK)
+            {
+                var addedRecord = _cardService.Add(_cardAddModal.CardRequest);
 
-            //    LoadData();
-            //}
+                if (addedRecord > 0)
+                {
+                    MessageBox.Show("Card added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No card was added. Please try again.", "Nothing added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                LoadData();
+            }
+        }
+
+        private void CardAddModal_Load(object? sender, EventArgs e)
+        {
+            if (_cardAddModal != null)
+            {
+                if (_deckService != null)
+                {
+                    List<DeckDto> decks = _deckService.GetAll();
+
+
+                    _cardAddModal.ComboBoxDeck.DataSource = decks;
+                    _cardAddModal.ComboBoxDeck.DisplayMember = "Title";
+                    _cardAddModal.ComboBoxDeck.ValueMember = "Id";
+                }
+            }
         }
 
         private void Form_Load(object? sender, EventArgs e)

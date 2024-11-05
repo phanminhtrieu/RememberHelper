@@ -1,4 +1,5 @@
-﻿using System;
+﻿using rmbh_backoffice.MVC.Models.Dtos.Cards;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,14 @@ namespace rmbh_backoffice.MVC.Views.Learning.Card
 {
     public partial class CardAddModal : Form
     {
+        public CardRequest CardRequest { get; set; } = new CardRequest();
+        public ComboBox ComboBoxDeck => comboBox_Deck;
+
         public CardAddModal()
         {
             InitializeComponent();
+
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void textBox_Id_TextChanged(object sender, EventArgs e)
@@ -35,6 +41,11 @@ namespace rmbh_backoffice.MVC.Views.Learning.Card
         private void button_Add_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void CardAddModal_Load(object sender, EventArgs e)
+        {
+            //comboBox_Deck.DataSource = 
         }
     }
 }
