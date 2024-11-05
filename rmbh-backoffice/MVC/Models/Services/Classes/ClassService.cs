@@ -10,6 +10,7 @@ namespace rmbh_backoffice.MVC.Models.Services.Classes
     public interface IClassService
     {
         Task<IEnumerable<ClassDto>> GetAllClassesByUserId(string userId);
+        List<ClassDto> GetAll();
         Task<int> CreateAsync(ClassRequest request);
         Task<int> UpdateAsync(int classId, ClassRequest request);
         Task<int> DeleteClass(int classId);
@@ -108,6 +109,13 @@ namespace rmbh_backoffice.MVC.Models.Services.Classes
 
             _context.Classes.Remove(existingClass);
             return await _context.SaveChangesAsync();
+        }
+
+        public List<ClassDto> GetAll()
+        {
+            List<ClassDto> classes = _context.Classes.AsNoTracking().Select(x => new ClassDto { Id = x.Id, Title = x.Title}).ToList();
+
+            return classes;
         }
     }
 }

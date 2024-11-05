@@ -61,7 +61,7 @@ namespace rmbh_backoffice.MVC
                     break;
 
                 case Type t when t == typeof(DeckController):
-                    controller = new DeckController(_deckService);
+                    controller = new DeckController(_deckService,_classService);
                     break;
 
                 // Tạo một Controller không có inject các service vào (hay Controller đó chỉ sử dụng constructor không có tham số)

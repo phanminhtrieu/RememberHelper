@@ -1,4 +1,5 @@
 ﻿using rmbh_backoffice.MVC.Models.Dtos.Decks;
+using rmbh_backoffice.MVC.Models.Services.Classes;
 using rmbh_backoffice.MVC.Models.Services.Decks;
 using rmbh_backoffice.MVC.Views;
 using rmbh_backoffice.MVC.Views.Learning.Deck;
@@ -9,8 +10,12 @@ namespace rmbh_backoffice.MVC.Controllers.Learning.Deck
     public class DeckController : BaseController
     {
         private DeckView _deckView { get; set; } = new DeckView();
+        private DeckAddModal _deckAddModal { get; set; }
+        private DeckEditModal _deckEditModal { get; set; }
         private IView? _view;
         private IDeckService _deckService;
+        private IClassService _classService;
+
 
         public override IView View
         {
@@ -35,9 +40,10 @@ namespace rmbh_backoffice.MVC.Controllers.Learning.Deck
             }
         }
 
-        public DeckController(IDeckService deckService)
+        public DeckController(IDeckService deckService, IClassService classService)
         {
             _deckService = deckService;
+            _classService = classService;
         }
 
         private void Form_Load(object? sender, EventArgs e)
@@ -51,15 +57,15 @@ namespace rmbh_backoffice.MVC.Controllers.Learning.Deck
             };
             _deckView.DataGridView.Columns.Insert(0, numberColumn);
 
-            //// Thêm cột Id nhưng ẩn đi để có thể lấy data nhưng không show ra
-            //DataGridViewTextBoxColumn userIdColumn = new DataGridViewTextBoxColumn
-            //{
-            //    HeaderText = "Id",
-            //    Name = "Id",
-            //    DataPropertyName = "Id",
-            //    Visible = false,
-            //};
-            //_deckView.DataGridView.Columns.Insert(1, userIdColumn);
+            // Thêm cột Id nhưng ẩn đi để có thể lấy data nhưng không show ra
+            DataGridViewTextBoxColumn userIdColumn = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Id",
+                Name = "Id",
+                DataPropertyName = "Id",
+                Visible = false,
+            };
+            _deckView.DataGridView.Columns.Insert(1, userIdColumn);
 
             //hiện thị db còn lại
             LoadData();
@@ -110,7 +116,41 @@ namespace rmbh_backoffice.MVC.Controllers.Learning.Deck
 
         private void AddButton_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _deckAddModal = new DeckAddModal();
+
+            _deckAddModal.Load += DeckAddModal_Load;
+            
+
+            if (_deckAddModal.ShowDialog() == DialogResult.OK)
+            {
+                var addedRecord = _deckService.Add(_deckAddModal.DeckRequest);
+
+                if (addedRecord > 0)
+                {
+                    MessageBox.Show("User added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No deck was added. Please try again.", "Nothing added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                LoadData();
+            }
+        }
+
+        private void DeckAddModal_Load(object? sender, EventArgs e)
+        {
+            if(_deckAddModal != null) 
+            {
+                if(_classService != null)
+                {
+                    var classes = _classService.GetAll();
+
+                    _deckAddModal.ComboBoxClassTitle.DataSource = classes;
+                    _deckAddModal.ComboBoxClassTitle.DisplayMember = "Title";
+                    _deckAddModal.ComboBoxClassTitle.ValueMember = "Id";
+                }
+            }
         }
 
         private void addingEditButtonAndDeleteButtonIntoDataGridView()

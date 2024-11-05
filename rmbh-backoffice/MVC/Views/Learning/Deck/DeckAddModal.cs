@@ -15,6 +15,9 @@ namespace rmbh_backoffice.MVC.Views.Learning.Deck
     public partial class DeckAddModal : Form
     {
         public DeckRequest DeckRequest { get; set; } = new DeckRequest();
+        public ComboBox ComboBoxStudyMode => comboBox_StudyMode;
+        public ComboBox ComboBoxClassTitle => comboBox_ClassTitle;
+
         public DeckAddModal()
         {
             InitializeComponent();
@@ -23,7 +26,8 @@ namespace rmbh_backoffice.MVC.Views.Learning.Deck
 
         private void DeckAddModal_Load(object sender, EventArgs e)
         {
-            comboBox_ClassTitle.DataSource = Enum.GetValues(typeof(StudyDeckType));
+            comboBox_StudyMode.DataSource = Enum.GetValues(typeof(StudyDeckType));
+            //comboBox_ClassTitle.DataSource = 
 
             dateTimePicker_CreatedDate.Value = DateTime.Now;
             dateTimePicker_ModifiedDate.Value = DateTime.Now;
@@ -47,7 +51,7 @@ namespace rmbh_backoffice.MVC.Views.Learning.Deck
             DeckRequest.Title = textBox_Title.Text;
             DeckRequest.Description = textBox_Description.Text;
             DeckRequest.SortOrder = Convert.ToInt32(textBox_SortOrder.Text);
-            DeckRequest.StudyDeckType = (StudyDeckType)comboBox_StudyDeck.SelectedIndex;
+            DeckRequest.StudyDeckType = (StudyDeckType)comboBox_StudyMode.SelectedIndex;
             DeckRequest.CreatedDate = dateTimePicker_CreatedDate.Value;
             DeckRequest.ModifiedDate = dateTimePicker_ModifiedDate.Value;
 
@@ -61,6 +65,11 @@ namespace rmbh_backoffice.MVC.Views.Learning.Deck
             {
                 this.Close();
             }
+        }
+
+        private void comboBox_ClassTitle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

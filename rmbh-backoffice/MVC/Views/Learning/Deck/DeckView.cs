@@ -28,6 +28,8 @@ namespace rmbh_backoffice.MVC.Views.Learning.Deck
             }
         }
 
+        
+
         public DeckView()
         {
             InitializeComponent();
