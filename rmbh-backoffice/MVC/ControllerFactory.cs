@@ -1,9 +1,11 @@
 ﻿using rmbh_backoffice.MVC.Controllers;
+using rmbh_backoffice.MVC.Controllers.Learning.Card;
 using rmbh_backoffice.MVC.Controllers.Learning.Class;
 using rmbh_backoffice.MVC.Controllers.Learning.Deck;
 using rmbh_backoffice.MVC.Controllers.Login;
 using rmbh_backoffice.MVC.Controllers.User;
 using rmbh_backoffice.MVC.Models.Services.Authentications;
+using rmbh_backoffice.MVC.Models.Services.Cards;
 using rmbh_backoffice.MVC.Models.Services.Classes;
 using rmbh_backoffice.MVC.Models.Services.Decks;
 using rmbh_backoffice.MVC.Models.Services.Users;
@@ -19,17 +21,21 @@ namespace rmbh_backoffice.MVC
         private readonly IAuthenticationService _authenticationService;
         private readonly IUserService _userService;
         private readonly IClassService _classService;
+        private readonly ICardService _cardService;
         private readonly IDeckService _deckService;
 
         public ControllerFactory(
             IAuthenticationService authenticationService, 
             IUserService userService,
             IClassService classService,
+            ICardService cardService)
+            IClassService classService,
             IDeckService deckService)
         {
             _authenticationService = authenticationService;
             _userService = userService;
             _classService = classService;
+            _cardService = cardService;
             _deckService = deckService;
         }
 
@@ -49,6 +55,10 @@ namespace rmbh_backoffice.MVC
 
                 case Type t when t == typeof(ClassController):
                     controller = new ClassController(_classService);
+                    break;
+
+                case Type t when t == typeof(CardController):
+                    controller = new CardController(_cardService);
                     break;
 
                 case Type t when t == typeof(DeckController):
