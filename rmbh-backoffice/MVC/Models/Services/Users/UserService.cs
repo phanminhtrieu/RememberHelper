@@ -9,7 +9,7 @@ namespace rmbh_backoffice.MVC.Models.Services.Users
 {
     public interface IUserService
     {
-        List<UserDto> GetAll();
+        List<UserGetAllDto> GetAll();
         Task<IEnumerable<UserDto>> GetAllLearnersByClassId(int classId);
         int GetNumberOfRecords();
         int Add(UserRequest request);
@@ -44,11 +44,11 @@ namespace rmbh_backoffice.MVC.Models.Services.Users
             return learners;
         }
 
-        public List<UserDto> GetAll()
+        public List<UserGetAllDto> GetAll()
         {
             var query = _context.Users.AsNoTracking();
 
-            var users = query.Select(x => new UserDto()
+            var users = query.Select(x => new UserGetAllDto()
             {
                 Id = x.Id,
                 FisrtName = x.FirstName,

@@ -28,8 +28,7 @@ namespace rmbh_backoffice.MVC
             IAuthenticationService authenticationService, 
             IUserService userService,
             IClassService classService,
-            ICardService cardService)
-            IClassService classService,
+            ICardService cardService,
             IDeckService deckService)
         {
             _authenticationService = authenticationService;
