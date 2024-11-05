@@ -28,50 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel_Operation = new Panel();
-            textBox_Searching = new TextBox();
-            button_Add = new Button();
             panel_DataGrid = new Panel();
             dataGridView = new DataGridView();
-            panel_Operation.SuspendLayout();
+            button_Add = new Button();
+            textBox_Searching = new TextBox();
+            panel_Operation = new Panel();
             panel_DataGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
+            panel_Operation.SuspendLayout();
             SuspendLayout();
-            // 
-            // panel_Operation
-            // 
-            panel_Operation.Controls.Add(textBox_Searching);
-            panel_Operation.Controls.Add(button_Add);
-            panel_Operation.Dock = DockStyle.Top;
-            panel_Operation.Location = new Point(2, 3);
-            panel_Operation.Margin = new Padding(3, 4, 3, 4);
-            panel_Operation.Name = "panel_Operation";
-            panel_Operation.Size = new Size(910, 73);
-            panel_Operation.TabIndex = 0;
-            // 
-            // textBox_Searching
-            // 
-            textBox_Searching.BorderStyle = BorderStyle.FixedSingle;
-            textBox_Searching.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox_Searching.Location = new Point(134, 19);
-            textBox_Searching.Margin = new Padding(3, 4, 3, 4);
-            textBox_Searching.Name = "textBox_Searching";
-            textBox_Searching.PlaceholderText = "   Search by first name, last name, email";
-            textBox_Searching.Size = new Size(443, 34);
-            textBox_Searching.TabIndex = 1;
-            textBox_Searching.TextChanged += textBox_Searching_TextChanged;
-            // 
-            // button_Add
-            // 
-            button_Add.BackColor = Color.YellowGreen;
-            button_Add.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button_Add.Location = new Point(14, 13);
-            button_Add.Margin = new Padding(3, 4, 3, 4);
-            button_Add.Name = "button_Add";
-            button_Add.Size = new Size(101, 45);
-            button_Add.TabIndex = 0;
-            button_Add.Text = "Add";
-            button_Add.UseVisualStyleBackColor = false;
             // 
             // panel_DataGrid
             // 
@@ -96,6 +61,42 @@
             dataGridView.Size = new Size(876, 501);
             dataGridView.TabIndex = 0;
             // 
+            // button_Add
+            // 
+            button_Add.BackColor = Color.YellowGreen;
+            button_Add.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button_Add.Location = new Point(14, 13);
+            button_Add.Margin = new Padding(3, 4, 3, 4);
+            button_Add.Name = "button_Add";
+            button_Add.Size = new Size(101, 45);
+            button_Add.TabIndex = 0;
+            button_Add.Text = "Add";
+            button_Add.UseVisualStyleBackColor = false;
+            button_Add.Click += button_Add_Click;
+            // 
+            // textBox_Searching
+            // 
+            textBox_Searching.BorderStyle = BorderStyle.FixedSingle;
+            textBox_Searching.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox_Searching.Location = new Point(134, 19);
+            textBox_Searching.Margin = new Padding(3, 4, 3, 4);
+            textBox_Searching.Name = "textBox_Searching";
+            textBox_Searching.PlaceholderText = "   Search by first name, last name, email";
+            textBox_Searching.Size = new Size(443, 34);
+            textBox_Searching.TabIndex = 1;
+            textBox_Searching.TextChanged += textBox_Searching_TextChanged;
+            // 
+            // panel_Operation
+            // 
+            panel_Operation.Controls.Add(textBox_Searching);
+            panel_Operation.Controls.Add(button_Add);
+            panel_Operation.Dock = DockStyle.Top;
+            panel_Operation.Location = new Point(2, 3);
+            panel_Operation.Margin = new Padding(3, 4, 3, 4);
+            panel_Operation.Name = "panel_Operation";
+            panel_Operation.Size = new Size(910, 73);
+            panel_Operation.TabIndex = 0;
+            // 
             // UserView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -109,19 +110,18 @@
             Padding = new Padding(2, 3, 2, 3);
             Text = "UserView";
             Load += UserView_Load;
-            panel_Operation.ResumeLayout(false);
-            panel_Operation.PerformLayout();
             panel_DataGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
+            panel_Operation.ResumeLayout(false);
+            panel_Operation.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Panel panel_Operation;
-        private TextBox textBox_Searching;
-        private Button button_Add;
         private Panel panel_DataGrid;
         private DataGridView dataGridView;
+        private Button button_Add;
+        private TextBox textBox_Searching;
+        private Panel panel_Operation;
     }
 }

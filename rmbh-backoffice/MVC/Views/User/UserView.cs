@@ -47,5 +47,10 @@
 
             //_userView.DataGridView.DataSource = filteredUsers; // Cập nhật DataSource với danh sách đã lọc
         }
+
+        private void button_Add_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

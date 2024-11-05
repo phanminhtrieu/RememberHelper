@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using rmbh.Entity;
 using rmbh.Entity.Entities.Manipulation;
+using rmbh_backoffice.MVC.Models.Dtos.Classes;
 using rmbh_backoffice.MVC.Models.Dtos.Users;
 using System.Data;
 
@@ -9,6 +10,7 @@ namespace rmbh_backoffice.MVC.Models.Services.Users
     public interface IUserService
     {
         List<UserDto> GetAll();
+        Task<IEnumerable<UserDto>> GetAllLearnersByClassId(int classId);
         int GetNumberOfRecords();
         int Add(UserRequest request);
         int Update(Guid userId, UserRequest request);
@@ -22,6 +24,24 @@ namespace rmbh_backoffice.MVC.Models.Services.Users
         public UserService(AppDbContext context)
         {
             _context = context;
+        }
+
+        public async Task<IEnumerable<UserDto>> GetAllLearnersByClassId(int classId)
+        {
+            var learners = await _context.UserClasses
+                .Where(uc => uc.ClassId == classId)
+                .Include(uc => uc.User)
+                .Select(uc => new UserDto
+                {
+                    Id = uc.UserId,
+                    FisrtName = uc.User.FirstName,
+                    LastName = uc.User.LastName,
+                    Avatar = uc.User.Avatar,
+                    ClassRole = uc.Role,
+                    LastLearningDate = uc.LastLearningDate
+                }).ToListAsync();
+
+            return learners;
         }
 
         public List<UserDto> GetAll()

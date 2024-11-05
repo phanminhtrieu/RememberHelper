@@ -4,6 +4,7 @@ using rmbh.Entity;
 using rmbh_backoffice.MVC.Models.Services.Authentications;
 using rmbh_backoffice.MVC.Models.Services.Cards;
 using rmbh_backoffice.MVC.Models.Services.Classes;
+using rmbh_backoffice.MVC.Models.Services.Decks;
 using rmbh_backoffice.MVC.Models.Services.Users;
 
 namespace rmbh_backoffice.MVC
@@ -37,6 +38,7 @@ namespace rmbh_backoffice.MVC
             // Learning
             IClassService classService = new ClassService(context);
             ICardService cardService = new CardService(context);
+            IDeckService deckService = new DeckService(context);
 
 
             #endregion
@@ -52,6 +54,8 @@ namespace rmbh_backoffice.MVC
                     // Learning
                     classService,
                     cardService
+                    classService,
+                    deckService
                 );
         }
     }

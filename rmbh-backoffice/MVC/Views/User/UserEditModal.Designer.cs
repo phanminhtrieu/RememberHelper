@@ -48,13 +48,14 @@
             dateTimePicker_ModifiedDate = new DateTimePicker();
             button_Save = new Button();
             button_Cancel = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
             // label_Id
             // 
             label_Id.AutoSize = true;
             label_Id.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label_Id.Location = new Point(53, 37);
+            label_Id.Location = new Point(51, 97);
             label_Id.Name = "label_Id";
             label_Id.Size = new Size(34, 25);
             label_Id.TabIndex = 0;
@@ -64,7 +65,7 @@
             // 
             label_FirstName.AutoSize = true;
             label_FirstName.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label_FirstName.Location = new Point(50, 87);
+            label_FirstName.Location = new Point(48, 147);
             label_FirstName.Name = "label_FirstName";
             label_FirstName.Size = new Size(109, 25);
             label_FirstName.TabIndex = 0;
@@ -74,7 +75,7 @@
             // 
             label_LastName.AutoSize = true;
             label_LastName.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label_LastName.Location = new Point(53, 135);
+            label_LastName.Location = new Point(51, 195);
             label_LastName.Name = "label_LastName";
             label_LastName.Size = new Size(109, 25);
             label_LastName.TabIndex = 0;
@@ -84,7 +85,7 @@
             // 
             label_Email.AutoSize = true;
             label_Email.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label_Email.Location = new Point(53, 178);
+            label_Email.Location = new Point(51, 238);
             label_Email.Name = "label_Email";
             label_Email.Size = new Size(66, 25);
             label_Email.TabIndex = 0;
@@ -94,7 +95,7 @@
             // 
             label_Password.AutoSize = true;
             label_Password.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label_Password.Location = new Point(53, 227);
+            label_Password.Location = new Point(51, 287);
             label_Password.Name = "label_Password";
             label_Password.Size = new Size(104, 25);
             label_Password.TabIndex = 0;
@@ -104,7 +105,7 @@
             // 
             label_Bio.AutoSize = true;
             label_Bio.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label_Bio.Location = new Point(53, 270);
+            label_Bio.Location = new Point(51, 330);
             label_Bio.Name = "label_Bio";
             label_Bio.Size = new Size(46, 25);
             label_Bio.TabIndex = 0;
@@ -114,7 +115,7 @@
             // 
             label_Role.AutoSize = true;
             label_Role.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label_Role.Location = new Point(53, 416);
+            label_Role.Location = new Point(51, 476);
             label_Role.Name = "label_Role";
             label_Role.Size = new Size(57, 25);
             label_Role.TabIndex = 0;
@@ -124,7 +125,7 @@
             // 
             label_CreatedDate.AutoSize = true;
             label_CreatedDate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label_CreatedDate.Location = new Point(50, 471);
+            label_CreatedDate.Location = new Point(48, 531);
             label_CreatedDate.Name = "label_CreatedDate";
             label_CreatedDate.Size = new Size(131, 25);
             label_CreatedDate.TabIndex = 0;
@@ -134,7 +135,7 @@
             // 
             label_ModifiedDate.AutoSize = true;
             label_ModifiedDate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label_ModifiedDate.Location = new Point(50, 523);
+            label_ModifiedDate.Location = new Point(48, 583);
             label_ModifiedDate.Name = "label_ModifiedDate";
             label_ModifiedDate.Size = new Size(135, 25);
             label_ModifiedDate.TabIndex = 0;
@@ -144,7 +145,7 @@
             // 
             textBox_Id.Enabled = false;
             textBox_Id.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox_Id.Location = new Point(93, 34);
+            textBox_Id.Location = new Point(91, 94);
             textBox_Id.Name = "textBox_Id";
             textBox_Id.Size = new Size(467, 30);
             textBox_Id.TabIndex = 1;
@@ -152,7 +153,7 @@
             // textBox_FirstName
             // 
             textBox_FirstName.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox_FirstName.Location = new Point(162, 84);
+            textBox_FirstName.Location = new Point(160, 144);
             textBox_FirstName.Name = "textBox_FirstName";
             textBox_FirstName.Size = new Size(397, 30);
             textBox_FirstName.TabIndex = 1;
@@ -160,7 +161,7 @@
             // textBox_LastName
             // 
             textBox_LastName.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox_LastName.Location = new Point(168, 132);
+            textBox_LastName.Location = new Point(166, 192);
             textBox_LastName.Name = "textBox_LastName";
             textBox_LastName.Size = new Size(397, 30);
             textBox_LastName.TabIndex = 2;
@@ -168,7 +169,7 @@
             // textBox_Password
             // 
             textBox_Password.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox_Password.Location = new Point(163, 224);
+            textBox_Password.Location = new Point(161, 284);
             textBox_Password.Name = "textBox_Password";
             textBox_Password.Size = new Size(397, 30);
             textBox_Password.TabIndex = 4;
@@ -176,7 +177,7 @@
             // textBox_Bio
             // 
             textBox_Bio.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox_Bio.Location = new Point(103, 279);
+            textBox_Bio.Location = new Point(101, 339);
             textBox_Bio.Multiline = true;
             textBox_Bio.Name = "textBox_Bio";
             textBox_Bio.ScrollBars = ScrollBars.Horizontal;
@@ -187,7 +188,7 @@
             // 
             comboBox_Role.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             comboBox_Role.FormattingEnabled = true;
-            comboBox_Role.Location = new Point(116, 413);
+            comboBox_Role.Location = new Point(114, 473);
             comboBox_Role.Name = "comboBox_Role";
             comboBox_Role.Size = new Size(188, 33);
             comboBox_Role.TabIndex = 6;
@@ -195,23 +196,25 @@
             // textBox_Email
             // 
             textBox_Email.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox_Email.Location = new Point(128, 175);
+            textBox_Email.Location = new Point(126, 235);
             textBox_Email.Name = "textBox_Email";
             textBox_Email.Size = new Size(437, 30);
             textBox_Email.TabIndex = 3;
             // 
             // dateTimePicker_CreatedDate
             // 
+            dateTimePicker_CreatedDate.Enabled = false;
             dateTimePicker_CreatedDate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dateTimePicker_CreatedDate.Location = new Point(187, 466);
+            dateTimePicker_CreatedDate.Location = new Point(185, 526);
             dateTimePicker_CreatedDate.Name = "dateTimePicker_CreatedDate";
             dateTimePicker_CreatedDate.Size = new Size(372, 30);
             dateTimePicker_CreatedDate.TabIndex = 7;
             // 
             // dateTimePicker_ModifiedDate
             // 
+            dateTimePicker_ModifiedDate.Enabled = false;
             dateTimePicker_ModifiedDate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dateTimePicker_ModifiedDate.Location = new Point(187, 518);
+            dateTimePicker_ModifiedDate.Location = new Point(185, 578);
             dateTimePicker_ModifiedDate.Name = "dateTimePicker_ModifiedDate";
             dateTimePicker_ModifiedDate.Size = new Size(372, 30);
             dateTimePicker_ModifiedDate.TabIndex = 8;
@@ -220,7 +223,7 @@
             // 
             button_Save.BackColor = Color.LightGreen;
             button_Save.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button_Save.Location = new Point(324, 601);
+            button_Save.Location = new Point(322, 661);
             button_Save.Name = "button_Save";
             button_Save.Size = new Size(235, 51);
             button_Save.TabIndex = 6;
@@ -231,7 +234,7 @@
             // button_Cancel
             // 
             button_Cancel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button_Cancel.Location = new Point(50, 601);
+            button_Cancel.Location = new Point(48, 661);
             button_Cancel.Name = "button_Cancel";
             button_Cancel.Size = new Size(235, 51);
             button_Cancel.TabIndex = 7;
@@ -239,11 +242,22 @@
             button_Cancel.UseVisualStyleBackColor = true;
             button_Cancel.Click += button_Cancel_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(207, 33);
+            label1.Name = "label1";
+            label1.Size = new Size(163, 25);
+            label1.TabIndex = 9;
+            label1.Text = "UPDATE USER";
+            // 
             // UserEditModal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(617, 690);
+            ClientSize = new Size(617, 760);
+            Controls.Add(label1);
             Controls.Add(button_Cancel);
             Controls.Add(button_Save);
             Controls.Add(dateTimePicker_ModifiedDate);
@@ -295,5 +309,6 @@
         private DateTimePicker dateTimePicker_ModifiedDate;
         private Button button_Save;
         private Button button_Cancel;
+        private Label label1;
     }
 }

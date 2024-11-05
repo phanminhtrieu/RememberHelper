@@ -11,7 +11,6 @@ namespace rmbh_backoffice.MVC.Controllers.User
         private readonly IUserService _userService;
         private IView? _view;
         private UserView? _userView;
-
         public override IView View
         {
             get
@@ -35,25 +34,6 @@ namespace rmbh_backoffice.MVC.Controllers.User
             }
         }
 
-        private void TextBox_Search_TextChanged(object? sender, EventArgs e)
-        {
-            if (_userView != null)
-            {
-                string searchValue = _userView.TextBoxSearching.Text.ToLower();
-                var filteredUsers = _userService.GetAll().Where(user =>
-                    user.Email.ToLower().Contains(searchValue) ||
-                    user.FisrtName.ToLower().Contains(searchValue) ||
-                    user.LastName.ToLower().Contains(searchValue)).ToList();
-
-                _userView.DataGridView.DataSource = filteredUsers; // Cập nhật DataSource với danh sách đã lọc
-            }
-        }
-
-        private void DataGridView_DataBindingComplete(object? sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            addingOrderNumberValue();
-        }
-
         public UserController(IUserService userService)
         {
             _userService = userService;
@@ -62,16 +42,6 @@ namespace rmbh_backoffice.MVC.Controllers.User
         public override bool Loadable()
         {
             return true;
-        }
-
-        public void LoadData()
-        {
-            if (_userView != null)
-            {
-                var users = _userService.GetAll();
-
-                _userView.DataGridView.DataSource = users;
-            }
         }
 
         private void Form_Load(object? sender, EventArgs e)
@@ -98,6 +68,42 @@ namespace rmbh_backoffice.MVC.Controllers.User
             LoadData();
 
             addingAddButtonAndEditButtonInToDataGridView();
+        }
+
+        private void AddButton_Click(object? sender, EventArgs e)
+        {
+            var userAddModal = new UserAddModal();
+
+            if (userAddModal.ShowDialog() == DialogResult.OK)
+            {
+                var addedRecord = _userService.Add(userAddModal.UserRequest);
+
+                if (addedRecord > 0)
+                {
+                    MessageBox.Show("User added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No user was added. Please try again.", "Nothing added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                LoadData();
+            }
+        }
+
+        private void TextBox_Search_TextChanged(object? sender, EventArgs e)
+        {
+            if (_userView != null)
+            {
+                string searchValue = _userView.TextBoxSearching.Text.ToLower();
+
+                var filteredUsers = _userService.GetAll().Where(user =>
+                    user.Email.ToLower().Contains(searchValue) ||
+                    user.FisrtName.ToLower().Contains(searchValue) ||
+                    user.LastName.ToLower().Contains(searchValue)).ToList();
+
+                _userView.DataGridView.DataSource = filteredUsers; // Cập nhật DataSource với danh sách đã lọc
+            }
         }
 
         private void DataGridView_CellContenClick(object? sender, DataGridViewCellEventArgs e)
@@ -160,24 +166,18 @@ namespace rmbh_backoffice.MVC.Controllers.User
             }
         }
 
-        private void AddButton_Click(object? sender, EventArgs e)
+        private void DataGridView_DataBindingComplete(object? sender, DataGridViewBindingCompleteEventArgs e)
         {
-            var userAddModal = new UserAddModal();
+            addingOrderNumberValue();
+        }
 
-            if (userAddModal.ShowDialog() == DialogResult.OK)
+        public void LoadData()
+        {
+            if (_userView != null)
             {
-                var addedRecord = _userService.Add(userAddModal.UserRequest);
+                var users = _userService.GetAll();
 
-                if (addedRecord > 0)
-                {
-                    MessageBox.Show("User added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("No user was added. Please try again.", "Nothing added", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
-                LoadData();
+                _userView.DataGridView.DataSource = users;
             }
         }
 

@@ -11,7 +11,9 @@ namespace rmbh_backoffice.MVC.Models.Dtos.Users
         public string? Email { get; set; }
         public string? Password { get; set;}
         public string? Bio { get; set;}
+        public ClassRole ClassRole { get; set; }
         public UserRole Role { get; set;}
+        public DateTime LastLearningDate { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
     }

@@ -38,7 +38,6 @@
             textBox_Email = new TextBox();
             textBox_LastName = new TextBox();
             textBox_FirstName = new TextBox();
-            textBox_Id = new TextBox();
             label_ModifiedDate = new Label();
             label_CreatedDate = new Label();
             label_Role = new Label();
@@ -47,7 +46,7 @@
             label_Email = new Label();
             label_LastName = new Label();
             label_FirstName = new Label();
-            label_Id = new Label();
+            label1 = new Label();
             SuspendLayout();
             // 
             // button_Cancel
@@ -56,7 +55,7 @@
             button_Cancel.Location = new Point(46, 602);
             button_Cancel.Name = "button_Cancel";
             button_Cancel.Size = new Size(235, 51);
-            button_Cancel.TabIndex = 27;
+            button_Cancel.TabIndex = 9;
             button_Cancel.Text = "Cancel";
             button_Cancel.UseVisualStyleBackColor = true;
             button_Cancel.Click += button_Cancel_Click;
@@ -68,26 +67,28 @@
             button_Add.Location = new Point(320, 602);
             button_Add.Name = "button_Add";
             button_Add.Size = new Size(235, 51);
-            button_Add.TabIndex = 25;
+            button_Add.TabIndex = 9;
             button_Add.Text = "Add";
             button_Add.UseVisualStyleBackColor = false;
             button_Add.Click += button_Add_Click;
             // 
             // dateTimePicker_ModifiedDate
             // 
+            dateTimePicker_ModifiedDate.Enabled = false;
             dateTimePicker_ModifiedDate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dateTimePicker_ModifiedDate.Location = new Point(183, 519);
             dateTimePicker_ModifiedDate.Name = "dateTimePicker_ModifiedDate";
             dateTimePicker_ModifiedDate.Size = new Size(372, 30);
-            dateTimePicker_ModifiedDate.TabIndex = 28;
+            dateTimePicker_ModifiedDate.TabIndex = 8;
             // 
             // dateTimePicker_CreatedDate
             // 
+            dateTimePicker_CreatedDate.Enabled = false;
             dateTimePicker_CreatedDate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dateTimePicker_CreatedDate.Location = new Point(183, 467);
             dateTimePicker_CreatedDate.Name = "dateTimePicker_CreatedDate";
             dateTimePicker_CreatedDate.Size = new Size(372, 30);
-            dateTimePicker_CreatedDate.TabIndex = 26;
+            dateTimePicker_CreatedDate.TabIndex = 7;
             // 
             // comboBox_Role
             // 
@@ -96,7 +97,7 @@
             comboBox_Role.Location = new Point(112, 414);
             comboBox_Role.Name = "comboBox_Role";
             comboBox_Role.Size = new Size(188, 33);
-            comboBox_Role.TabIndex = 24;
+            comboBox_Role.TabIndex = 6;
             // 
             // textBox_Bio
             // 
@@ -106,7 +107,7 @@
             textBox_Bio.Name = "textBox_Bio";
             textBox_Bio.ScrollBars = ScrollBars.Horizontal;
             textBox_Bio.Size = new Size(456, 112);
-            textBox_Bio.TabIndex = 23;
+            textBox_Bio.TabIndex = 5;
             // 
             // textBox_Password
             // 
@@ -114,7 +115,7 @@
             textBox_Password.Location = new Point(159, 225);
             textBox_Password.Name = "textBox_Password";
             textBox_Password.Size = new Size(397, 30);
-            textBox_Password.TabIndex = 22;
+            textBox_Password.TabIndex = 4;
             // 
             // textBox_Email
             // 
@@ -122,7 +123,7 @@
             textBox_Email.Location = new Point(124, 176);
             textBox_Email.Name = "textBox_Email";
             textBox_Email.Size = new Size(437, 30);
-            textBox_Email.TabIndex = 21;
+            textBox_Email.TabIndex = 3;
             // 
             // textBox_LastName
             // 
@@ -130,7 +131,7 @@
             textBox_LastName.Location = new Point(164, 133);
             textBox_LastName.Name = "textBox_LastName";
             textBox_LastName.Size = new Size(397, 30);
-            textBox_LastName.TabIndex = 20;
+            textBox_LastName.TabIndex = 2;
             // 
             // textBox_FirstName
             // 
@@ -138,16 +139,7 @@
             textBox_FirstName.Location = new Point(158, 85);
             textBox_FirstName.Name = "textBox_FirstName";
             textBox_FirstName.Size = new Size(397, 30);
-            textBox_FirstName.TabIndex = 19;
-            // 
-            // textBox_Id
-            // 
-            textBox_Id.Enabled = false;
-            textBox_Id.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox_Id.Location = new Point(89, 35);
-            textBox_Id.Name = "textBox_Id";
-            textBox_Id.Size = new Size(467, 30);
-            textBox_Id.TabIndex = 18;
+            textBox_FirstName.TabIndex = 1;
             // 
             // label_ModifiedDate
             // 
@@ -229,21 +221,22 @@
             label_FirstName.TabIndex = 17;
             label_FirstName.Text = "First name:";
             // 
-            // label_Id
+            // label1
             // 
-            label_Id.AutoSize = true;
-            label_Id.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label_Id.Location = new Point(49, 38);
-            label_Id.Name = "label_Id";
-            label_Id.Size = new Size(34, 25);
-            label_Id.TabIndex = 9;
-            label_Id.Text = "Id:";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(227, 31);
+            label1.Name = "label1";
+            label1.Size = new Size(111, 28);
+            label1.TabIndex = 29;
+            label1.Text = "ADD USER";
             // 
             // UserAddModal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(599, 687);
+            Controls.Add(label1);
             Controls.Add(button_Cancel);
             Controls.Add(button_Add);
             Controls.Add(dateTimePicker_ModifiedDate);
@@ -254,7 +247,6 @@
             Controls.Add(textBox_Email);
             Controls.Add(textBox_LastName);
             Controls.Add(textBox_FirstName);
-            Controls.Add(textBox_Id);
             Controls.Add(label_ModifiedDate);
             Controls.Add(label_CreatedDate);
             Controls.Add(label_Role);
@@ -263,7 +255,6 @@
             Controls.Add(label_Email);
             Controls.Add(label_LastName);
             Controls.Add(label_FirstName);
-            Controls.Add(label_Id);
             Name = "UserAddModal";
             Text = "UserAddView";
             Load += UserAddModal_Load;
@@ -283,7 +274,6 @@
         private TextBox textBox_Email;
         private TextBox textBox_LastName;
         private TextBox textBox_FirstName;
-        private TextBox textBox_Id;
         private Label label_ModifiedDate;
         private Label label_CreatedDate;
         private Label label_Role;
@@ -292,6 +282,6 @@
         private Label label_Email;
         private Label label_LastName;
         private Label label_FirstName;
-        private Label label_Id;
+        private Label label1;
     }
 }
