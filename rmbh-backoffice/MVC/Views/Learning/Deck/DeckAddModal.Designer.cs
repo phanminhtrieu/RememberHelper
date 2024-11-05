@@ -40,10 +40,11 @@
             label_SortOrder = new Label();
             label_Description = new Label();
             label_Title = new Label();
-            comboBox_StudyDeck = new ComboBox();
+            comboBox_StudyMode = new ComboBox();
             label_ModifiedDate = new Label();
             label_CreatedDate = new Label();
             comboBox_ClassTitle = new ComboBox();
+            label1 = new Label();
             SuspendLayout();
             // 
             // button_Cancel
@@ -124,9 +125,9 @@
             label_StudyDeck.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label_StudyDeck.Location = new Point(54, 229);
             label_StudyDeck.Name = "label_StudyDeck";
-            label_StudyDeck.Size = new Size(114, 25);
+            label_StudyDeck.Size = new Size(119, 25);
             label_StudyDeck.TabIndex = 12;
-            label_StudyDeck.Text = "StudyDeck:";
+            label_StudyDeck.Text = "StudyMode:";
             // 
             // label_SortOrder
             // 
@@ -158,14 +159,14 @@
             label_Title.TabIndex = 17;
             label_Title.Text = "Title :";
             // 
-            // comboBox_StudyDeck
+            // comboBox_StudyMode
             // 
-            comboBox_StudyDeck.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            comboBox_StudyDeck.FormattingEnabled = true;
-            comboBox_StudyDeck.Location = new Point(174, 226);
-            comboBox_StudyDeck.Name = "comboBox_StudyDeck";
-            comboBox_StudyDeck.Size = new Size(188, 33);
-            comboBox_StudyDeck.TabIndex = 29;
+            comboBox_StudyMode.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            comboBox_StudyMode.FormattingEnabled = true;
+            comboBox_StudyMode.Location = new Point(174, 226);
+            comboBox_StudyMode.Name = "comboBox_StudyMode";
+            comboBox_StudyMode.Size = new Size(188, 33);
+            comboBox_StudyMode.TabIndex = 29;
             // 
             // label_ModifiedDate
             // 
@@ -195,14 +196,26 @@
             comboBox_ClassTitle.Name = "comboBox_ClassTitle";
             comboBox_ClassTitle.Size = new Size(188, 33);
             comboBox_ClassTitle.TabIndex = 30;
+            comboBox_ClassTitle.SelectedIndexChanged += comboBox_ClassTitle_SelectedIndexChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(205, 32);
+            label1.Name = "label1";
+            label1.Size = new Size(171, 31);
+            label1.TabIndex = 31;
+            label1.Text = "Add New Deck ";
             // 
             // DeckAddModal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(617, 603);
+            Controls.Add(label1);
             Controls.Add(comboBox_ClassTitle);
-            Controls.Add(comboBox_StudyDeck);
+            Controls.Add(comboBox_StudyMode);
             Controls.Add(button_Cancel);
             Controls.Add(button_Add);
             Controls.Add(dateTimePicker_ModifiedDate);
@@ -242,9 +255,10 @@
         private Label label_SortOrder;
         private Label label_Description;
         private Label label_Title;
-        private ComboBox comboBox_StudyDeck;
+        private ComboBox comboBox_StudyMode;
         private Label label_ModifiedDate;
         private Label label_CreatedDate;
         private ComboBox comboBox_ClassTitle;
+        private Label label1;
     }
 }

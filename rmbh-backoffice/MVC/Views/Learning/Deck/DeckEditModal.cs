@@ -54,8 +54,8 @@ namespace rmbh_backoffice.MVC.Views.Learning.Deck
             this.DialogResult = DialogResult.OK; // Thiết lập kết quả modal là OK
 
             DialogResult result = MessageBox.Show(
-                "Do you want to create a user?",
-                "Create Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                "Do you want to save your changes?",
+                "Save changes Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {

@@ -113,7 +113,7 @@ namespace rmbh_backoffice.MVC.Controllers.User
                 // Kiểm tra nếu người dùng nhấn vào cột "Edit"
                 if (e.ColumnIndex == _userView.DataGridView.Columns["button_Edit"].Index && e.RowIndex >= 0)
                 {
-                    UserDto? user = _userView.DataGridView.Rows[e.RowIndex].DataBoundItem as UserDto;
+                    UserGetAllDto? user = _userView.DataGridView.Rows[e.RowIndex].DataBoundItem as UserGetAllDto;
 
                     if (user != null)
                     {
