@@ -46,13 +46,14 @@
             label_Title = new Label();
             label_Id = new Label();
             button_Save = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
             // comboBox_ClassTitle
             // 
             comboBox_ClassTitle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             comboBox_ClassTitle.FormattingEnabled = true;
-            comboBox_ClassTitle.Location = new Point(169, 423);
+            comboBox_ClassTitle.Location = new Point(173, 494);
             comboBox_ClassTitle.Name = "comboBox_ClassTitle";
             comboBox_ClassTitle.Size = new Size(188, 33);
             comboBox_ClassTitle.TabIndex = 48;
@@ -61,7 +62,7 @@
             // 
             comboBox_StudyDeck.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             comboBox_StudyDeck.FormattingEnabled = true;
-            comboBox_StudyDeck.Location = new Point(169, 229);
+            comboBox_StudyDeck.Location = new Point(173, 300);
             comboBox_StudyDeck.Name = "comboBox_StudyDeck";
             comboBox_StudyDeck.Size = new Size(188, 33);
             comboBox_StudyDeck.TabIndex = 47;
@@ -69,7 +70,7 @@
             // button_Cancel
             // 
             button_Cancel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button_Cancel.Location = new Point(46, 522);
+            button_Cancel.Location = new Point(50, 593);
             button_Cancel.Name = "button_Cancel";
             button_Cancel.Size = new Size(235, 51);
             button_Cancel.TabIndex = 45;
@@ -79,7 +80,7 @@
             // dateTimePicker_ModifiedDate
             // 
             dateTimePicker_ModifiedDate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dateTimePicker_ModifiedDate.Location = new Point(184, 339);
+            dateTimePicker_ModifiedDate.Location = new Point(188, 410);
             dateTimePicker_ModifiedDate.Name = "dateTimePicker_ModifiedDate";
             dateTimePicker_ModifiedDate.Size = new Size(372, 30);
             dateTimePicker_ModifiedDate.TabIndex = 46;
@@ -87,7 +88,7 @@
             // dateTimePicker_CreatedDate
             // 
             dateTimePicker_CreatedDate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dateTimePicker_CreatedDate.Location = new Point(184, 293);
+            dateTimePicker_CreatedDate.Location = new Point(188, 364);
             dateTimePicker_CreatedDate.Name = "dateTimePicker_CreatedDate";
             dateTimePicker_CreatedDate.Size = new Size(372, 30);
             dateTimePicker_CreatedDate.TabIndex = 44;
@@ -95,7 +96,7 @@
             // textBox_SortOrder
             // 
             textBox_SortOrder.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox_SortOrder.Location = new Point(164, 180);
+            textBox_SortOrder.Location = new Point(168, 251);
             textBox_SortOrder.Name = "textBox_SortOrder";
             textBox_SortOrder.Size = new Size(392, 30);
             textBox_SortOrder.TabIndex = 42;
@@ -103,7 +104,7 @@
             // textBox_Description
             // 
             textBox_Description.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox_Description.Location = new Point(164, 137);
+            textBox_Description.Location = new Point(168, 208);
             textBox_Description.Name = "textBox_Description";
             textBox_Description.Size = new Size(392, 30);
             textBox_Description.TabIndex = 41;
@@ -111,7 +112,7 @@
             // textBox_Title
             // 
             textBox_Title.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox_Title.Location = new Point(112, 89);
+            textBox_Title.Location = new Point(116, 160);
             textBox_Title.Name = "textBox_Title";
             textBox_Title.Size = new Size(443, 30);
             textBox_Title.TabIndex = 40;
@@ -120,7 +121,7 @@
             // 
             textBox_Id.Enabled = false;
             textBox_Id.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox_Id.Location = new Point(89, 39);
+            textBox_Id.Location = new Point(93, 110);
             textBox_Id.Name = "textBox_Id";
             textBox_Id.Size = new Size(467, 30);
             textBox_Id.TabIndex = 39;
@@ -129,7 +130,7 @@
             // 
             label_ModifiedDate.AutoSize = true;
             label_ModifiedDate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label_ModifiedDate.Location = new Point(49, 344);
+            label_ModifiedDate.Location = new Point(53, 415);
             label_ModifiedDate.Name = "label_ModifiedDate";
             label_ModifiedDate.Size = new Size(135, 25);
             label_ModifiedDate.TabIndex = 37;
@@ -139,7 +140,7 @@
             // 
             label_CreatedDate.AutoSize = true;
             label_CreatedDate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label_CreatedDate.Location = new Point(46, 293);
+            label_CreatedDate.Location = new Point(50, 364);
             label_CreatedDate.Name = "label_CreatedDate";
             label_CreatedDate.Size = new Size(131, 25);
             label_CreatedDate.TabIndex = 36;
@@ -149,7 +150,7 @@
             // 
             label_ClassTitle.AutoSize = true;
             label_ClassTitle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label_ClassTitle.Location = new Point(49, 426);
+            label_ClassTitle.Location = new Point(53, 497);
             label_ClassTitle.Name = "label_ClassTitle";
             label_ClassTitle.Size = new Size(105, 25);
             label_ClassTitle.TabIndex = 35;
@@ -159,7 +160,7 @@
             // 
             label_StudyDeck.AutoSize = true;
             label_StudyDeck.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label_StudyDeck.Location = new Point(49, 232);
+            label_StudyDeck.Location = new Point(53, 303);
             label_StudyDeck.Name = "label_StudyDeck";
             label_StudyDeck.Size = new Size(114, 25);
             label_StudyDeck.TabIndex = 34;
@@ -169,7 +170,7 @@
             // 
             label_SortOrder.AutoSize = true;
             label_SortOrder.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label_SortOrder.Location = new Point(49, 183);
+            label_SortOrder.Location = new Point(53, 254);
             label_SortOrder.Name = "label_SortOrder";
             label_SortOrder.Size = new Size(104, 25);
             label_SortOrder.TabIndex = 33;
@@ -179,7 +180,7 @@
             // 
             label_Description.AutoSize = true;
             label_Description.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label_Description.Location = new Point(49, 140);
+            label_Description.Location = new Point(53, 211);
             label_Description.Name = "label_Description";
             label_Description.Size = new Size(115, 25);
             label_Description.TabIndex = 32;
@@ -189,7 +190,7 @@
             // 
             label_Title.AutoSize = true;
             label_Title.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label_Title.Location = new Point(46, 92);
+            label_Title.Location = new Point(50, 163);
             label_Title.Name = "label_Title";
             label_Title.Size = new Size(60, 25);
             label_Title.TabIndex = 38;
@@ -199,7 +200,7 @@
             // 
             label_Id.AutoSize = true;
             label_Id.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label_Id.Location = new Point(49, 42);
+            label_Id.Location = new Point(53, 113);
             label_Id.Name = "label_Id";
             label_Id.Size = new Size(34, 25);
             label_Id.TabIndex = 31;
@@ -209,18 +210,30 @@
             // 
             button_Save.BackColor = Color.LightGreen;
             button_Save.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button_Save.Location = new Point(303, 522);
+            button_Save.Location = new Point(307, 593);
             button_Save.Name = "button_Save";
             button_Save.Size = new Size(235, 51);
             button_Save.TabIndex = 49;
             button_Save.Text = "Save";
             button_Save.UseVisualStyleBackColor = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(237, 46);
+            label1.Name = "label1";
+            label1.Size = new Size(156, 31);
+            label1.TabIndex = 50;
+            label1.Text = "UPDATE DECK";
+            label1.Click += label1_Click;
+            // 
             // DeckEditModal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(617, 603);
+            ClientSize = new Size(617, 664);
+            Controls.Add(label1);
             Controls.Add(button_Save);
             Controls.Add(comboBox_ClassTitle);
             Controls.Add(comboBox_StudyDeck);
@@ -265,5 +278,6 @@
         private Label label_Title;
         private Label label_Id;
         private Button button_Save;
+        private Label label1;
     }
 }

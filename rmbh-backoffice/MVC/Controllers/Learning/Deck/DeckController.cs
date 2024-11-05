@@ -1,4 +1,5 @@
 ﻿using rmbh_backoffice.MVC.Models.Dtos.Decks;
+using rmbh_backoffice.MVC.Models.Dtos.Users;
 using rmbh_backoffice.MVC.Models.Services.Classes;
 using rmbh_backoffice.MVC.Models.Services.Decks;
 using rmbh_backoffice.MVC.Views;
@@ -111,7 +112,62 @@ namespace rmbh_backoffice.MVC.Controllers.Learning.Deck
 
         private void DataGridView_CellContenClick(object? sender, DataGridViewCellEventArgs e)
         {
-            throw new NotImplementedException();
+            if (_deckView != null)
+            {
+                //// Kiểm tra nếu người dùng nhấn vào cột "Edit"
+                //if (e.ColumnIndex == _deckView.DataGridView.Columns["button_Edit"].Index && e.RowIndex >= 0)
+                //{
+                //    UserGetAllDto? deck = _deckView.DataGridView.Rows[e.RowIndex].DataBoundItem as UserGetAllDto;
+
+                //    if (deck != null)
+                //    {
+                //        var userEditModal = new UserEditModal(deck);
+
+                //        if (userEditModal.ShowDialog() == DialogResult.OK)
+                //        {
+                //            var updatedRecord = _deckService.Update(DeckEditModal.deckRequest.Id, DeckEditModal.deckRequest);
+
+                //            if (updatedRecord > 0)
+                //            {
+                //                MessageBox.Show($"Update User {userEditModal.UserRequest.Id} successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //            }
+                //            else
+                //            {
+                //                MessageBox.Show("Nothing to edited. Please try again.", "Nothing Edited", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //            }
+
+                //            LoadData();
+                //        }
+                //    }
+                //}
+
+                // Kiểm tra nếu người dùng nhấn vào cột "Delete"
+                if (e.ColumnIndex == _deckView.DataGridView.Columns["button_Delete"].Index && e.RowIndex >= 0)
+                {
+                    DeckDto? deck = _deckView.DataGridView.Rows[e.RowIndex].DataBoundItem as DeckDto;
+
+                    if (deck != null)
+                    {
+                        DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            var deletedRecord = _deckService.Delete(deck.Id);
+
+                            if (deletedRecord > 0)
+                            {
+                                MessageBox.Show($"Delete Deck {deck.Id} successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nothing to delete. Please try again.", "Nothing deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+
+                            LoadData();
+                        }
+                    }
+                }
+            }
         }
 
         private void AddButton_Click(object? sender, EventArgs e)
