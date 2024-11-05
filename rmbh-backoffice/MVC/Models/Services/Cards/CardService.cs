@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using rmbh.Entity;
+using rmbh.Entity.Entities.Manipulation;
 using rmbh_backoffice.MVC.Models.Dtos.Cards;
 using rmbh_backoffice.MVC.Models.Dtos.Users;
 using System;
@@ -53,7 +54,23 @@ namespace rmbh_backoffice.MVC.Models.Services.Cards
 
         public int Add(CardRequest request)
         {
-            throw new NotImplementedException();
+            Card card = new Card
+            {
+                Question = request.Question,
+                Answer = request.Answer,
+                QuestionClarifier = request.QuestionClarifier,
+                AnswerClarifier = request.AnswerClarifier,
+                QuestionFootnote = request.QuestionFootnote,
+                AnswerFootnote = request.AnswerFootnote,
+                SortOrder = request.SortOrder,
+                CreatedDate = request.CreatedDate,
+                ModifiedDate = request.ModifiedDate,
+                DeckId = request.DeckId
+            };
+
+            _context.Cards.Add(card);
+
+            return _context.SaveChanges();
         }
 
         public int Update(int cardId, CardRequest request)

@@ -207,6 +207,7 @@
             // textBox_ID
             // 
             textBox_ID.BackColor = SystemColors.InactiveBorder;
+            textBox_ID.Enabled = false;
             textBox_ID.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBox_ID.Location = new Point(294, 142);
             textBox_ID.Name = "textBox_ID";
@@ -325,6 +326,7 @@
             // dateTimePicker_CreatedDate
             // 
             dateTimePicker_CreatedDate.CalendarMonthBackground = SystemColors.InactiveBorder;
+            dateTimePicker_CreatedDate.Enabled = false;
             dateTimePicker_CreatedDate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dateTimePicker_CreatedDate.Location = new Point(294, 420);
             dateTimePicker_CreatedDate.Name = "dateTimePicker_CreatedDate";

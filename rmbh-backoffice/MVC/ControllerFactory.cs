@@ -57,7 +57,7 @@ namespace rmbh_backoffice.MVC
                     break;
 
                 case Type t when t == typeof(CardController):
-                    controller = new CardController(_cardService);
+                    controller = new CardController(_cardService, _deckService);
                     break;
 
                 case Type t when t == typeof(DeckController):

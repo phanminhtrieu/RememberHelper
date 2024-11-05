@@ -75,6 +75,7 @@
             // 
             // dateTimePicker_ModifiedDate
             // 
+            dateTimePicker_ModifiedDate.Enabled = false;
             dateTimePicker_ModifiedDate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dateTimePicker_ModifiedDate.Location = new Point(283, 394);
             dateTimePicker_ModifiedDate.Name = "dateTimePicker_ModifiedDate";
@@ -83,6 +84,7 @@
             // 
             // dateTimePicker_CreatedDate
             // 
+            dateTimePicker_CreatedDate.Enabled = false;
             dateTimePicker_CreatedDate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dateTimePicker_CreatedDate.Location = new Point(283, 359);
             dateTimePicker_CreatedDate.Name = "dateTimePicker_CreatedDate";
@@ -121,17 +123,14 @@
             textBox_Question.Name = "textBox_Question";
             textBox_Question.Size = new Size(397, 30);
             textBox_Question.TabIndex = 40;
-            textBox_Question.TextChanged += textBox_LastName_TextChanged;
             // 
             // textBox_Answer
             // 
-            textBox_Answer.Enabled = false;
             textBox_Answer.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBox_Answer.Location = new Point(283, 253);
             textBox_Answer.Name = "textBox_Answer";
             textBox_Answer.Size = new Size(397, 30);
             textBox_Answer.TabIndex = 38;
-            textBox_Answer.TextChanged += textBox_Id_TextChanged;
             // 
             // label_ModifiedDate
             // 
@@ -243,7 +242,6 @@
             // 
             // textBox_AnswerFootnote
             // 
-            textBox_AnswerFootnote.Enabled = false;
             textBox_AnswerFootnote.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBox_AnswerFootnote.Location = new Point(283, 323);
             textBox_AnswerFootnote.Name = "textBox_AnswerFootnote";
@@ -278,6 +276,7 @@
             Controls.Add(label_FirstName);
             Name = "CardAddModal";
             Text = "CardAddModal";
+            Load += CardAddModal_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -302,7 +301,6 @@
         private Label label_LastName;
         private Label label_FirstName;
         private Label label;
-        private Label label5;
         private TextBox textBox_AnswerClarifier;
         private TextBox textBox_AnswerFootnote;
         private Label label_Add;
