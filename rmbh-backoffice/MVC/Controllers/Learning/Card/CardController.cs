@@ -65,62 +65,62 @@ namespace rmbh_backoffice.MVC.Controllers.Learning.Card
 
         private void DataGridView_CellContenClick(object? sender, DataGridViewCellEventArgs e)
         {
-            //if (_cardView != null)
-            //{
-            //    // Kiểm tra nếu người dùng nhấn vào cột "Edit"
-            //    if (e.ColumnIndex == _cardView.DataGridView.Columns["button_Edit"].Index && e.RowIndex >= 0)
-            //    {
-            //        CardDto? card = _cardView.DataGridView.Rows[e.RowIndex].DataBoundItem as CardDto;
+            if (_cardView != null)
+            {
+                //// Kiểm tra nếu người dùng nhấn vào cột "Edit"
+                //if (e.ColumnIndex == _cardView.DataGridView.Columns["button_Edit"].Index && e.RowIndex >= 0)
+                //{
+                //    CardDto? card = _cardView.DataGridView.Rows[e.RowIndex].DataBoundItem as CardDto;
 
-            //        if (card != null)
-            //        {
-            //            //var cardEditModal = new CardEditModal(card);
+                //    if (card != null)
+                //    {
+                //        //var cardEditModal = new CardEditModal(card);
 
-            //            if (cardEditModal.ShowDialog() == DialogResult.OK)
-            //            {
-            //                var updatedRecord = _cardService.Update(cardEditModal.CardRequest.Id, cardEditModal.CardRequest);
+                //        if (cardEditModal.ShowDialog() == DialogResult.OK)
+                //        {
+                //            var updatedRecord = _cardService.Update(cardEditModal.CardRequest.Id, cardEditModal.CardRequest);
 
-            //                if (updatedRecord > 0)
-            //                {
-            //                    MessageBox.Show($"Update Card {cardEditModal.CardRequest.Id} successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //                }
-            //                else
-            //                {
-            //                    MessageBox.Show("Nothing to edited. Please try again.", "Nothing Edited", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //                }
+                //            if (updatedRecord > 0)
+                //            {
+                //                MessageBox.Show($"Update Card {cardEditModal.CardRequest.Id} successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //            }
+                //            else
+                //            {
+                //                MessageBox.Show("Nothing to edited. Please try again.", "Nothing Edited", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //            }
 
-            //                LoadData();
-            //            }
-            //        }
-            //    }
+                //            LoadData();
+                //        }
+                //    }
+                //}
 
-            //    // Kiểm tra nếu người dùng nhấn vào cột "Delete"
-            //    if (e.ColumnIndex == _cardView.DataGridView.Columns["button_Delete"].Index && e.RowIndex >= 0)
-            //    {
-            //        CardDto? card = _cardView.DataGridView.Rows[e.RowIndex].DataBoundItem as CardDto;
+                // Kiểm tra nếu người dùng nhấn vào cột "Delete"
+                if (e.ColumnIndex == _cardView.DataGridView.Columns["button_Delete"].Index && e.RowIndex >= 0)
+                {
+                    CardDto? card = _cardView.DataGridView.Rows[e.RowIndex].DataBoundItem as CardDto;
 
-            //        if (card != null)
-            //        {
-            //            DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (card != null)
+                    {
+                        DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            //            if (result == DialogResult.Yes)
-            //            {
-            //                var deletedRecord = _cardService.Delete(card.Id);
+                        if (result == DialogResult.Yes)
+                        {
+                            var deletedRecord = _cardService.Delete(card.Id);
 
-            //                if (deletedRecord > 0)
-            //                {
-            //                    MessageBox.Show($"Delete Card {card.Id} successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //                }
-            //                else
-            //                {
-            //                    MessageBox.Show("Nothing to delete. Please try again.", "Nothing deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //                }
+                            if (deletedRecord > 0)
+                            {
+                                MessageBox.Show($"Delete Card {card.Id} successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nothing to delete. Please try again.", "Nothing deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
 
-            //                LoadData();
-            //            }
-            //        }
-            //    }
-            //}
+                            LoadData();
+                        }
+                    }
+                }
+            }
         }
 
         private void AddButton_Click(object? sender, EventArgs e)
