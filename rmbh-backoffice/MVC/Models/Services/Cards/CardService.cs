@@ -80,7 +80,17 @@ namespace rmbh_backoffice.MVC.Models.Services.Cards
 
         public int Delete(int cardId)
         {
-            throw new NotImplementedException();
+            if (_context != null) 
+            {
+                Card card = _context.Cards.Find(cardId);
+
+                if (card != null) 
+                {
+                    _context.Cards.Remove(card);
+                }
+            }
+
+            return _context.SaveChanges();
         }
 
     }
