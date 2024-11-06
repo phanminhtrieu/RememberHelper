@@ -68,9 +68,11 @@
             button_Add.TabIndex = 25;
             button_Add.Text = "Add";
             button_Add.UseVisualStyleBackColor = false;
+            button_Add.Click += button_Add_Click;
             // 
             // dateTimePicker_ModifiedDate
             // 
+            dateTimePicker_ModifiedDate.Enabled = false;
             dateTimePicker_ModifiedDate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dateTimePicker_ModifiedDate.Location = new Point(188, 345);
             dateTimePicker_ModifiedDate.Name = "dateTimePicker_ModifiedDate";
@@ -79,6 +81,7 @@
             // 
             // dateTimePicker_CreatedDate
             // 
+            dateTimePicker_CreatedDate.Enabled = false;
             dateTimePicker_CreatedDate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dateTimePicker_CreatedDate.Location = new Point(189, 290);
             dateTimePicker_CreatedDate.Name = "dateTimePicker_CreatedDate";
@@ -108,6 +111,7 @@
             textBox_Title.Name = "textBox_Title";
             textBox_Title.Size = new Size(443, 30);
             textBox_Title.TabIndex = 19;
+            textBox_Title.TextChanged += textBox_Title_TextChanged;
             // 
             // label_ClassTitle
             // 
